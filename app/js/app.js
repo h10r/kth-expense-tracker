@@ -11,8 +11,6 @@ dinnerAppModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/preparation', {templateUrl: 'partials/preparation.html', controller: 'expenseTracker.MainController'});
   $routeProvider.when('/dish-detail', {templateUrl: 'partials/dish-detail.html', controller: 'expenseTracker.DishController'});
   
-  $routeProvider.when('/settings', {templateUrl: 'partials/settings.html', controller: 'expenseTracker.DishController'});
-  
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
