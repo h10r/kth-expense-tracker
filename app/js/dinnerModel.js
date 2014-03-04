@@ -1,5 +1,5 @@
 //DinnerModel Object constructor
-dinnerAppModule.service("DinnerModel", function() {
+expenseTrackerAppModule.service("DinnerModel", function() {
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

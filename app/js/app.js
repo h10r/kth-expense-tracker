@@ -1,9 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var dinnerAppModule = angular.module('expenseTracker', ['ngRoute']);
+var expenseTrackerAppModule = angular.module('expenseTracker', ['ngRoute']);
 
-dinnerAppModule.config(['$routeProvider', function($routeProvider) {
+expenseTrackerAppModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {templateUrl: 'partials/start-screen.html'});
   // these will be deleted
   $routeProvider.when('/plan-a-dinner', {templateUrl: 'partials/plan-a-dinner.html', controller: 'expenseTracker.MainController'});

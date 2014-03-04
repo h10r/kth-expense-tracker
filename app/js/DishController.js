@@ -5,7 +5,7 @@
 // define on the scope you can use directly in the view.
 // We also pass our DinnerModel service so we have the access
 // to the model.
-dinnerAppModule.controller('expenseTracker.DishController', function($scope, $rootScope, DinnerModel) {
+expenseTrackerAppModule.controller('expenseTracker.DishController', function($scope, $rootScope, DinnerModel) {
 
 	$scope.numberOfGuests = DinnerModel.getNumberOfGuests();
 	
