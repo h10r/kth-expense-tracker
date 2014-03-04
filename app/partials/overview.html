@@ -1,0 +1,41 @@
+<div class="col-md-12 overview-header">
+  <div class="col-md-6">
+    <h2>My Dinner: {{ numberOfGuests }} people</h2>
+  </div>
+
+  <div class="col-md-6">
+    <p>
+      <a class="btn btn-default pull-right" href="#/plan-a-dinner">
+        <span class="glyphicon glyphicon-chevron-left"></span> Go back and edit dinner
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="row">
+    <div class="col-md-3 dish" ng-repeat="d in dishesSelected">
+      <div class="dish-image-and-name">
+        <div class="dish-image">
+          <img src="img/{{d.image}}" />
+        </div>
+        <h3 class="dish-name">{{d.name}}</h3>
+        <div class="dish-price">
+          SEK {{getDishPrice(d)}}
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3 final-price">
+      <h3>Total</h3>
+      <p>SEK {{totalPrice}}</p>
+    </div>  
+  </div>
+</div>
+
+<div class="col-md-12 overview-footer">
+  <div class="col-md-2 col-md-offset-5">
+    <a class="btn btn-primary btn-lg" href="#/preparation">Show full recipe</a>
+  </div>
+</div>

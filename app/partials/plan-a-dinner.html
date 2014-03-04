@@ -1,0 +1,27 @@
+<ng-include src="'partials/sidebar.html'"></ng-include>
+
+<div class="col-sm-9 main">
+
+  <ul id="controls" class="nav nav-tabs">
+    <li ng-repeat="d in dishTypes" class="{{d.value}}" ng-class="{active : $first}" ng-click="changeDishesOnDisplayTo(d.value)">
+      <a>{{d.caption}}</a>
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-md-2 dish" ng-repeat="d in dishesOnDisplay">
+      <div class="dish-image-and-name" ng-click="showDishDetail(d)">
+        <div class="dish-image">
+          <img src="img/{{d.image}}" alt="{{d.name}}" />
+        </div>
+        <h3 class="dish-name">{{d.name}}</h3>
+      </div>
+      <div class="dish-description">
+        <p>{{d.description}}</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn-sm btn-default" ng-click="addDish(d.id)">Add</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /.main -->

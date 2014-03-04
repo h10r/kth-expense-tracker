@@ -1,0 +1,36 @@
+<div class="col-md-12 overview-header">
+  <div class="col-md-6">
+    <h2>My Dinner: {{ numberOfGuests }} people</h2>
+  </div>
+
+  <div class="col-md-6">
+    <p>
+      <a class="btn btn-default pull-right" href="#/plan-a-dinner">
+        <span class="glyphicon glyphicon-chevron-left"></span> Go back and edit dinner
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="col-md-12 preparation-view">
+
+  <div class="row" ng-repeat="d in dishesSelected">
+    <div class="col-md-6">
+      <div class="col-md-4">
+        <div class="dish-image">
+          <img src="img/{{d.image}}" alt="{{d.name}}" />
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h3>{{d.name}}</h3>
+        <p>{{d.description}}</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h3>Preparation</h3>
+      <p>{{d.preparation}}</p>
+    </div>
+  </div>
+
+</div>

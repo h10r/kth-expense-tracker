@@ -1,0 +1,166 @@
+body {
+  padding: 50px 0 38px 0;
+}
+
+a:active, a:visited, a:focus {
+  outline: 0;
+  border: 0;
+}
+
+.welcome-text {
+  color: #FFF;
+  text-align: center;
+  text-shadow: 1px 1px 3px #3a3a3a; /* Chrome, Firefox 3.5+, IE 10+, Opera 9+, Safari 1+ */
+  margin-top: 90px;
+}
+
+/* Custom default button */
+.welcome-text .btn-default,
+.welcome-text .btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/*body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}*/
+
+.background-image {
+  z-index: -9999 !important;
+
+  background: url('../img/keyvisual.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  /*width: 1200px;*/
+  width: 100%;
+  height: 800px;
+  
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+
+  -webkit-animation: image_blur 4.2s; 
+}
+
+@-webkit-keyframes image_blur {
+  0% { -webkit-filter: blur(0px);}
+  10% { -webkit-filter: blur(0px);}
+  100% { -webkit-filter: blur(4px);}
+}
+
+#controls {
+	margin: 20px 0 30px 0;
+}
+
+#controls li {
+	cursor: pointer;
+}
+
+.overview-header {
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	background-color: #e8e8e8;
+}
+
+.overview-header .btn {
+	margin: 20px 0 0 0;
+}
+
+.overview-footer {
+	border-top: 1px solid #DDD;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+.total-price {
+	border-top: 1px solid #DDD;
+	padding: 4px 4px 0 0;
+	font-weight: 700;
+	font-size: 16px;
+	text-align: right;
+}
+
+.final-price {
+	border-left: 1px solid #DDD;
+	min-height: 285px;
+	position: relative;
+}
+
+.final-price h3,
+.final-price p {
+	position: absolute;
+}
+
+.final-price h3 {
+	bottom: 46px;
+}
+
+.final-price p {
+	bottom: 10px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.navbar .navbar-brand {
+	font-weight: bold;
+	color: white;
+}
+
+.navbar span.tagline {
+	color: #2ecc71;
+	font-style: italic;
+	display: block;
+	padding-top: 17px;
+	text-align: left;
+}
+
+.dish-image img {
+	height: auto;
+	width: 100%;
+}
+
+
+.footer {
+	padding: 10px 0 0 0;
+	border-top: 1px solid #4b4b4b;
+	font-size: 12px;
+	text-align: center;
+	background-color: #222222;
+	color: #e1e1e1;
+	position: fixed;
+	bottom: 0;
+}
+
+.preparation-view .row {
+	margin-bottom: 20px;
+}
+
+.ingredients-list {
+  background-color: #e8e8e8;
+  padding-bottom: 20px;
+}
+
+.ingredients-list .total {
+  border-top: 2px solid #222;
+  padding: 10px 0 0 0;
+}

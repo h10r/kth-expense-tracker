@@ -1,0 +1,27 @@
+<div class="col-md-3 sidebar" ng-controller="expenseTracker.MainController">
+  <h4>My Dinner for {{numberOfGuests}} guests</h4>
+  <p>Number of Guests <span class="pull-right">
+    <form name="guestForm">
+      <input name="numberOfGuests" type="text" ng-model="n" value="{{numberOfGuests}}" ng-change="setNumberOfGuests(n)" />
+    </form>
+  </p>
+
+  <table class="table">
+    <tr>
+      <th>Dish Name</th><th>Cost</th><th>Delete</th>
+    </tr>
+
+    <tr class="dish" ng-repeat="d in dishesSelected">
+      <td>{{d.name}}</td><td>SEK {{getDishPrice(d)}}</td><td><button class="btn btn-sm btn-default" type="button" ng-click="removeDish(d)">X</button></td>
+    </tr>
+  </table>
+
+  <p class="total-price">Total: SEK {{ totalPrice }}</p>
+
+  <p>
+    <a class="btn btn-default" href="#/overview">
+      <span class="glyphicon glyphicon-ok"></span> Confirm dinner
+    </a>
+  </p>
+</div>
+
