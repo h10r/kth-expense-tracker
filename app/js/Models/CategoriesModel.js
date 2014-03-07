@@ -3,6 +3,12 @@ expenseTrackerAppModule.service("CategoriesModel", function() {
 
 	categories = [];
 
+	var category = {
+		id : "",
+		title : "",
+		color : ""
+	};
+
 	return {
 		addCategory : function(category) {
 			// return detailViewId;

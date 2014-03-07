@@ -9,7 +9,7 @@ expenseTrackerAppModule.service("ExpensesModel", function() {
 		timestamp : "",
 		location : "",
 		description : ""
-	}
+	};
 
 	return {
 		addExpense : function(expense) {
