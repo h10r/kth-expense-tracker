@@ -4,14 +4,12 @@
 var expenseTrackerAppModule = angular.module('expenseTracker', ['ngRoute']);
 
 expenseTrackerAppModule.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home', {templateUrl: 'partials/start-screen.html'});
-  // these will be deleted
-  $routeProvider.when('/plan-a-dinner', {templateUrl: 'partials/plan-a-dinner.html', controller: 'expenseTracker.MainController'});
-  $routeProvider.when('/overview', {templateUrl: 'partials/overview.html', controller: 'expenseTracker.MainController'});
-  $routeProvider.when('/preparation', {templateUrl: 'partials/preparation.html', controller: 'expenseTracker.MainController'});
-  $routeProvider.when('/dish-detail', {templateUrl: 'partials/dish-detail.html', controller: 'expenseTracker.DishController'});
+  $routeProvider.when('/expenses/add', {templateUrl: 'partials/expense-add.html', controller: 'expenseTracker.ExpenseController'});
+  $routeProvider.when('/feeds', {templateUrl: 'partials/feeds.html', controller: 'expenseTracker.FeedController'});
+  $routeProvider.when('/overview', {templateUrl: 'partials/overview.html', controller: 'expenseTracker.OverviewController'});
+  $routeProvider.when('/settings', {templateUrl: 'partials/settings.html', controller: 'expenseTracker.SettingsController'});
   
-  $routeProvider.otherwise({redirectTo: '/home'});
+  $routeProvider.otherwise({redirectTo: '/expenses/add'});
 }]);
 
 // add layout stuff here 

@@ -1,3 +1,3 @@
-expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, DinnerModel) {
+expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel) {
 
 });
