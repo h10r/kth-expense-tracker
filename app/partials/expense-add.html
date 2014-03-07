@@ -1,65 +1,90 @@
-<div id="expenses-add" class="content-padded">
-  <p>Expense Add</p>
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <h1 class="title">expenseTracker</h1>
+</header>
 
-  <input class="knob" data-angleOffset=-100 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" data-linecap="round" value="10">
+<nav class="bar bar-tab">
+  <a class="tab-item active" href="#expenses/add">
+    <span class="icon icon-plus"></span>
+    <span class="tab-label">Add</span>
+  </a>
+  <a class="tab-item" href="#feeds">
+    <span class="icon icon-list"></span>
+    <span class="tab-label">Feed</span>
+  </a>
+  <a class="tab-item" href="#overview">
+    <span class="icon icon-info"></span>
+    <span class="tab-label">Overview</span>
+  </a>
+  <a class="tab-item" href="#settings">
+    <span class="icon icon-gear"></span>
+    <span class="tab-label">Settings</span>
+  </a>
+</nav>
 
-	<button class="btn btn-positive btn-block">Add</button>
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">
+      
+	<div id="expenses-add" class="content-padded">
+	  	<p>Expense Add</p>
+		<input class="knob" data-angleOffset=-100 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" data-linecap="round" value="10">
 
+		<button class="btn btn-positive btn-block">Add</button>
+	</div>
+	
+	<script>
+	$(function($) {
+
+	    $(".knob").knob({
+	        change : function (value) {
+	            //console.log("change : " + value);
+	        },
+	        release : function (value) {
+	            //console.log(this.$.attr('value'));
+	            console.log("release : " + value);
+	        },
+	        cancel : function () {
+	            console.log("cancel : ", this);
+	        },
+	        /*format : function (value) {
+	            return value + '%';
+	        },*/
+	        draw : function () {
+
+	            // "tron" case
+	            if(this.$.data('skin') == 'tron') {
+
+	                this.cursorExt = 0.3;
+
+	                var a = this.arc(this.cv)  // Arc
+	                    , pa                   // Previous arc
+	                    , r = 1;
+
+	                this.g.lineWidth = this.lineWidth;
+
+	                if (this.o.displayPrevious) {
+	                    pa = this.arc(this.v);
+	                    this.g.beginPath();
+	                    this.g.strokeStyle = this.pColor;
+	                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+	                    this.g.stroke();
+	                }
+
+	                this.g.beginPath();
+	                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+	                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+	                this.g.stroke();
+
+	                this.g.lineWidth = 2;
+	                this.g.beginPath();
+	                this.g.strokeStyle = this.o.fgColor;
+	                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+	                this.g.stroke();
+
+	                return false;
+	            }
+	        }
+	    });
+	});
+	</script>
 </div>
-
-
-<script>
-$(function($) {
-
-    $(".knob").knob({
-        change : function (value) {
-            //console.log("change : " + value);
-        },
-        release : function (value) {
-            //console.log(this.$.attr('value'));
-            console.log("release : " + value);
-        },
-        cancel : function () {
-            console.log("cancel : ", this);
-        },
-        /*format : function (value) {
-            return value + '%';
-        },*/
-        draw : function () {
-
-            // "tron" case
-            if(this.$.data('skin') == 'tron') {
-
-                this.cursorExt = 0.3;
-
-                var a = this.arc(this.cv)  // Arc
-                    , pa                   // Previous arc
-                    , r = 1;
-
-                this.g.lineWidth = this.lineWidth;
-
-                if (this.o.displayPrevious) {
-                    pa = this.arc(this.v);
-                    this.g.beginPath();
-                    this.g.strokeStyle = this.pColor;
-                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
-                    this.g.stroke();
-                }
-
-                this.g.beginPath();
-                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
-                this.g.stroke();
-
-                this.g.lineWidth = 2;
-                this.g.beginPath();
-                this.g.strokeStyle = this.o.fgColor;
-                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                this.g.stroke();
-
-                return false;
-            }
-        }
-    });
-});
-</script>
