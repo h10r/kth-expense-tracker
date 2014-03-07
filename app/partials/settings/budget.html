@@ -1,0 +1,37 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <h1 class="title">Budget</h1>
+</header>
+
+<nav class="bar bar-tab">
+  <a class="tab-item" href="#expenses/add">
+    <span class="icon icon-plus"></span>
+    <span class="tab-label">Add</span>
+  </a>
+  <a class="tab-item" href="#feeds">
+    <span class="icon icon-list"></span>
+    <span class="tab-label">Feed</span>
+  </a>
+  <a class="tab-item" href="#overview">
+    <span class="icon icon-info"></span>
+    <span class="tab-label">Overview</span>
+  </a>
+  <a class="tab-item active" href="#settings">
+    <span class="icon icon-gear"></span>
+    <span class="tab-label">Settings</span>
+  </a>
+</nav>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">
+	<div id="settings">
+      <form class="input-group">
+        <div class="input-row">
+          <label>Budget</label>
+          <input type="text" placeholder="1000.0">
+        </div>
+      </form>
+
+      <button class="btn btn-positive btn-block">Save button</button>
+	</div>
+</div>
