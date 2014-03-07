@@ -9,6 +9,8 @@ expenseTrackerAppModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/overview', {templateUrl: 'partials/overview.html', controller: 'expenseTracker.OverviewController'});
   $routeProvider.when('/settings', {templateUrl: 'partials/settings.html', controller: 'expenseTracker.SettingsController'});
   
+  $routeProvider.when('/overview/weekly', {templateUrl: 'partials/overview-weekly.html', controller: 'expenseTracker.OverviewController'});
+  
   $routeProvider.otherwise({redirectTo: '/expenses/add'});
 }]);
 
