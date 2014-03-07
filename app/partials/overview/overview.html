@@ -26,28 +26,27 @@
 <div class="content">
 	<div class="overview">
 	  <div class="segmented-control">
-      <a class="control-item active" href="#item1mobile">
-        Weekly
+      <a class="control-item active" href="#byWeekContainer">
+        By Time
       </a>
-      <a class="control-item" href="#item2mobile">
-        Monthly
+      <a class="control-item" href="#byMonthContainer">
+        By Month
       </a>
-    </div>
-    <div class="card">
-      <span id="item1mobile" class="control-content active">Item 1</span>
-      <span id="item2mobile" class="control-content">Item 2</span>
-      <span id="item3mobile" class="control-content">Item 3</span>
     </div>
 
-    <div>
-      <canvas id="myChart" width="100" height="100"></canvas>
-    </div>  
+    <div id="byWeekContainer" class="control-content active">
+      <canvas id="byWeekChart" width="100" height="100"></canvas>
+    </div> 
+    <div id="byMonthContainer" class="control-content">
+      <p>Test</p>
+    </div>
+ 
 </div>
 <script type="text/javascript">
   //Get context with jQuery - using jQuery's .get() method.
-  var ctx = $("#myChart").get(0).getContext("2d");
+  var ctxWeek = $("#byWeekChart").get(0).getContext("2d");
   //This will get the first returned node in the jQuery collection.
-  var myNewChart = new Chart(ctx);
+  var myNewChart = new Chart(ctxWeek);
   var data = [
     {
       value: 30,
@@ -71,5 +70,5 @@
     }
 
   ]
-  new Chart(ctx).Doughnut(data,{});
+  new Chart(ctxWeek).Doughnut(data,{});
 </script>
