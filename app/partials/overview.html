@@ -25,6 +25,51 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
 	<div class="overview">
-	  <p>Overview</p>
-	</div>
+	  <div class="segmented-control">
+      <a class="control-item active" href="#item1mobile">
+        Weekly
+      </a>
+      <a class="control-item" href="#item2mobile">
+        Monthly
+      </a>
+    </div>
+    <div class="card">
+      <span id="item1mobile" class="control-content active">Item 1</span>
+      <span id="item2mobile" class="control-content">Item 2</span>
+      <span id="item3mobile" class="control-content">Item 3</span>
+    </div>
+
+    <div>
+      <canvas id="myChart" width="100" height="100"></canvas>
+    </div>  
 </div>
+<script type="text/javascript">
+  //Get context with jQuery - using jQuery's .get() method.
+  var ctx = $("#myChart").get(0).getContext("2d");
+  //This will get the first returned node in the jQuery collection.
+  var myNewChart = new Chart(ctx);
+  var data = [
+    {
+      value: 30,
+      color:"#F7464A"
+    },
+    {
+      value : 50,
+      color : "#E2EAE9"
+    },
+    {
+      value : 100,
+      color : "#D4CCC5"
+    },
+    {
+      value : 40,
+      color : "#949FB1"
+    },
+    {
+      value : 120,
+      color : "#4D5360"
+    }
+
+  ]
+  new Chart(ctx).Doughnut(data,{});
+</script>
