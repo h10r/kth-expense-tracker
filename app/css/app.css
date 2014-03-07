@@ -6,6 +6,12 @@ div #byWeekChart
   margin-left: auto;
   margin-right: auto;
 }
+
 .btn-block {
 	width: 100%;
+}
+
+#expenses-add div {
+  display: block !important;
+  margin: 0 auto;
 }
