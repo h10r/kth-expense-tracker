@@ -5,3 +5,7 @@ div.demo
   margin-left: auto;
   margin-right: auto;
 }
+
+.btn-block {
+	width: 100%;
+}
