@@ -26,28 +26,55 @@
 <div class="content">
 	<div class="overview">
 	  <div class="segmented-control">
-      <a class="control-item active" href="#byWeekContainer">
+      <a id="categoryTab" class="control-item active" href="#byCategoryContainer">
+        By Category
+      </a>
+      <a id="timeTab" class="control-item" href="#byTimeContainer">
         By Time
       </a>
-      <a class="control-item" href="#byMonthContainer">
-        By Month
-      </a>
+    </div>
+    <div class="charts">
+      <div id="byCategoryContainer" class="control-content active">
+        <canvas id="byCategoryChart" class="dataChart" width="150" height="100"></canvas>
+        <ul class="table-view">
+          <li class="table-view-cell">
+            <a class="navigate-right">
+              Groceries
+            </a>
+          </li>
+          <li class="table-view-cell">
+            <a class="navigate-right">
+              Eating Out
+            </a>
+          </li>
+          <li class="table-view-cell">
+            <a class="navigate-right">
+              Beer
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="byTimeContainer" class="control-content">
+        <canvas id="byTimeChart" class="dataChart" width="150" height="100"></canvas>
+        <ul class="table-view">
+          <li class="table-view-cell">
+            <a class="navigate-right">
+              Last Week     1300 SEK
+            </a>
+          </li>
+          <li class="table-view-cell">
+            <a class="navigate-right">
+              Last Month    4750 SEK
+            </a>
+          </li>
+        </ul>
+      </div> 
     </div>
 
-    <div id="byWeekContainer" class="control-content active">
-      <canvas id="byWeekChart" width="100" height="100"></canvas>
-    </div> 
-    <div id="byMonthContainer" class="control-content">
-      <p>Test</p>
-    </div>
- 
+
 </div>
 <script type="text/javascript">
-  //Get context with jQuery - using jQuery's .get() method.
-  var ctxWeek = $("#byWeekChart").get(0).getContext("2d");
-  //This will get the first returned node in the jQuery collection.
-  var myNewChart = new Chart(ctxWeek);
-  var data = [
+  var weekData = [
     {
       value: 30,
       color:"#F7464A"
@@ -68,7 +95,34 @@
       value : 120,
       color : "#4D5360"
     }
-
   ]
-  new Chart(ctxWeek).Doughnut(data,{});
+  //Get context with jQuery - using jQuery's .get() method.
+  var ctxWeek = $("#byCategoryChart").get(0).getContext("2d");
+  //This will get the first returned node in the jQuery collection.
+  var myNewChart1 = new Chart(ctxWeek);
+  
+  new Chart(ctxWeek).Doughnut(weekData,{});
+
+</script>
+<script type="text/javascript">
+  var monthData = {
+  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
+    datasets : [
+      {
+              fillColor : "rgba(151,187,205,0.5)",
+      strokeColor : "rgba(151,187,205,1)",
+      pointColor : "rgba(151,187,205,1)",
+      pointStrokeColor : "#fff",
+        data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
+      }
+    ]
+  }
+
+  //Get context with jQuery - using jQuery's .get() method.
+  var ctxMonth = $("#byTimeChart").get(0).getContext("2d");
+  //This will get the first returned node in the jQuery collection.
+  var myNewChart2 = new Chart(ctxMonth);
+  
+  new Chart(ctxMonth).Line(monthData,{});
+
 </script>
