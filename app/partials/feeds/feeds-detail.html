@@ -24,16 +24,28 @@
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
-	<div id="feeds">
-		<ul class="table-view">
-		  <li class="table-view-cell media" ng-repeat="expense in expenses">
-		    <a class="navigate-right" ng-click="openDetailView(expense.id)">
-		      <div class="media-body">
-				<span class="pull-left">SEK {{expense.amount}}</span>
-				{{expense.description}}
-		      </div>
-		    </a>
-		  </li>
-		</ul>
-	</div>
+  <div class="input-row">
+    <label>Amount</label>
+    <input type="text" value="SEK {{expense.amount}}" readonly>
+  </div>
+  <div class="input-row">
+    <label>Description</label>
+    <input type="text" value="{{expense.description}}" readonly>
+  </div>
+  <div class="input-row">
+    <label>Category</label>
+    <input type="text" value="{{expense.category_id}}" readonly>
+  </div>
+  <div class="input-row">
+    <label>Date</label>
+    <input type="text" value="{{expense.date}}" readonly>
+  </div>
+  <div class="input-row">
+    <label>Time</label>
+    <input type="text" value="{{expense.time}}" readonly>
+  </div>
+  <div class="input-row">
+    <label>Location</label>
+    <input type="text" value="{{expense.location}}" readonly>
+  </div>
 </div>

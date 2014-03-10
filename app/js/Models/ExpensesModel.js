@@ -81,6 +81,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			return currentExpense;
 		},
 
+		getExpenses : function() {
+			return expenses.reverse();
+		},
+		
 		getAmount : function() {
 			return currentExpense.amount;
 		},
@@ -114,6 +118,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					return expenses[key];
 				}
 			}
+			return null;
 		},
 
 		getExpensesByCategory : function () {

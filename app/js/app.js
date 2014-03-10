@@ -11,6 +11,8 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/expenses/add/details', {templateUrl: 'partials/expense/expense-add-details.html', controller: 'expenseTracker.ExpenseAddController'});
 
   $routeProvider.when('/feeds', {templateUrl: 'partials/feeds/feeds.html', controller: 'expenseTracker.FeedController'});
+  $routeProvider.when('/feeds/detail/:id', {templateUrl: 'partials/feeds/feeds-detail.html', controller: 'expenseTracker.FeedController'});
+
   $routeProvider.when('/overview', {templateUrl: 'partials/overview/overview.html', controller: 'expenseTracker.OverviewController'});
   $routeProvider.when('/settings', {templateUrl: 'partials/settings/settings.html', controller: 'expenseTracker.SettingsController'});
   
