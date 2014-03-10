@@ -3,24 +3,7 @@
   <h1 class="title">Add category</h1>
 </header>
 
-<nav class="bar bar-tab">
-  <a class="tab-item active" href="#expenses/add">
-    <span class="icon icon-plus"></span>
-    <span class="tab-label">Add</span>
-  </a>
-  <a class="tab-item" href="#feeds">
-    <span class="icon icon-list"></span>
-    <span class="tab-label">Feed</span>
-  </a>
-  <a class="tab-item" href="#overview">
-    <span class="icon icon-info"></span>
-    <span class="tab-label">Overview</span>
-  </a>
-  <a class="tab-item" href="#settings">
-    <span class="icon icon-gear"></span>
-    <span class="tab-label">Settings</span>
-  </a>
-</nav>
+<ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
@@ -32,6 +15,20 @@
           <input type="text" placeholder="Beer">
         </div>
       </form>
+
+ 
+        <div class="input-row">
+          <label>Color Tag</label>
+          <input type="text" placeholder="Color">
+        </div>
+     
+
+  
+        <div class="input-row">
+          <label>Add Icon</label>
+          <input type="text" placeholder="Icon">
+        </div>
+    
 
       <button class="btn btn-positive btn-block">Add category</button>
 	</div>	

@@ -1,6 +1,8 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $rootScope, UserModel, ExpensesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
 
 	$scope.amount = 300;
+
+	$scope.categories = CategoriesModel.listCategories();
 
 	$(".knob").knob({
 	    change : function (value) {
@@ -13,6 +15,18 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	});
 
 	//
+
+	$scope.chooseCategory = function (categoryId) {
+		console.log( categoryId );
+
+		$location.path('/expenses/add/details');
+	};
+	
+	$scope.saveExpense = function () {
+		console.log( "saveExpense" );
+		
+		$location.path('/feeds');
+	};
 
 	$scope.decreaseAmount = function (value) {
 		$scope.amount = $scope.amount-1;

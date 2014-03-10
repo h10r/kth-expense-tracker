@@ -1,6 +1,7 @@
-expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel) {
-	//data which is pulled from the model.
-	var weekData = [
+expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel) {
+
+  getCategoryData = function(){
+  	var data = [
 	    {
 	      value: 30,
 	      color:"#F7464A"
@@ -22,7 +23,11 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	      color : "#4D5360"
 	    }
 	  ]
-	var monthData = {
+  	return data
+  };
+
+  getTimeData = function(){
+  	var data = {
 	  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
 	    datasets : [
 	      {
@@ -34,15 +39,18 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	      }
 	    ]
 	  }
-	  
-  //Get context with jQuery - using jQuery's .get() method.
-  $scope.ctxWeek = $("#byCategoryChart").get(0).getContext("2d");
-  //This will get the first returned node in the jQuery collection.
-  $scope.myNewChart1 = new Chart($scope.ctxWeek);
-  $scope.chartWeek = new Chart($scope.ctxWeek).Doughnut(weekData,{});
+	return data
+  };
 
-  $scope.ctxMonth = $("#byTimeChart").get(0).getContext("2d");
+  //Get context with jQuery - using jQuery's .get() method.
+  $scope.ctxCategory = $("#byCategoryChart").get(0).getContext("2d");
   //This will get the first returned node in the jQuery collection.
-  $scope.myNewChart2 = new Chart($scope.ctxMonth);
-  $scope.chartMonth = new Chart($scope.ctxMonth).Line(monthData,{});
+  $scope.myNewChart1 = new Chart($scope.ctxCategory);
+  $scope.chartCategory = new Chart($scope.ctxCategory).Doughnut(getCategoryData(),{});
+
+  $scope.ctxTime = $("#byTimeChart").get(0).getContext("2d");
+  //This will get the first returned node in the jQuery collection.
+  $scope.myNewChart2 = new Chart($scope.ctxTime);
+  $scope.chartTime = new Chart($scope.ctxTime).Line(getTimeData(),{});
+
 });

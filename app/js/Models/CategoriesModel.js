@@ -4,7 +4,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 	var categories = [],
 		category = {
-			id : '',
+			id : -1,
 			title : '',
 			color : '',
 			icon : ''
@@ -13,25 +13,25 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 	// default categories
 	categories.push(
 		{
-			id : '1',
+			id : 1,
 			title : 'groceries',
 			color : '#4c9533',
 			icon : ''
 		},
 		{
-			id : '2',
+			id : 2,
 			title : 'eating out',
 			color : '#2781c0',
 			icon : ''
 		},
 		{
-			id : '3',
+			id : 3,
 			title : 'coffee',
 			color : '#c07327',
 			icon : ''
 		},
 		{
-			id : '4',
+			id : 4,
 			title : 'beer',
 			color : '#ecd84f',
 			icon : ''
