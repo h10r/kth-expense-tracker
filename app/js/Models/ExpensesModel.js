@@ -1,5 +1,6 @@
 //ExpenseModel Object constructor
 expenseTrackerAppModule.service('ExpensesModel', function () {
+	'use strict';
 
 	var expenses = [],
 		expense = {
@@ -52,10 +53,10 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			description : null,
 			category_id : 3
 		}
-		)
+	);
 
 	return {
-		addExpense : function(expense) {
+		addExpense : function (expense) {
 			// return detailViewId;
 		},
 
@@ -64,8 +65,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		},
 
 		getExpenseById : function (expenseId) {
-			for(key in expenses){
-				if(expenses[key].id == expenseId) {
+			for (var key in expenses) {
+				if (expenses[key].id === expenseId) {
 					return expenses[key];
 				}
 			}

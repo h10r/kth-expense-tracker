@@ -2,12 +2,16 @@
 
 
 // import partials
+@import "nav-bar-top";
 @import "nav-bar-bottom";
 @import "add-expense";
 @import "feed";
 @import "overview";
 @import "settings";
 
+.content {
+  //background-color: #acbdbf;
+}
 
 .dataChart {
   display: block !important;
