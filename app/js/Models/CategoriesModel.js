@@ -39,16 +39,21 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 	);
 
 	return {
-		addCategory : function(category) {
+		addCategory : function (category) {
 			// return detailViewId;
 		},
 
-		removeCategory : function(categoryId) {
+		removeCategory : function (categoryId) {
 			// return detailViewId;
 		},
 
-		getCategoryById : function(categoryId) {
+		getCategoryById : function (categoryId) {
 			// return detailViewId;
+		},
+		
+		listCategories : function () {
+			// return detailViewId;
+			return categories;
 		}
 	};
 });
