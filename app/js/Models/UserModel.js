@@ -1,61 +1,61 @@
 //UserModel Object constructor
-expenseTrackerAppModule.service("UserModel", function() {
+expenseTrackerAppModule.service('UserModel', function () {
+	'use strict';
 
-	var firstName = "";
-	var lastName = "";
-	var eMailAdress = "";
-
-	var token = "";
+	var firstName = '',
+			lastName = '',
+			eMailAddress = '',
+			token = '';
 
 	return {
 		/* Getter and Setter */
 
-		getFirstName : function() {
+		getFirstName : function () {
 			return firstName;
 		},
 		
-		setFirstName : function(value) {
+		setFirstName : function (value) {
 			firstName = value;
 		},
 		
-		getLastName : function() {
+		getLastName : function () {
 			return lastName;
 		},
 		
-		setLastName : function(value) {
+		setLastName : function (value) {
 			lastName = value;
 		},
 		
-		getEMailAddress : function() {
+		getEMailAddress : function () {
 			return eMailAddress;
 		},
 		
-		setEMailAddress : function(value) {
+		setEMailAddress : function (value) {
 			eMailAddress = value;
 		},
 
-		getGoals : function() {
+		getGoals : function () {
 			// Goal Model
 			
 			//return goals;
 		},
 		
-		setGoals : function(model) {
+		setGoals : function (model) {
 			// Goal Model
 			
 			//return goals;
 		},
 		
-		getExpenses : function() {
+		getExpenses : function () {
 			// Expenses Model
 			
 			//return expenses;
 		},
 		
-		setExpenses : function(model) {
+		setExpenses : function (model) {
 			// Expenses Model
 			
 			//return expenses;
 		}
-	}
+	};
 });
