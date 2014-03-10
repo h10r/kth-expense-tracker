@@ -80,8 +80,11 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	return {
 		initNewExpense : function() {
 			currentExpense = jQuery.extend(true, {}, expense);
+			return currentExpense;
+		},
 
-			console.log( currentExpense );
+		getCurrentExpense : function() {
+			return currentExpense;
 		},
 
 		getAmount : function() {
@@ -100,45 +103,14 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			currentExpense.category_id = newCategory;
 		},
 
-		getDescription : function() {
-			return currentExpense.description;
-		},
-
-		setDescription : function(newDescription) {
-			currentExpense.description = newDescription;
-		},
-
-		getLocation : function() {
-			return currentExpense.location;
-		},
-
-		setLocation : function(newLocation) {
-			currentExpense.location = newLocation;
-		},
-
-		getTime : function() {
-			return currentExpense.time;
-		},
-
-		setTime : function(newTime) {
-			currentExpense.time = newTime;
-		},
-
-		getDate : function() {
-			return currentExpense.date;
-		},
-
-		setDate : function(newDate) {
-			currentExpense.date = newDate;
-		},
-
 		// higher level functions
 
-		addExpense : function(expense) {
+		addExpenseToCollection : function(expense) {
 			// return detailViewId;
+			expenses.push( currentExpense );
 		},
 
-		removeExpense : function (expenseId) {
+		removeExpenseFromCollection : function (expenseId) {
 			// return detailViewId;
 		},
 
