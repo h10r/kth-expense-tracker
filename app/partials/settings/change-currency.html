@@ -1,0 +1,21 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <h1 class="title">Change currency</h1>
+</header>
+
+<ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">
+	<div id="settings" class="content-padded">
+      Currency
+
+      <div class="segmented-control">
+        <a class="control-item active">€</a>
+        <a class="control-item">$</a>
+        <a class="control-item">¥</a>
+        <a class="control-item">SEK</a>
+        <a class="control-item">?</a>
+      </div>
+	</div>
+</div>

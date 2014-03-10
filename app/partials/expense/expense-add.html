@@ -10,24 +10,8 @@
   <h1 class="title">SEK 300</h1>
 </header>
 
-<nav class="bar bar-tab">
-  <a class="tab-item active" href="#expenses/add">
-    <span class="icon icon-plus"></span>
-    <span class="tab-label">Add</span>
-  </a>
-  <a class="tab-item" href="#feeds">
-    <span class="icon icon-list"></span>
-    <span class="tab-label">Feed</span>
-  </a>
-  <a class="tab-item" href="#overview">
-    <span class="icon icon-info"></span>
-    <span class="tab-label">Overview</span>
-  </a>
-  <a class="tab-item" href="#settings">
-    <span class="icon icon-gear"></span>
-    <span class="tab-label">Settings</span>
-  </a>
-</nav>
+<ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
+
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
@@ -36,7 +20,7 @@
 	  	<p>Expense Add</p>
 		<input class="knob" data-angleOffset=-100 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" data-linecap="round" value="10">
 
-		<button class="btn btn-positive btn-block">Add</button>
+		<a class="btn btn-positive btn-block" href="#expenses/add/category">Add</a>
 	</div>
 	
 	<script>
