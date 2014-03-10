@@ -12,6 +12,7 @@ expenseTrackerAppModule.service("ExpensesModel", function() {
 	};
 
 	return {
+
 		addExpense : function(expense) {
 			// return detailViewId;
 		},
