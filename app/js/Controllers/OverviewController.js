@@ -1,5 +1,7 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
 	"use strict"
+	//TODO: get currency type from user model for display.
+
 	$scope.categories = (function(){
 		var categoryList = CategoriesModel.listCategories();
 		var amountPerCategory = ExpensesModel.getExpensesByCategory();

@@ -71,6 +71,11 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		}
 	);
 
+	Date.prototype.monthDays= function(){
+	    var d= new Date(this.getFullYear(), this.getMonth()+1, 0);
+	    return d.getDate();
+	}
+
 	return {
 		initNewExpense : function() {
 			currentExpense = jQuery.extend(true, {}, expense);
@@ -133,24 +138,24 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					color : categories[category].color
 				};
 			}
-			return dataArray
+			return dataArray;
 		},
 
 		getExpensesByTime : function () {
-			//needs to be changed to dynamic
+			//TODO: needs to be changed to dynamic
 			var data = {
-			  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
+			  labels : ["1","2","3","4","5","6","7"],
 			    datasets : [
 			      {
 			            fillColor : "rgba(151,187,205,0.5)",
 			      		strokeColor : "rgba(151,187,205,1)",
 			      		pointColor : "rgba(151,187,205,1)",
 			      		pointStrokeColor : "#fff",
-			        	data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
+			        	data : [65,59,90,81,56,28,48]
 			      }
 			    ]
 			}
-			return data
+			return data;
 		}
 	};
 });
