@@ -15,26 +15,32 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		{
 			id : 0,
 			title : 'groceries',
-			color : '#4c9533',
-			icon : ''
+			color : '#1a9b53',
+			icon : 'fa-shopping-cart'
 		},
 		{
 			id : 1,
 			title : 'eating out',
-			color : '#2781c0',
-			icon : ''
+			color : '#9b1a44',
+			icon : 'fa-cutlery'
 		},
 		{
 			id : 2,
 			title : 'coffee',
-			color : '#c07327',
-			icon : ''
+			color : '#875d2f',
+			icon : 'fa-coffee'
 		},
 		{
 			id : 3,
 			title : 'beer',
-			color : '#ecd84f',
-			icon : ''
+			color : '#fbb600',
+			icon : 'fa-beer'
+		},
+		{
+			id : 4,
+			title : 'mobile phone',
+			color : '#cb3687',
+			icon : 'fa-phone'
 		}
 	);
 
@@ -48,8 +54,8 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		getCategoryById : function (categoryId) {
-			for(key in categories){
-				if(categories[key].id == categoryId) {
+			for (var key in categories) {
+				if (categories[key].id === categoryId) {
 					return categories[key];
 				}
 			}

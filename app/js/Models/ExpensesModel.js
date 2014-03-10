@@ -86,6 +86,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			return currentExpense;
 		},
 
+		getExpenses : function() {
+			return expenses.reverse();
+		},
+		
 		getAmount : function() {
 			return currentExpense.amount;
 		},
@@ -110,15 +114,22 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
-			// return detailViewId;
+			var item = this.getExpenseById( expenseId );
+
+      		for(var i = expenses.length; i--;) {
+        		if(expenses[i] === item) {
+            		expenses.splice(i, 1);
+          		}
+      		}
 		},
 
 		getExpenseById : function (expenseId) {
 			for (var key in expenses) {
-				if (expenses[key].id === expenseId) {
+				if (expenses[key].id == expenseId) {
 					return expenses[key];
 				}
 			}
+			return null;
 		},
 
 		getExpensesByCategory : function () {
