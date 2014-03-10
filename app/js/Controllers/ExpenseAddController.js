@@ -4,6 +4,9 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	$scope.categories = CategoriesModel.listCategories();
 
+	ExpensesModel.initNewExpense();
+	$scope.currentExpense = ExpensesModel.currentExpense;
+
 	$(".knob").knob({
 	    change : function (value) {
 	    	$scope.updateValue(value);
@@ -15,6 +18,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	});
 
 	//
+
 
 	$scope.chooseCategory = function (categoryId) {
 		console.log( categoryId );
