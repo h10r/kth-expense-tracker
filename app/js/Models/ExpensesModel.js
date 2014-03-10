@@ -69,6 +69,10 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 					return expenses[key];
 				}
 			}
+		},
+
+		sortByCategory : function () {
+			
 		}
 	};
 });
