@@ -18,10 +18,11 @@
   <h2>Pick a category</h2>
 
   <ul class="table-view category-list">
-    <li class="table-view-cell" ng-repeat="category in categories">
+    <li class="table-view-cell" ng-repeat="category in categories" style="background-color: {{category.color}}">
       <a ng-click="chooseCategory(category.id)">
         {{category.title}}
       </a>
+     <i class="fa fa-2x {{category.icon}}"></i>
     </li>
   </ul>
 
