@@ -1,0 +1,35 @@
+.feed-detail {
+
+  .input-row {
+    label {
+      color: #969696;
+    }
+  }
+
+  .category {
+
+    input {
+      float: left;
+      width: 55%;
+      margin: 0;
+      float: left;
+    }
+
+    .category-icon {
+      display: block;
+      position: static;
+      width: 10%;
+      height: 30px;
+      margin: 5px 0 0 0;
+      float: left;
+      text-align: center;
+
+      i {
+        color: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        margin: 7px 0 0 -1px;
+      }
+
+    }
+  }
+}
