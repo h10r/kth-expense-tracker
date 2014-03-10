@@ -17,8 +17,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	    	$scope.updateValue(value);
 	    },
 	    release : function (value) {
-	    },
-	    cancel : function () {
 	    }
 	});
 
@@ -48,10 +46,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 		$scope.amount = ExpensesModel.getAmount();
 	};
 
-	$scope.setDescription = function(newDescription) {
-
-	};
-
 	$scope.updateValue = function (value) {
 		var xi = value / 100;
 		var res = 1000 * -( Math.sqrt( 1 - xi*xi ) - 1);
@@ -61,10 +55,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 		$scope.amount = ExpensesModel.getAmount();
 
 		$scope.$digest();
-	};
-
-	$scope.cancel = function () {
-
 	};
 
 	$scope.draw = function () {

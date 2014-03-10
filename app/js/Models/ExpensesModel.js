@@ -87,38 +87,6 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			currentExpense.category_id = newCategory;
 		},
 
-		getDescription : function() {
-			return currentExpense.description;
-		},
-
-		setDescription : function(newDescription) {
-			currentExpense.description = newDescription;
-		},
-
-		getLocation : function() {
-			return currentExpense.location;
-		},
-
-		setLocation : function(newLocation) {
-			currentExpense.location = newLocation;
-		},
-
-		getTime : function() {
-			return currentExpense.time;
-		},
-
-		setTime : function(newTime) {
-			currentExpense.time = newTime;
-		},
-
-		getDate : function() {
-			return currentExpense.date;
-		},
-
-		setDate : function(newDate) {
-			currentExpense.date = newDate;
-		},
-
 		// higher level functions
 
 		addExpense : function(expense) {
