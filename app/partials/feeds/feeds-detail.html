@@ -9,7 +9,7 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content content-padded">
+<div class="content content-padded feed-detail">
   <div class="input-row">
     <label>Amount</label>
     <input type="text" value="SEK {{expense.amount}}" readonly>
@@ -18,10 +18,10 @@
     <label>Description</label>
     <input type="text" value="{{expense.description}}" readonly>
   </div>
-  <div class="input-row">
+  <div class="input-row category">
     <label>Category</label>
     <input type="text" value="{{category.title}}" readonly>
-    <div class="pull-right" style="width: 25px; height: 25px; background-color: {{category.color}};"></div>
+    <div class="category-icon" style="background-color: {{category.color}};"><i class="fa {{category.icon}}"></i></div>
   </div>
   <div class="input-row">
     <label>Date</label>
