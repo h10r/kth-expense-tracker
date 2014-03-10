@@ -65,6 +65,22 @@ h3 {
   .category-list .table-view-cell:nth-child(3n) {
     margin-right: 0; }
 
+.category-icon {
+  display: block;
+  position: static;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  float: left;
+  border-radius: 2px; }
+  .category-icon i {
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin: 7px 0 0 -1px; }
+
+.feed .category-icon {
+  margin: 0 10px 0 0; }
+
 .feed-detail .input-row label {
   color: #969696; }
 .feed-detail .category input {
@@ -73,17 +89,7 @@ h3 {
   margin: 0;
   float: left; }
 .feed-detail .category .category-icon {
-  display: block;
-  position: static;
-  width: 10%;
-  height: 30px;
-  margin: 5px 0 0 0;
-  float: left;
-  text-align: center; }
-  .feed-detail .category .category-icon i {
-    color: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    margin: 7px 0 0 -1px; }
+  margin: 5px 0 0 0; }
 
 .dataChart {
   display: block !important;
