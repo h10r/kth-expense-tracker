@@ -81,6 +81,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			return currentExpense;
 		},
 
+		getExpenses : function() {
+			return expenses.reverse();
+		},
+		
 		getAmount : function() {
 			return currentExpense.amount;
 		},
@@ -110,15 +114,17 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		getExpenseById : function (expenseId) {
 			for (var key in expenses) {
-				if (expenses[key].id === expenseId) {
+				if (expenses[key].id == expenseId) {
 					return expenses[key];
 				}
 			}
+			return null;
 		},
 
 		getExpensesByCategory : function () {
 			var categories = CategoriesModel.listCategories();
 			var dataArray = [];
+
 			console.log(expenses);
 			for(var category in categories){
 				var sum = 0;
@@ -136,6 +142,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByTime : function () {
+			//needs to be changed to dynamic
 			var data = {
 			  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
 			    datasets : [
