@@ -3,10 +3,12 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 	'use strict';
 
 	var expenses = [],
+		currentExpense,
 		expense = {
 			id : -1,
 			amount : 0.0,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : null
@@ -16,7 +18,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		{
 			id : 1,
 			amount : 123.00,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : 2
@@ -24,7 +27,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		{
 			id : 2,
 			amount : 45.00,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : 2
@@ -32,7 +36,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		{
 			id : 3,
 			amount : 301,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : 3
@@ -40,7 +45,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		{
 			id : 4,
 			amount : 21,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : 1
@@ -48,7 +54,8 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		{
 			id : 5,
 			amount : 79,
-			timestamp : null,
+			time : null,
+			date : null,
 			location : null,
 			description : null,
 			category_id : 3
@@ -56,11 +63,39 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 	);
 
 	return {
-		addExpense : function (expense) {
-			// return detailViewId;
+		initNewExpense : function() {
+			currentExpense = jQuery.extend(true, {}, expense);
+			return currentExpense;
 		},
 
-		removeExpense : function (expenseId) {
+		getCurrentExpense : function() {
+			return currentExpense;
+		},
+
+		getAmount : function() {
+			return currentExpense.amount;
+		},
+
+		setAmount : function(newAmount) {
+			currentExpense.amount = newAmount;
+		},
+		
+		getCategory : function() {
+			return currentExpense.category_id;
+		},
+
+		setCategory : function(newCategory) {
+			currentExpense.category_id = newCategory;
+		},
+
+		// higher level functions
+
+		addExpenseToCollection : function(expense) {
+			// return detailViewId;
+			expenses.push( currentExpense );
+		},
+
+		removeExpenseFromCollection : function (expenseId) {
 			// return detailViewId;
 		},
 
