@@ -3,7 +3,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	//TODO: get currency type from user model for display.
 
 	$scope.categories = (function(){
-		console.log("test log");
+		//console.log("test log");
 		var categoryList = CategoriesModel.listCategories();
 		var amountPerCategory = ExpensesModel.getExpensesByCategory();
 		for (var key in categoryList){
