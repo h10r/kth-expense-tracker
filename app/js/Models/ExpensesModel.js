@@ -85,6 +85,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		getCurrentExpense : function() {
 			return currentExpense;
 		},
+		
+		getExpenses : function() {
+		    return expenses.reverse();
+        },
 
 		getAmount : function() {
 			return currentExpense.amount;
