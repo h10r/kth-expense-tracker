@@ -1,9 +1,9 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <a class="btn pull-left" href="#expenses/add">
+  <a class="btn pull-left" href="#expenses/add/category">
     Previous
   </a>
-  <button class="btn pull-right" href="#expenses/add/details">
+  <button class="btn pull-right">
     Next
   </button>
 
@@ -15,14 +15,10 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
 
-<h2>Pick a category</h2>
+<h3>Description (optional)</h3>
 
-<ul class="table-view">
-  <li class="table-view-cell" ng-repeat="category in categories">
-    <a ng-click="chooseCategory(category.id)">
-      {{category.title}}
-    </a>
-  </li>
-</ul>
+<h3>Location (optional)</h3>
+
+<h3>Time of purchase</h3>
 
 </div>
