@@ -4,6 +4,10 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	if( $location.$$path === "/expenses/add" ) {
 		$scope.currentExpense = ExpensesModel.initNewExpense();
+
+		var now = new Date();
+		$scope.currentExpense.date = now.toDateString();
+		$scope.currentExpense.time = now.toLocaleTimeString();
 	} else if( $location.$$path.indexOf("/expenses/remove/") != -1 ) {
 		
 		ExpensesModel.removeExpenseFromCollection( $routeParams.id );
@@ -15,7 +19,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	$scope.amount = ExpensesModel.getAmount();
 
-	$scope.date = new Date();
 
 	$(".knob").knob({
 	    change : function (value) {
