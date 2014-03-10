@@ -86,10 +86,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			return currentExpense;
 		},
 
-		getExpenses : function() {
-			return expenses.reverse();
-		},
-		
 		getAmount : function() {
 			return currentExpense.amount;
 		},
@@ -114,29 +110,21 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
-			var item = this.getExpenseById( expenseId );
-
-      		for(var i = expenses.length; i--;) {
-        		if(expenses[i] === item) {
-            		expenses.splice(i, 1);
-          		}
-      		}
+			// return detailViewId;
 		},
 
 		getExpenseById : function (expenseId) {
 			for (var key in expenses) {
-				if (expenses[key].id == expenseId) {
+				if (expenses[key].id === expenseId) {
 					return expenses[key];
 				}
 			}
-			return null;
 		},
 
 		getExpensesByCategory : function () {
 			var categories = CategoriesModel.listCategories();
 			var dataArray = [];
 
-			console.log(expenses);
 			for(var category in categories){
 				var sum = 0;
 				for(var id in expenses){
@@ -148,7 +136,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					value : sum,
 					color : categories[category].color
 				};
-			}
+			};
 			return dataArray;
 		},
 
@@ -167,6 +155,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			    ]
 			}
 			return data;
+		},
+
+		getThisWeek : function () {
+
 		}
 	};
 });
