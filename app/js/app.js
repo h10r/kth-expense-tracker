@@ -22,6 +22,7 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
 
   $routeProvider.when('/settings/budget', {templateUrl: 'partials/settings/budget.html', controller: 'expenseTracker.SettingsController'});
   $routeProvider.when('/settings/change-currency', {templateUrl: 'partials/settings/change-currency.html', controller: 'expenseTracker.SettingsController'});
+  $routeProvider.when('/settings/maximum-per-spending', {templateUrl: 'partials/settings/maximum-per-spending.html', controller: 'expenseTracker.SettingsController'});
   
   // root path
   $routeProvider.otherwise({redirectTo: '/expenses/add'});
