@@ -1,14 +1,17 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
 
 	$scope.categories = CategoriesModel.listCategories();
 
 	if( $location.$$path === "/expenses/add" ) {
 		$scope.currentExpense = ExpensesModel.initNewExpense();
+	} else if( $location.$$path.indexOf("/expenses/remove/") != -1 ) {
+		
+		ExpensesModel.removeExpenseFromCollection( $routeParams.id );
+		$location.path('/feeds');
+
 	} else {
 		$scope.currentExpense = ExpensesModel.getCurrentExpense();
 	}
-
-	console.log( $scope.currentExpense );
 
 	$scope.amount = ExpensesModel.getAmount();
 

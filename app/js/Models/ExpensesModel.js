@@ -109,7 +109,13 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
-			// return detailViewId;
+			var item = this.getExpenseById( expenseId );
+
+      		for(var i = expenses.length; i--;) {
+        		if(expenses[i] === item) {
+            		expenses.splice(i, 1);
+          		}
+      		}
 		},
 
 		getExpenseById : function (expenseId) {

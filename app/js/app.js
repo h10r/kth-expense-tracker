@@ -9,6 +9,7 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/expenses/add', {templateUrl: 'partials/expense/expense-add.html', controller: 'expenseTracker.ExpenseAddController'});
   $routeProvider.when('/expenses/add/category', {templateUrl: 'partials/expense/expense-add-category.html', controller: 'expenseTracker.ExpenseAddController'});
   $routeProvider.when('/expenses/add/details', {templateUrl: 'partials/expense/expense-add-details.html', controller: 'expenseTracker.ExpenseAddController'});
+  $routeProvider.when('/expenses/remove/:id', {templateUrl: 'partials/expense/expense-add.html', controller: 'expenseTracker.ExpenseAddController'});
 
   $routeProvider.when('/feeds', {templateUrl: 'partials/feeds/feeds.html', controller: 'expenseTracker.FeedController'});
   $routeProvider.when('/feeds/detail/:id', {templateUrl: 'partials/feeds/feeds-detail.html', controller: 'expenseTracker.FeedController'});
