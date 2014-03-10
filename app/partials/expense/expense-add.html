@@ -31,9 +31,16 @@
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
-      
+
+
+
 	<div id="expenses-add" class="content-padded">
-	  	<p>Expense Add</p>
+	  	<p>
+			<button ng-click='decreaseAmount()' class="btn btn-negative btn-outlined">-</button>
+		<span class="pull-right">
+			<button ng-click='increaseAmount()' class="btn btn-positive btn-outlined">+</button>
+		</span>
+	  	</p>
 		<input class="knob" data-angleOffset=-100 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" data-linecap="round" data-displayInput="false" value="10">
 
 		<button class="btn btn-positive btn-block">Add</button>

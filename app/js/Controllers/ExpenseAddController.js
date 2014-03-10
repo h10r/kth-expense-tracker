@@ -14,8 +14,12 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	//
 
-	$scope.change = function (value) {
-		console.log("change : " + value);
+	$scope.decreaseAmount = function (value) {
+		$scope.amount = $scope.amount-1;
+	};
+
+	$scope.increaseAmount = function (value) {
+		$scope.amount = $scope.amount+1;
 	};
 
 	$scope.updateValue = function (value) {
