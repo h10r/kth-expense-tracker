@@ -123,7 +123,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByCategory : function () {
-			var colors = ["#F7464A","#E2EAE9","#D4CCC5","#949FB1","#4D5360"];
 			var categories = CategoriesModel.listCategories();
 			var dataArray = [];
 			console.log(expenses);
@@ -136,7 +135,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 				}
 				dataArray[category]={
 					value : sum,
-					color : colors[category]
+					color : categories[category].color
 				};
 			}
 			return dataArray
