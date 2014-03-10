@@ -5,7 +5,14 @@
   height: 55px; }
 
 .nav-bar-bottom {
-  background-color: #ededed; }
+  background-color: #ededed;
+  height: 65px; }
+  .nav-bar-bottom .tab-item {
+    padding: 6px 0 0 0; }
+    .nav-bar-bottom .tab-item i {
+      display: block; }
+    .nav-bar-bottom .tab-item .tab-label {
+      font-size: 14px; }
 
 h2 {
   margin: 15px 5% 15px 5%;
