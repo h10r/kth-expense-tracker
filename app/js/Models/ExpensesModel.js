@@ -64,8 +64,11 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 	return {
 		initNewExpense : function() {
 			currentExpense = jQuery.extend(true, {}, expense);
+			return currentExpense;
+		},
 
-			console.log( currentExpense );
+		getCurrentExpense : function() {
+			return currentExpense;
 		},
 
 		getAmount : function() {

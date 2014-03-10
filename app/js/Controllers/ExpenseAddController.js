@@ -1,11 +1,16 @@
 expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
 
-	ExpensesModel.initNewExpense();
-	$scope.amount = ExpensesModel.getAmount();
-
 	$scope.categories = CategoriesModel.listCategories();
 
-	$scope.currentExpense = ExpensesModel.currentExpense;
+	if( $location.$$path === "/expenses/add" ) {
+		$scope.currentExpense = ExpensesModel.initNewExpense();
+	} else {
+		$scope.currentExpense = ExpensesModel.getCurrentExpense();
+	}
+
+	console.log( $scope.currentExpense );
+
+	$scope.amount = ExpensesModel.getAmount();
 
 	$(".knob").knob({
 	    change : function (value) {
@@ -41,6 +46,10 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 		ExpensesModel.setAmount( ExpensesModel.getAmount() + 1 );
 		
 		$scope.amount = ExpensesModel.getAmount();
+	};
+
+	$scope.setDescription = function(newDescription) {
+
 	};
 
 	$scope.updateValue = function (value) {
