@@ -30,10 +30,14 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
 
 // add layout stuff here 
 $(document).on('ready', function () {
+
+  /* is producing errors
   $('#controls li:first-child').addClass('active');
 
   $('#controls li').on('click', function () {
     $('#controls li').removeClass('active');
     $(this).addClass('active');
   });
+  */
+
 });

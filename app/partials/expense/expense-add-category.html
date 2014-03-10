@@ -15,14 +15,14 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
 
-<h2>Pick a category</h2>
+  <h2>Pick a category</h2>
 
-<ul class="table-view">
-  <li class="table-view-cell" ng-repeat="category in categories">
-    <a ng-click="chooseCategory(category.id)">
-      {{category.title}}
-    </a>
-  </li>
-</ul>
+  <ul class="table-view category-list">
+    <li class="table-view-cell" ng-repeat="category in categories">
+      <a ng-click="chooseCategory(category.id)">
+        {{category.title}}
+      </a>
+    </li>
+  </ul>
 
 </div>
