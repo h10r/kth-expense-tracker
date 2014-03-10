@@ -15,6 +15,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	$scope.amount = ExpensesModel.getAmount();
 
+	$scope.date = new Date();
+
 	$(".knob").knob({
 	    change : function (value) {
 	    	$scope.updateValue(value);
