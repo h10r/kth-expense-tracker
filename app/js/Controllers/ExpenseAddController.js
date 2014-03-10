@@ -1,10 +1,10 @@
 expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
 
-	$scope.amount = 300;
+	ExpensesModel.initNewExpense();
+	$scope.amount = ExpensesModel.getAmount();
 
 	$scope.categories = CategoriesModel.listCategories();
 
-	ExpensesModel.initNewExpense();
 	$scope.currentExpense = ExpensesModel.currentExpense;
 
 	$(".knob").knob({
@@ -19,9 +19,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	//
 
-
 	$scope.chooseCategory = function (categoryId) {
-		console.log( categoryId );
+		ExpensesModel.setCategory( categoryId );
 
 		$location.path('/expenses/add/details');
 	};
@@ -32,25 +31,33 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 		$location.path('/feeds');
 	};
 
-	$scope.decreaseAmount = function (value) {
-		$scope.amount = $scope.amount-1;
+	$scope.decreaseAmount = function() {
+		ExpensesModel.setAmount( ExpensesModel.getAmount() - 1 );
+		
+		$scope.amount = ExpensesModel.getAmount();
 	};
 
-	$scope.increaseAmount = function (value) {
-		$scope.amount = $scope.amount+1;
+	$scope.increaseAmount = function() {
+		ExpensesModel.setAmount( ExpensesModel.getAmount() + 1 );
+		
+		$scope.amount = ExpensesModel.getAmount();
 	};
 
 	$scope.updateValue = function (value) {
 		var xi = value / 100;
 		var res = 1000 * -( Math.sqrt( 1 - xi*xi ) - 1);
 
-		$scope.amount = Math.floor( res );
+		ExpensesModel.setAmount( Math.floor( res ) );
+		
+		$scope.amount = ExpensesModel.getAmount();
 
 		$scope.$digest();
 	};
+
 	$scope.cancel = function () {
 
 	};
+
 	$scope.draw = function () {
 		if(this.$.data('skin') == 'tron') {
             this.cursorExt = 0.3;
