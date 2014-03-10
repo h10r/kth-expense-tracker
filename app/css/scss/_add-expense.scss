@@ -1,7 +1,13 @@
 h2 {
-  margin: 15px 5% 10px 5%;
+  margin: 15px 5% 15px 5%;
   width: 90%;
   font-size: 22px;
+}
+
+h3 {
+  margin: 15px 5% 10px 5%;
+  width: 90%;
+  font-size: 16px;
 }
 
 .category-list {
@@ -28,6 +34,7 @@ h2 {
       bottom: 9px;
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
+      z-index: 50;
     }
 
     .fa {
@@ -37,6 +44,16 @@ h2 {
       top: 20px;
       left: 0;
       color: rgba(255, 255, 255, 0.5);
+      z-index: 50;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 86px;
+      height: 86px;
+      z-index: 100;
     }
   }
 
