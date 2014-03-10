@@ -30,8 +30,8 @@
 <h3>Time of purchase</h3>
 
 <p>
-	<input type="text" placeholder="Time" ng-model="currentExpense.time">
-	<input type="text" placeholder="Date" ng-model="currentExpense.date">
+	<input type="text" value="{{date.toLocaleTimeString()}}" ng-model="currentExpense.time">
+  <input type="text" value="{{date.toDateString()}}" ng-model="currentExpense.date">
 </p>
 
 <p>

@@ -25,11 +25,19 @@
               {{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
             </a>
           </li>
+          <li class="table-view-cell" ng-repeat-end>
+            <a class="navigate-right">
+              {{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div id="byTimeContainer" class="control-content">
         <canvas id="byTimeChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
+          <li class="table-view-cell">
+              This Week     <span class="pull-right">300 SEK</span>
+          </li>
           <li class="table-view-cell">
               Last Week     <span class="pull-right">1300 SEK</span>
           </li>
