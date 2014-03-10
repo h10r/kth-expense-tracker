@@ -4,6 +4,9 @@
 .bar {
   height: 55px; }
 
+.nav-bar-bottom {
+  background-color: #ededed; }
+
 h2 {
   margin: 15px 5% 15px 5%;
   width: 90%;
