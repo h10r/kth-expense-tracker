@@ -3,9 +3,9 @@
   <a class="btn pull-left" href="#expenses/add/category">
     Previous
   </a>
-  <button class="btn pull-right">
+  <a class="btn pull-right" ng-click="saveExpense()">
     Next
-  </button>
+  </a>
 
   <h1 class="title">SEK {{amount}}</h1>
 </header>
@@ -17,8 +17,25 @@
 
 <h3>Description (optional)</h3>
 
+<p>
+	<input type="text" placeholder="Description">
+</p>
+
 <h3>Location (optional)</h3>
 
+<p>
+	<input type="text" placeholder="Location">
+</p>
+
 <h3>Time of purchase</h3>
+
+<p>
+	<input type="text" placeholder="Time">
+	<input type="text" placeholder="Date">
+</p>
+
+<p>
+	<a class="btn btn-positive btn-block" ng-click="saveExpense()">Save expense</a>
+</p>
 
 </div>
