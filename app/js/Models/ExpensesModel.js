@@ -119,7 +119,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		getExpenseById : function (expenseId) {
 			for (var key in expenses) {
-				if (expenses[key].id === expenseId) {
+				if (expenses[key].id == expenseId) {
 					return expenses[key];
 				}
 			}
