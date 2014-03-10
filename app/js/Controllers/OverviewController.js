@@ -1,29 +1,9 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel) {
 
+
   getCategoryData = function(){
-  	var data = [
-	    {
-	      value: 30,
-	      color:"#F7464A"
-	    },
-	    {
-	      value : 50,
-	      color : "#E2EAE9"
-	    },
-	    {
-	      value : 100,
-	      color : "#D4CCC5"
-	    },
-	    {
-	      value : 40,
-	      color : "#949FB1"
-	    },
-	    {
-	      value : 120,
-	      color : "#4D5360"
-	    }
-	  ]
-  	return data
+  	
+  	return ExpensesModel.getExpensesByCategory()
   };
 
   getTimeData = function(){
@@ -31,14 +11,14 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
 	    datasets : [
 	      {
-	              fillColor : "rgba(151,187,205,0.5)",
-	      strokeColor : "rgba(151,187,205,1)",
-	      pointColor : "rgba(151,187,205,1)",
-	      pointStrokeColor : "#fff",
-	        data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
+	            fillColor : "rgba(151,187,205,0.5)",
+	      		strokeColor : "rgba(151,187,205,1)",
+	      		pointColor : "rgba(151,187,205,1)",
+	      		pointStrokeColor : "#fff",
+	        	data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
 	      }
 	    ]
-	  }
+	}
 	return data
   };
 
