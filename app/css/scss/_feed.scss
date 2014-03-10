@@ -6,6 +6,7 @@
   text-align: center;
   float: left;
   border-radius: 2px;
+  margin: 0 10px 0 0;
 
   i {
     color: rgba(255, 255, 255, 0.4);
@@ -13,12 +14,6 @@
     margin: 7px 0 0 -1px;
   }
 
-}
-
-.feed {
-  .category-icon {
-    margin: 0 10px 0 0;
-  }
 }
 
 .feed-detail {
