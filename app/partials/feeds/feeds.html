@@ -10,7 +10,7 @@
 	<div id="feeds">
 		<ul class="table-view">
 		  <li class="table-view-cell media" ng-repeat="expense_and_cat in expenses_categories">
-		    <a class="navigate-right" ng-click="openDetailView(expense.id)">
+		    <a class="navigate-right" ng-click="openDetailView(expense_and_cat['expense'].id)">
 		      <div class="media-body">
 				<span style="padding-left: 5px; border-left: 20px solid {{expense_and_cat['category'].color}}" class="pull-left">SEK {{expense_and_cat["expense"].amount}}</span>
 				{{expense_and_cat["expense"].description}}

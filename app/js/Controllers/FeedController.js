@@ -4,6 +4,7 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function($sc
 	if( $location.$$path.indexOf("/feeds/detail/") != -1) {
 		$scope.expense = ExpensesModel.getExpenseById( $routeParams.id );
 		$scope.category = CategoriesModel.getCategoryById( $scope.expense.category_id );
+		
 	} else { // if on feeds main page
 		$scope.expenses = ExpensesModel.getExpenses();
 		$scope.expenses_categories = [];
