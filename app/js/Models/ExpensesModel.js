@@ -71,15 +71,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		}
 	);
 
-	var sumArray = function(array){
-		sum = 0;
-		for (var i=0;i<array.length;i++)
-		{ 
-			sum += array[i];
-		}
-		return sum;
-	};
-
 	return {
 		initNewExpense : function() {
 			currentExpense = jQuery.extend(true, {}, expense);
@@ -129,9 +120,9 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			var categories = CategoriesModel.listCategories();
 			var dataArray = [];
 			console.log(expenses);
-			for(category in categories){
+			for(var category in categories){
 				var sum = 0;
-				for(id in expenses){
+				for(var id in expenses){
 					if(expenses[id].category_id == category){
 						sum += expenses[id].amount;
 					}
