@@ -125,7 +125,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		getExpensesByCategory : function () {
 			var categories = CategoriesModel.listCategories();
 			var dataArray = [];
-			console.log(expenses);
 			for(category in categories){
 				var sum = 0;
 				for(id in expenses){
@@ -142,6 +141,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByTime : function () {
+			//needs to be changed to dynamic
 			var data = {
 			  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
 			    datasets : [

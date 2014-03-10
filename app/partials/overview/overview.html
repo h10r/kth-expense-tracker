@@ -37,19 +37,9 @@
       <div id="byCategoryContainer" class="control-content active">
         <canvas id="byCategoryChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
-          <li class="table-view-cell">
+          <li class="table-view-cell" ng-repeat="category in categories">
             <a class="navigate-right">
-              Groceries
-            </a>
-          </li>
-          <li class="table-view-cell">
-            <a class="navigate-right">
-              Eating Out
-            </a>
-          </li>
-          <li class="table-view-cell">
-            <a class="navigate-right">
-              Beer
+              {{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
             </a>
           </li>
         </ul>
