@@ -1,14 +1,11 @@
 .dataChart {
-	display: block !important;
-  	margin: 0 auto;
-  	padding: 10px 10px;
-}
+  display: block !important;
+  margin: 0 auto;
+  padding: 10px 10px; }
 
 .btn-block {
-	width: 100%;
-}
+  width: 100%; }
 
 #expenses-add div {
   display: block !important;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
