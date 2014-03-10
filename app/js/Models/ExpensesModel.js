@@ -89,11 +89,12 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 
 		// higher level functions
 
-		addExpense : function(expense) {
+		addExpenseToCollection : function(expense) {
 			// return detailViewId;
+			expenses.push( currentExpense );
 		},
 
-		removeExpense : function (expenseId) {
+		removeExpenseFromCollection : function (expenseId) {
 			// return detailViewId;
 		},
 

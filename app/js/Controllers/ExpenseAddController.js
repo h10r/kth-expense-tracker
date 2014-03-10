@@ -31,6 +31,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	$scope.saveExpense = function () {
 		console.log( "saveExpense" );
 		
+		ExpensesModel.addExpenseToCollection();
+
 		$location.path('/feeds');
 	};
 
