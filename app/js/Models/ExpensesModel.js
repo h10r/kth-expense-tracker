@@ -1,28 +1,26 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service("ExpensesModel", function() {
+expenseTrackerAppModule.service('ExpensesModel', function () {
 
-	expenses = [];
-
-	var expense = {
-		id : "",
-		amount : "",
-		timestamp : "",
-		location : "",
-		description : ""
-	};
+	var expenses = [],
+		expense = {
+			id : '',
+			amount : '',
+			timestamp : '',
+			location : '',
+			description : ''
+		};
 
 	return {
-
 		addExpense : function(expense) {
 			// return detailViewId;
 		},
 
-		removeExpense : function(expense) {
+		removeExpense : function (expenseId) {
 			// return detailViewId;
 		},
 
-		getExpenseById : function(expenseId) {
+		getExpenseById : function (expenseId) {
 			// return detailViewId;
 		}
-	}
+	};
 });

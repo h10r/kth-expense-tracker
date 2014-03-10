@@ -1,28 +1,28 @@
 //GoalModel Object constructor
-expenseTrackerAppModule.service("GoalsModel", function() {
+expenseTrackerAppModule.service('GoalsModel', function () {
+	'use strict';
 
-	goals = [];
-
-	var goal = {
-		id : "",
-		target : "",
-		timestamp : "",
-		location : "",
-		description : ""
-	}
+	var goals = [],
+		goal = {
+			id : '',
+			target : '',
+			timestamp : '',
+			location : '',
+			description : ''
+		};
 
 	return {
 
-		addGoal : function(goal) {
+		addGoal : function (goal) {
 			// return detailViewId;
 		},
 
-		removeGoal : function(goal) {
+		removeGoal : function (goalId) {
 			// return detailViewId;
 		},
 
-		getGoalById : function(goalId) {
+		getGoalById : function (goalId) {
 			// return detailViewId;
 		}
-	}
+	};
 });
