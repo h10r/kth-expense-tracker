@@ -1,5 +1,5 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service('ExpensesModel', function () {
+expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 	var expenses = [],
 		currentExpense,
@@ -15,7 +15,7 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 
 	expenses.push(
 		{
-			id : 1,
+			id : 0,
 			amount : 123.00,
 			time : null,
 			date : null,
@@ -24,7 +24,7 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			category_id : 2
 		},
 		{
-			id : 2,
+			id : 1,
 			amount : 45.00,
 			time : null,
 			date : null,
@@ -33,7 +33,7 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			category_id : 2
 		},
 		{
-			id : 3,
+			id : 2,
 			amount : 301,
 			time : null,
 			date : null,
@@ -42,7 +42,7 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			category_id : 3
 		},
 		{
-			id : 4,
+			id : 3,
 			amount : 21,
 			time : null,
 			date : null,
@@ -51,16 +51,32 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 			category_id : 1
 		},
 		{
-			id : 5,
+			id : 4,
 			amount : 79,
 			time : null,
 			date : null,
 			location : null,
 			description : null,
 			category_id : 3
+		},
+		{
+			id : 5,
+			amount : 103,
+			time : null,
+			date : null,
+			location : null,
+			description : null,
+			category_id : 0
 		}
 		)
-
+	sumArray = function(array){
+		sum = 0;
+		for (var i=0;i<array.length;i++)
+		{ 
+			sum += array[i];
+		}
+		return sum
+	}
 	return {
 		initNewExpense : function() {
 			currentExpense = jQuery.extend(true, {}, expense);
@@ -135,28 +151,38 @@ expenseTrackerAppModule.service('ExpensesModel', function () {
 		},
 
 		getExpensesByCategory : function () {
-			var data = [
-			    {
-			      value: 30,
-			      color:"#F7464A"
-			    },
-			    {
-			      value : 50,
-			      color : "#E2EAE9"
-			    },
-			    {
-			      value : 100,
-			      color : "#D4CCC5"
-			    },
-			    {
-			      value : 40,
-			      color : "#949FB1"
-			    },
-			    {
-			      value : 120,
-			      color : "#4D5360"
-			    }
-			]
+			var colors = ["#F7464A","#E2EAE9","#D4CCC5","#949FB1","#4D5360"];
+			var categories = CategoriesModel.listCategories();
+			var dataArray = [];
+			console.log(expenses);
+			for(category in categories){
+				var sum = 0;
+				for(id in expenses){
+					if(expenses[id].category_id == category){
+						sum += expenses[id].amount;
+					}
+				}
+				dataArray[category]={
+					value : sum,
+					color : colors[category]
+				};
+			}
+			return dataArray
+		},
+
+		getExpensesByTime : function () {
+			var data = {
+			  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
+			    datasets : [
+			      {
+			            fillColor : "rgba(151,187,205,0.5)",
+			      		strokeColor : "rgba(151,187,205,1)",
+			      		pointColor : "rgba(151,187,205,1)",
+			      		pointStrokeColor : "#fff",
+			        	data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
+			      }
+			    ]
+			}
 			return data
 		}
 	};

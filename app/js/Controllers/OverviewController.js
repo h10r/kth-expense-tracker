@@ -1,25 +1,12 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel) {
 
 
-  getCategoryData = function(){
-  	
+  getCategoryData = function(){	
   	return ExpensesModel.getExpensesByCategory()
   };
 
   getTimeData = function(){
-  	var data = {
-	  labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
-	    datasets : [
-	      {
-	            fillColor : "rgba(151,187,205,0.5)",
-	      		strokeColor : "rgba(151,187,205,1)",
-	      		pointColor : "rgba(151,187,205,1)",
-	      		pointStrokeColor : "#fff",
-	        	data : [65,59,90,81,56,28,48,40,19,90,81,56,55,40,105]
-	      }
-	    ]
-	}
-	return data
+	return ExpensesModel.getExpensesByTime()
   };
 
   //Get context with jQuery - using jQuery's .get() method.
