@@ -1,14 +1,8 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $rootScope, UserModel) {
+expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, UserModel) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 
-	$scope.addBudget = function() {
-
-		console.log("saveBudget");
-		//UserModel.addBudget();
-		console.log("addBudget.value");
-
-		//$location.path('');
+	$scope.saveBudget = function() {
+		$location.path('/settings');
 	}
-
 });
