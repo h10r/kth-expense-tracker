@@ -1,7 +1,13 @@
-.bar-nav ~ .content {
+header.bar-nav ~ .content {
   padding-top: 55px;
 }
 
-.bar {
+header.bar {
   height: 55px;
+
+  .subline {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0 0 0;
+  }
 }

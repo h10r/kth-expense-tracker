@@ -71,44 +71,44 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		}
 	);
 
-	Date.prototype.monthDays= function(){
-	    var d= new Date(this.getFullYear(), this.getMonth()+1, 0);
-	    return d.getDate();
+	Date.prototype.monthDays= function () {
+    var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
+    return d.getDate();
 	}
 
 	return {
-		initNewExpense : function() {
+		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
 			return currentExpense;
 		},
 
-		getCurrentExpense : function() {
+		getCurrentExpense : function () {
 			return currentExpense;
 		},
-		
-		getExpenses : function() {
-		    return expenses.reverse();
-        },
 
-		getAmount : function() {
+		getExpenses : function () {
+			return expenses.reverse();
+    },
+
+		getAmount : function () {
 			return currentExpense.amount;
 		},
 
-		setAmount : function(newAmount) {
+		setAmount : function (newAmount) {
 			currentExpense.amount = newAmount;
 		},
-		
-		getCategory : function() {
+
+		getCategory : function () {
 			return currentExpense.category_id;
 		},
 
-		setCategory : function(newCategory) {
+		setCategory : function (newCategory) {
 			currentExpense.category_id = newCategory;
 		},
 
 		// higher level functions
 
-		addExpenseToCollection : function(expense) {
+		addExpenseToCollection : function (expense) {
 			// return detailViewId;
 			expenses.push( currentExpense );
 		},
