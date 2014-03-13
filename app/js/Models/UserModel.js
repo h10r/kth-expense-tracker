@@ -2,10 +2,36 @@
 expenseTrackerAppModule.service('UserModel', function () {
 	'use strict';
 
-	var firstName = '',
+	var 	firstName = '',
 			lastName = '',
 			eMailAddress = '',
-			token = '';
+			token = '',
+		Budgets = [],
+		addBudget,
+		Budget = {
+			id : -1,
+			amount : 0.0,
+			time : null,
+			date : null,
+			location : null,
+			description : null,
+			category_id : null,
+			value : 0
+		};
+
+	Budgets.push(
+		{
+			id : 0,
+			amount : 123.00,
+			time : null,
+			date : null,
+			location : null,
+			description : null,
+			category_id : 2,
+			value : 0
+		}
+		);
+			
 
 	return {
 		/* Getter and Setter */
@@ -56,6 +82,27 @@ expenseTrackerAppModule.service('UserModel', function () {
 			// Expenses Model
 			
 			//return expenses;
+		},
+
+		initNewBudget : function() {
+			addBudget = jQuery.extend(true, {}, Budget);
+			return addBudget;
+		},
+
+
+
+		addBudget : function(Budget) {
+			// return detailViewId;
+			Budgets.push( addBudget );
 		}
+
 	};
 });
+
+
+
+	
+
+
+
+		

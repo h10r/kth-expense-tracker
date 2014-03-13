@@ -11,10 +11,12 @@
       <form class="input-group">
         <div class="input-row">
           <label>Budget</label>
-          <input type="text" placeholder="1000.0">
+          <input ng-view="addBudget.value" type="text" placeholder="Input Budget" ng-model="addBudget.value" required> {{addBudget.value}}
         </div>
       </form>
 
-      <button class="btn btn-positive btn-block">Save</button>
+      <a class="btn btn-positive btn-block" ng-click="saveBudget()" href="#/settings" >Save Budget</a>
+      
+
 	</div>
 </div>
