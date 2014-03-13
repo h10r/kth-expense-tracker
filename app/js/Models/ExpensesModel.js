@@ -99,8 +99,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	);
 
 	Date.prototype.monthDays= function () {
-    var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
-    return d.getDate();
+	    var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
+    	return d.getDate();
 	}
 
 	Date.prototype.getWeek = function() { 
