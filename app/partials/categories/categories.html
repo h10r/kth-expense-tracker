@@ -1,0 +1,28 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <a class="btn pull-left" href="#settings">
+    Back
+  </a>
+  <h1 class="title">Categories</h1>
+</header>
+
+<ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">
+      
+  <div id="category-add" class="content-padded">
+    
+    <ul class="table-view color-list">
+      <li class="table-view-cell" ng-repeat="c in categories">
+        <a>
+          {{c.title}}
+        </a>
+      </li>
+    </ul>
+    
+    <div class="input-row">
+      <button class="btn btn-positive btn-block" href="#categories/add">Add new category</button>
+    </div>
+  </div>  
+</div>

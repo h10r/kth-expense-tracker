@@ -19,7 +19,8 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   
   $routeProvider.when('/overview/weekly', {templateUrl: 'partials/overview/overview-weekly.html', controller: 'expenseTracker.OverviewController'});
 
-  $routeProvider.when('/category/add', {templateUrl: 'partials/category/category-add.html', controller: 'expenseTracker.SettingsController'});
+  $routeProvider.when('/categories', {templateUrl: 'partials/categories/categories.html', controller: 'expenseTracker.CategoriesController'});
+  $routeProvider.when('/categories/add', {templateUrl: 'partials/categories/categories-add.html', controller: 'expenseTracker.CategoriesController'});
   
   $routeProvider.when('/goal/add', {templateUrl: 'partials/goal/goal-add.html', controller: 'expenseTracker.SettingsController'});
 

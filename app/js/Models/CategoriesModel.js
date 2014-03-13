@@ -15,9 +15,9 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			title : '',
 			color : ''
 		},
-		available_colors = [];
+		availableColors = [];
 
-		available_colors.push( 
+		availableColors.push( 
 		{
 			id 	  : 0, 	
 			title : 'turquoise',
@@ -128,7 +128,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		getAvailableColors : function() {
-			return available_colors;
+			return availableColors;
 		},
 
 		listCategories : function () {
@@ -145,9 +145,9 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		getCategoryColorById : function (colorId) {
-			for (var key in available_colors) {
-				if (available_colors[key].id === colorId) {
-					return available_colors[key];
+			for (var key in availableColors) {
+				if (availableColors[key].id === colorId) {
+					return availableColors[key];
 				}
 			}
 		}
