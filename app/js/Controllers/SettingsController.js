@@ -1,7 +1,7 @@
 expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
-
+	$scope.goal = GoalsModel.addGoal();
 
 	if( $location.$$path == "/category/add" ) {
 		$scope.currentCategory = CategoriesModel.initNewCategory();
@@ -26,4 +26,7 @@ expenseTrackerAppModule.controller('expenseTracker.SettingsController', function
 		$scope.redirectToSettingsPage();
 	}
 
+	$scope.saveGoal = function() {
+		$scope.redirectToSettingsPage();
+	}
 });

@@ -9,7 +9,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 		$scope.currentExpense.date = now.toDateString();
 		$scope.currentExpense.time = now.toLocaleTimeString();
 	} else if( $location.$$path.indexOf("/expenses/remove/") != -1 ) {
-		
+
 		ExpensesModel.removeExpenseFromCollection( $routeParams.id );
 		$location.path('/feeds');
 
@@ -18,7 +18,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	}
 
 	$scope.amount = ExpensesModel.getAmount();
-
+  var currentCategoryId = ExpensesModel.getCategory();
+  $scope.selectedCategory = CategoriesModel.getCategoryById(currentCategoryId);
 
 	$(".knob").knob({
 	    change : function (value) {
@@ -28,7 +29,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	    }
 	});
 
-	//
 
 	$scope.chooseCategory = function (categoryId) {
 		ExpensesModel.setCategory( categoryId );
