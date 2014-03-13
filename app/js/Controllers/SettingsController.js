@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel) {
+expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel, GoalsModel) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.goal = GoalsModel.addGoal();
