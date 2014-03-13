@@ -9,27 +9,31 @@
 <div class="content">
       
 	<div id="category-add" class="content-padded">
-      <form class="input-group">
-        <div class="input-row">
-          <label>Title</label>
-          <input type="text" placeholder="Beer">
-        </div>
-      </form>
+    <form class="input-group">
+      <div class="input-row">
+        <label>Title</label>
+        <input type="text" placeholder="Beer" ng-model="currentCategory.title">
+      </div>
+    </form>
 
- 
-        <div class="input-row">
-          <label>Color Tag</label>
-          <input type="text" placeholder="Color">
-        </div>
-     
-
-  
-        <div class="input-row">
-          <label>Add Icon</label>
-          <input type="text" placeholder="Icon">
-        </div>
+    <div class="input-row">
+      <h3>Color</h3>
+    </div>
     
+    <ul class="table-view color-list">
+      <li class="table-view-cell" ng-repeat="c in available_colors" style="background-color: {{c.color}}" ng-click="chooseColorForCategory(c.id)">
+        <a>
+          {{c.title}}
+        </a>
+      </li>
+    </ul>
+    
+    <div class="input-row">
+      <button class="btn btn-positive btn-block" ng-click="addCategory()">Add category</button>
+    </div>
 
-      <button class="btn btn-positive btn-block">Add category</button>
-	</div>	
+    </br>
+    </br>
+    </br>
+  </div>  
 </div>
