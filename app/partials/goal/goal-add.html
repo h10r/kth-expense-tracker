@@ -11,10 +11,10 @@
       <form class="input-group">
         <div class="input-row">
           <label>Goal</label>
-          <input type="text" placeholder="500.00">
+          <input type="text" placeholder="500" ng-model="goal.target" >
         </div>
       </form>
 
-      <button class="btn btn-positive btn-block">Save</button>
+      <button class="btn btn-positive btn-block" ng-click="saveGoal()">Save</button>
   </div>
 </div>

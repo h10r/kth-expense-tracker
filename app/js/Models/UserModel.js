@@ -2,38 +2,54 @@
 expenseTrackerAppModule.service('UserModel', function () {
 	'use strict';
 
-	var firstName = '',
-			lastName = '',
-			eMailAddress = '',
-			token = '';
+	var currentUser = {
+		firstName : '',
+		lastName : '',
+		eMailAddress : '',
+		budget : 0.0,
+		token : ''
+	};
 
 	return {
+
+		getCurrentUser : function() {
+			return currentUser;
+		},
+
 		/* Getter and Setter */
 
 		getFirstName : function () {
-			return firstName;
+			return currentUser.firstName;
 		},
 		
 		setFirstName : function (value) {
-			firstName = value;
+			currentUser.firstName = value;
 		},
-		
+
 		getLastName : function () {
-			return lastName;
+			return currentUser.lastName;
 		},
 		
 		setLastName : function (value) {
-			lastName = value;
+			currentUser.lastName = value;
 		},
 		
 		getEMailAddress : function () {
-			return eMailAddress;
+			return currentUser.eMailAddress;
 		},
 		
 		setEMailAddress : function (value) {
-			eMailAddress = value;
+			currentUser.eMailAddress = value;
 		},
 
+		getBudget : function () {
+			return currentUser.budget;
+		},
+		
+		setBudget : function (value) {
+			currentUser.budget = value;
+		},
+		
 		getGoals : function () {
 			// Goal Model
 			

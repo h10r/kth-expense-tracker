@@ -14,7 +14,7 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 	return {
 
 		addGoal : function (goal) {
-			// return detailViewId;
+			return goal;
 		},
 
 		removeGoal : function (goalId) {
