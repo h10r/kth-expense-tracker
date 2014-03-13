@@ -9,10 +9,6 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 		$scope.categories = CategoriesModel.listCategories();
 	}
 	
-	$scope.redirectToSettingsPage = function() {
-		$location.path('/settings');
-	}
-
 	$scope.chooseColorForCategory = function(colorId) {
 		CategoriesModel.setCategoryColorById( colorId );
 	}
@@ -20,7 +16,7 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	$scope.saveCategory = function() {
 		CategoriesModel.saveCurrentCategoryToCollection();
 
-		$scope.redirectToSettingsPage();
+		$location.path('/categories');
 	}
 
 });
