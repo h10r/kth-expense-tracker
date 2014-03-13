@@ -12,7 +12,9 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		//console.log(categoryList);
 		return categoryList;
 	})();
-	console.log($scope.categories);
+
+	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
+
 	var getCategoryData = function(){	
 		return ExpensesModel.getExpensesByCategory();
 	};

@@ -19,7 +19,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 0,
 			amount : 123.00,
 			time : null,
-			date : null,
+			date : new Date(2014,2,1),
 			location : null,
 			description : null,
 			category_id : 2
@@ -28,7 +28,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 1,
 			amount : 45.00,
 			time : null,
-			date : null,
+			date : new Date(2014,2,3),
 			location : null,
 			description : null,
 			category_id : 2
@@ -37,7 +37,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 2,
 			amount : 301,
 			time : null,
-			date : null,
+			date : new Date(2014,2,4),
 			location : null,
 			description : null,
 			category_id : 3
@@ -46,7 +46,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 3,
 			amount : 21,
 			time : null,
-			date : null,
+			date : new Date(2014,2,4),
 			location : null,
 			description : null,
 			category_id : 1
@@ -55,7 +55,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 4,
 			amount : 79,
 			time : null,
-			date : null,
+			date : new Date(2014,2,5),
 			location : null,
 			description : null,
 			category_id : 3
@@ -64,16 +64,55 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 5,
 			amount : 103,
 			time : null,
-			date : null,
+			date : new Date(2014,2,8),
 			location : null,
 			description : null,
 			category_id : 0
+		},
+		{
+			id : 6,
+			amount : 73,
+			time : null,
+			date : new Date(2014,2,10),
+			location : null,
+			description : null,
+			category_id : 2
+		},
+		{
+			id : 7,
+			amount : 137,
+			time : null,
+			date : new Date(2014,2,11),
+			location : null,
+			description : null,
+			category_id : 4
+		},
+		{
+			id : 8,
+			amount : 89,
+			time : null,
+			date : new Date(2014,2,12),
+			location : null,
+			description : null,
+			category_id : 1
 		}
 	);
 
 	Date.prototype.monthDays= function () {
     var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
     return d.getDate();
+	}
+
+	Date.prototype.getWeek = function() { 
+	    var determinedate = new Date(); 
+	    determinedate.setFullYear(this.getFullYear(), this.getMonth(), this.getDate()); 
+	    var D = determinedate.getDay(); 
+	    if(D == 0) D = 7; 
+	    determinedate.setDate(determinedate.getDate() + (4 - D)); 
+	    var YN = determinedate.getFullYear(); 
+	    var ZBDoCY = Math.floor((determinedate.getTime() - new Date(YN, 0, 1, -6)) / 86400000); 
+	    var WN = 1 + Math.floor(ZBDoCY / 7); 
+	    return WN; 
 	}
 
 	return {
@@ -88,7 +127,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		getExpenses : function () {
 			return expenses.reverse();
-    },
+    	},
 
 		getAmount : function () {
 			return currentExpense.amount;
@@ -145,24 +184,84 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByTime : function () {
-			//TODO: needs to be changed to dynamic
 			var data = {
-			  labels : ["1","2","3","4","5","6","7"],
+			  labels : ["Mo","Tu","We","Th","Fr","Sa","Su"],
 			    datasets : [
-			      {
+					{
+			      		fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						data : this.getPreviousWeeksExpenses()
+					},
+					{
 			            fillColor : "rgba(151,187,205,0.5)",
 			      		strokeColor : "rgba(151,187,205,1)",
 			      		pointColor : "rgba(151,187,205,1)",
 			      		pointStrokeColor : "#fff",
-			        	data : [65,59,90,81,56,28,48]
-			      }
+			        	data : this.getThisWeeksExpenses()
+			      	}
 			    ]
 			}
 			return data;
 		},
 
-		getThisWeek : function () {
+		getThisWeeksExpenses : function () {
+			var currentDate = new Date();
+			var currentWeekNumber = currentDate.getWeek();
+			var expenses = this.getExpenses();
+			console.log(expenses);
+			var weekData = [0,0,0,0,0,0,0];
+			console.log("current week number: " + currentWeekNumber);
+			for (var idx in expenses){
 
+				if ( typeof expenses[idx].date == 'string' ){
+					expenses[idx].date = new Date(expenses[idx].date);
+					console.log(expenses[idx].date)
+				}
+
+				if (expenses[idx].date.getWeek() == currentWeekNumber){
+					var dayIndex = expenses[idx].date.getDay()-1;
+					weekData[dayIndex] += expenses[idx].amount;
+				}
+			}
+			console.log("current week day totals: "+weekData);
+			return weekData;
+		},
+
+		getPreviousWeeksExpenses : function () {
+			var currentDate = new Date();
+			var currentWeekNumber = currentDate.getWeek()-1;
+			var expenses = this.getExpenses();
+			console.log(expenses);
+			var weekData = [0,0,0,0,0,0,0];
+
+			for (var idx in expenses){
+
+				if ( typeof expenses[idx].date == 'string' ){
+					expenses[idx].date = new Date(expenses[idx].date);
+				}
+
+				if (expenses[idx].date.getWeek() == currentWeekNumber){
+					var dayIndex = expenses[idx].date.getDay()-1;
+					weekData[dayIndex] += expenses[idx].amount;
+				}
+			}
+			console.log("previous week day totals: "+weekData);
+			return weekData;
+
+		},
+
+		getWeeklyTotals : function () {
+			var thisWeek = this.getThisWeeksExpenses();
+			var lastWeek = this.getPreviousWeeksExpenses();
+			var thisWeekTotal=0;
+			var lastWeekTotal=0;
+			for(var i in thisWeek) {
+				thisWeekTotal += thisWeek[i]; 
+				lastWeekTotal += lastWeek[i];
+			}
+			return [thisWeekTotal, lastWeekTotal];
 		}
 	};
 });
