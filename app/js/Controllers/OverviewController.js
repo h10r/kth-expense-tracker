@@ -13,6 +13,10 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		return categoryList;
 	})();
 
+	$scope.getWeekChart = function () {
+		console.log("by week tab clicked");
+	};
+	
 	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
 
 	var getCategoryData = function(){	
