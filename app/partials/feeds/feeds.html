@@ -19,9 +19,12 @@
 	      		<i ng-if="expense_and_cat['category'].icon != ''" class="fa {{expense_and_cat['category'].icon}}"></i>
 	      		<i ng-if="expense_and_cat['category'].icon == ''" class="fa">{{expense_and_cat['category'].initial}}</i>
 	      	</div>
-			{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
-
-			{{expense_and_cat["expense"].description}}
+	      	<span class="amount">
+						{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
+					</span>
+					<span class="date">
+						{{expense_and_cat["expense"].date | date: 'MMM d'}}
+					</span>
 	      </div>
 	    </a>
 	  </li>

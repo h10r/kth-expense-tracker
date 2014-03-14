@@ -37,7 +37,7 @@ h3 {
 
 .add-expenses {
   position: relative;
-  margin-top: 25px; }
+  margin-top: 65px; }
   .add-expenses div {
     margin: 0 auto; }
   .add-expenses .amount {
@@ -127,7 +127,7 @@ h3 {
     font-size: 15px;
     line-height: 18px;
     font-weight: 400;
-    margin: 0 5% 0 5%; }
+    margin: 0 8% 0 8%; }
     .feed .budget-status h2 span {
       color: white;
       font-size: 16px;
@@ -136,6 +136,14 @@ h3 {
   background: #5cb85c; }
 .feed .budget-status.bad {
   background: #f24c21; }
+.feed .table-view-cell a {
+  margin: -11px -95px -11px -5px; }
+  .feed .table-view-cell a .media-body span {
+    line-height: 30px; }
+  .feed .table-view-cell a .media-body span.date {
+    float: right;
+    color: #CCC;
+    text-align: right; }
 
 .feed-detail .input-row label {
   color: #969696; }
@@ -164,6 +172,9 @@ h3 {
   .settings ul.list-of-currencies li.active span {
     color: #FFF; }
 
+.content > .table-view:first-child {
+  margin-top: 0; }
+
 .dataChart {
   display: block !important;
   margin: 0 auto;
@@ -171,13 +182,3 @@ h3 {
 
 .btn-block {
   width: 100%; }
-
-.btn-color-select {
-  width: 42px;
-  height: 42px;
-  margin: 0 5px 5px 0;
-}
-
-.content > .table-view:first-child {
-  margin-top: 0;
-}
