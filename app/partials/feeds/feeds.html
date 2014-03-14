@@ -13,11 +13,11 @@
 	      <div class="media-body">
 	      	<div class="category-icon" 
 	      		style="background-color: {{ categoryColors[ expense_and_cat['category'].color_id ].color_value }};">
-	      		<i class="fa {{expense_and_cat['category'].icon}}"></i>
+	      		<i ng-if="expense_and_cat['category'].icon != ''" class="fa {{expense_and_cat['category'].icon}}"></i>
+	      		<i ng-if="expense_and_cat['category'].icon == ''" class="fa">{{expense_and_cat['category'].initial}}</i>
 	      	</div>
 			SEK {{expense_and_cat["expense"].amount}}&nbsp;
 			{{expense_and_cat["expense"].description}}
-
 	      </div>
 	    </a>
 	  </li>
