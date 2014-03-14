@@ -1,12 +1,11 @@
-expenseTrackerAppModule.controller('expenseTracker.FeedsController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
 	// if on feeds/detail page
-	if( $location.$$path.indexOf("/feeds/detail/") != -1) {
+	if( $location.$$path.indexOf("/feed/detail/") != -1) {
 		$scope.expense = ExpensesModel.getExpenseById( $routeParams.id );
 		$scope.category = CategoriesModel.getCategoryById( $scope.expense.category_id );
-		
 	} else { // if on feeds main page
 		$scope.expenses = ExpensesModel.getExpenses();
 		$scope.expenses_categories = [];
@@ -22,6 +21,6 @@ expenseTrackerAppModule.controller('expenseTracker.FeedsController', function($s
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
 	$scope.openDetailView = function (expenseId) {
-		$location.path('/feeds/detail/' + expenseId);
+		$location.path('/feed/detail/' + expenseId);
 	};
 });
