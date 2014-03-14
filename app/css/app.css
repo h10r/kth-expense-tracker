@@ -37,7 +37,7 @@ h3 {
 
 .add-expenses {
   position: relative;
-  margin-top: 65px; }
+  margin-top: 25px; }
   .add-expenses div {
     margin: 0 auto; }
   .add-expenses .amount {
@@ -171,3 +171,13 @@ h3 {
 
 .btn-block {
   width: 100%; }
+
+.btn-color-select {
+  width: 42px;
+  height: 42px;
+  margin: 0 5px 5px 0;
+}
+
+.content > .table-view:first-child {
+  margin-top: 0;
+}
