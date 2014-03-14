@@ -8,14 +8,14 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
 
-	<div id="expenses-add" class="content-padded">
-	  	<p>
-			<button ng-click='decreaseAmount()' class="btn btn-negative btn-outlined">-</button>
-		<span class="pull-right">
-			<button ng-click='increaseAmount()' class="btn btn-positive btn-outlined">+</button>
-		</span>
-	  	</p>
-		<input class="knob" data-angleOffset=-100 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" data-linecap="round" data-displayInput="false" value="10">
+	<div class="content-padded add-expenses">
+
+		<input class="infinite" value="0">
+
+		<div class="amount">
+    	<div class="ival">0</div>
+    	<div class="currency">SEK</div>
+    </div>
 
 		<a class="btn btn-positive btn-block" href="#expenses/add/category">Add</a>
 	</div>	

@@ -71,10 +71,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		}
 	);
 
-	Date.prototype.monthDays= function () {
+	Date.prototype.monthDays = function () {
     var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
     return d.getDate();
-	}
+	};
 
 	return {
 		initNewExpense : function () {
@@ -110,7 +110,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		addExpenseToCollection : function (expense) {
 			// return detailViewId;
-			expenses.push( currentExpense );
+			expenses.push(currentExpense);
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
@@ -126,13 +126,13 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByCategory : function () {
-			var categories = CategoriesModel.listCategories();
-			var dataArray = [];
+			var categories = CategoriesModel.listCategories(),
+				dataArray = [];
 
-			for(var category in categories){
+			for (var category in categories) {
 				var sum = 0;
-				for(var id in expenses){
-					if(expenses[id].category_id == category){
+				for (var id in expenses) {
+					if (expenses[id].category_id == category){
 						sum += expenses[id].amount;
 					}
 				}

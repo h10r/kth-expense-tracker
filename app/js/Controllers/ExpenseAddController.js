@@ -1,16 +1,25 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
+  'use strict';
+
+  var now,
+    currentCategoryId,
+    v,
+    infiniteValue = 0,
+    up = 0,
+    down = 0,
+    $ival = $('div.ival');
 
 	$scope.categories = CategoriesModel.listCategories();
 
-	if( $location.$$path === "/expenses/add" ) {
+	if ($location.$$path === '/expenses/add') {
 		$scope.currentExpense = ExpensesModel.initNewExpense();
 
-		var now = new Date();
+		now = new Date();
 		$scope.currentExpense.date = now.toDateString();
 		$scope.currentExpense.time = now.toLocaleTimeString();
-	} else if( $location.$$path.indexOf("/expenses/remove/") != -1 ) {
+	} else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
 
-		ExpensesModel.removeExpenseFromCollection( $routeParams.id );
+		ExpensesModel.removeExpenseFromCollection($routeParams.id);
 		$location.path('/feeds');
 
 	} else {
@@ -18,86 +27,81 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	}
 
 	$scope.amount = ExpensesModel.getAmount();
-  var currentCategoryId = ExpensesModel.getCategory();
+  currentCategoryId = ExpensesModel.getCategory();
   $scope.selectedCategory = CategoriesModel.getCategoryById(currentCategoryId);
-
-	$(".knob").knob({
-	    change : function (value) {
-	    	$scope.updateValue(value);
-	    },
-	    release : function (value) {
-	    }
-	});
 
 
 	$scope.chooseCategory = function (categoryId) {
-		ExpensesModel.setCategory( categoryId );
+		ExpensesModel.setCategory(categoryId);
 
 		$location.path('/expenses/add/details');
 	};
 	
 	$scope.saveExpense = function () {
-		console.log( "saveExpense" );
+		//console.log( "saveExpense" );
 		
 		ExpensesModel.addExpenseToCollection();
 
 		$location.path('/feeds');
 	};
 
-	$scope.decreaseAmount = function() {
-		ExpensesModel.setAmount( ExpensesModel.getAmount() - 1 );
-		
-		$scope.amount = ExpensesModel.getAmount();
-	};
-
-	$scope.increaseAmount = function() {
-		ExpensesModel.setAmount( ExpensesModel.getAmount() + 1 );
-		
-		$scope.amount = ExpensesModel.getAmount();
-	};
 
 	$scope.updateValue = function (value) {
-		var xi = value / 100;
-		var res = 1000 * -( Math.sqrt( 1 - xi*xi ) - 1);
 
-		ExpensesModel.setAmount( Math.floor( res ) );
+		ExpensesModel.setAmount(value);
 		
 		$scope.amount = ExpensesModel.getAmount();
 
 		$scope.$digest();
 	};
 
-	$scope.draw = function () {
-		if(this.$.data('skin') == 'tron') {
-            this.cursorExt = 0.3;
 
-            var a = this.arc(this.cv)  // Arc
-                , pa                   // Previous arc
-                , r = 1;
+  // Example of infinite knob, iPod click wheel
+  var incr = function () {
+      infiniteValue++;
+      $ival.html(infiniteValue);
+      $scope.updateValue(infiniteValue);
+    },
+    decr = function () {
+      if (ExpensesModel.getAmount() !== 0) {
+        infiniteValue--;
+        $ival.html(infiniteValue);
+        $scope.updateValue(infiniteValue);
+      }
+    };
 
-            this.g.lineWidth = this.lineWidth;
-
-            if (this.o.displayPrevious) {
-                pa = this.arc(this.v);
-                this.g.beginPath();
-                this.g.strokeStyle = this.pColor;
-                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
-                this.g.stroke();
-            }
-
-            this.g.beginPath();
-            this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
-            this.g.stroke();
-
-            this.g.lineWidth = 2;
-            this.g.beginPath();
-            this.g.strokeStyle = this.o.fgColor;
-            this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-            this.g.stroke();
-
-            return false;
+  // init jQuery knob
+  $('.infinite').knob({
+    min: 0,
+    max: 30,
+    width: 230,
+    height: 230,
+    stopper: false,
+    cursor: 30,
+    inline: false,
+    displayInput: false,
+    change: function () {
+      if (v > this.cv) {
+        if (up) {
+          decr();
+          up = 0;
+        } else {
+          up = 1;
+          down = 0;
         }
-	};
+      } else {
+        if (v < this.cv) {
+          if (down) {
+            incr();
+            down = 0;
+          } else {
+            down = 1;
+            up = 0;
+          }
+        }
+      }
+      v = this.cv;
+    }
+  });
 
 });

@@ -10,6 +10,42 @@ h3 {
   font-size: 16px;
 }
 
+.add-expenses {
+  position: relative;
+  margin-top: 65px;
+
+  div {
+    margin: 0 auto;
+  }
+
+  .amount {
+    width: 100%;
+    position: absolute;
+    top: 90px;
+
+    .ival {
+      width: 100%;
+      text-align: center;
+      font-size: 50px;
+      color:#AAA;    
+    }
+
+    .currency {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0 0 0;
+      color: #bdbdbd;
+    }
+  }
+
+  .btn {
+    margin: 30px auto 0 auto;
+    width: 80%;
+  }
+}
+
+
+
 .category-list {
   width: 90%;
   margin: 0 auto;
