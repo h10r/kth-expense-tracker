@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel) {
+expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 
 	// if on feeds/detail page
 	if( $location.$$path.indexOf("/feeds/detail/") != -1) {
@@ -16,6 +16,8 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function($sc
 			});
 		}
 	}
+
+	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
 	$scope.openDetailView = function (expenseId) {
 		$location.path('/feeds/detail/' + expenseId);
