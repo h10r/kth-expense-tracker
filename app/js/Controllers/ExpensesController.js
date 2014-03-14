@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
   'use strict';
 
   var now,
