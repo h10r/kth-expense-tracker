@@ -7,7 +7,8 @@ expenseTrackerAppModule.service('UserModel', function () {
 		lastName : '',
 		eMailAddress : '',
 		budget : 0.0,
-		token : ''
+		token : '',
+		currency: 0
 	};
 
 	return {
@@ -72,6 +73,14 @@ expenseTrackerAppModule.service('UserModel', function () {
 			// Expenses Model
 			
 			//return expenses;
+		},
+
+		getCurrency : function () {
+			return currentUser.currency;
+		},
+		
+		setCurrency : function (currencyId) {
+			currentUser.currency = currencyId;
 		}
 	};
 });

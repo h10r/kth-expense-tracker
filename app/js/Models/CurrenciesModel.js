@@ -76,7 +76,7 @@ expenseTrackerAppModule.service('CurrenciesModel', function () {
 
   return {
 
-    getCurrenciesList : function() {
+    getCurrenciesList : function () {
       return currencies;
     },
 
