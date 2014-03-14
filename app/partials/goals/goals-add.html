@@ -14,12 +14,12 @@
 
 <form class="input-group">
   <div class="input-row">
-    <label>Target in  {{userCurrency}}</label>
+    <label>Target in {{userCurrency}}</label>
     <input type="text" placeholder="500" ng-model="currentGoal.target" >
   </div>
   <div class="input-row">
     <label>Goal Date</label>
-    <input type="date" placeholder="" ng-model="currentGoal.timestamp" >
+    <input type="date" placeholder="{{getTodayForDateField()}}" value="{{getTodayForDateField()}}" ng-model="currentGoal.timestamp" >
   </div>
   <div class="input-row">
     <label>Description</label>
