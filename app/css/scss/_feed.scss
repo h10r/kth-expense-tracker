@@ -16,6 +16,36 @@
 
 }
 
+.feed {
+  .budget-status {
+    padding: 15px 0 15px 0;
+    -webkit-box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1); /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+            box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1); /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+
+    h2 {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
+      line-height: 18px;
+      font-weight: 400;
+      margin: 0 5% 0 5%;
+
+      span {
+        color: rgba(255, 255, 255, 1);
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .budget-status.good {
+     background: #5cb85c;
+  }
+
+  .budget-status.bad {
+     background: #f24c21;
+  }
+}
+
 .feed-detail {
 
   .input-row {

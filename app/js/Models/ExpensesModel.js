@@ -134,7 +134,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		getExpenses : function () {
 			return expenses.reverse();
-    	},
+    },
 
 		getAmount : function () {
 			return currentExpense.amount;
@@ -273,6 +273,26 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 				lastWeekTotal += lastWeek[i];
 			}
 			return [thisWeekTotal, lastWeekTotal];
+		},
+
+		getMonthlyTotal : function (month) {
+			
+			var monthlyTotal = 0,
+				expenses = this.getExpenses(),
+				currentDate,
+				i;
+
+			if (month === undefined) {
+				currentDate = new Date();
+				month = currentDate.getMonth();
+			}
+
+			for (i = 0; i < expenses.length; i++) {
+				if (expenses[i]['date'].getMonth() ===  month) {
+					monthlyTotal += expenses[i]['amount'];
+				}
+			}
+			return monthlyTotal;
 		}
 	};
 });
