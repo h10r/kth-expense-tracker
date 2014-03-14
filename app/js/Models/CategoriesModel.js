@@ -124,10 +124,10 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		removeCategoryFromCollection : function (categoryId) {
-			for (var i = 0; i < categories.length; i++) {
-				if (categories[i].id === categoryId) {
-					categories.splice( i, 1 );
-				}
+			for (var key in categories) {
+				if (categories[key].id == categoryId) {
+					categories.splice( categories.indexOf( categories[key] ), 1 );
+				}				
 			}
 		},
 

@@ -11,17 +11,15 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 
 	$scope.categories = CategoriesModel.listCategories();
 
-	if ($location.$$path === '/expenses/add') {
-		$scope.currentExpense = ExpensesModel.initNewExpense();
+  if ($location.$$path === '/expenses/add') {
+    $scope.currentExpense = ExpensesModel.initNewExpense();
 
-		now = new Date();
-		$scope.currentExpense.date = now.toDateString();
-		$scope.currentExpense.time = now.toLocaleTimeString();
-	} else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
-
+    now = new Date();
+    $scope.currentExpense.date = now.toDateString();
+    $scope.currentExpense.time = now.toLocaleTimeString();
+  } else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
 		ExpensesModel.removeExpenseFromCollection($routeParams.id);
 		$location.path('/feeds');
-
 	} else {
 		$scope.currentExpense = ExpensesModel.getCurrentExpense();
 	}

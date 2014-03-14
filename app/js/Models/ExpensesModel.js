@@ -158,10 +158,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
-			for (var i = 0; i < expenses.length; i++) {
-				if (expenses[i].id === expenseId) {
-					expenses.splice( i, 1 );
-				}
+			for (var key in expenses) {
+				if (expenses[key].id == expenseId) {
+					expenses.splice( expenses.indexOf( expenses[key] ), 1 );
+				}				
 			}
 		},
 
