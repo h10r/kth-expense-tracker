@@ -9,7 +9,7 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content content-padded feed-detail">
+<div class="content feed-detail">
   <div class="input-row">
     <label>Amount</label>
     <input type="text" value="{{expense.amount}} {{userCurrency.sign}}" readonly>
@@ -25,18 +25,18 @@
   </div>
   <div class="input-row">
     <label>Date</label>
-    <input type="text" value="{{expense.date}}" readonly>
+    <input type="text" value="{{expense.date | date: 'longDate'}}" readonly>
   </div>
   <div class="input-row">
     <label>Time</label>
-    <input type="text" value="{{expense.time}}" readonly>
+    <input type="text" value="{{expense.date | date: 'shortTime'}}" readonly>
   </div>
   <div class="input-row">
     <label>Location</label>
     <input type="text" value="{{expense.location}}" readonly>
   </div>
 
-  <a href="#confirmRemove" class="btn btn-negative btn-block">Delete expense</a>
+  <a href="#confirmRemove" class="btn btn-negative btn-block delete-expense">Delete expense</a>
 
   <div id="confirmRemove" class="modal">
     <header class="bar bar-nav">
