@@ -16,7 +16,8 @@
 	      		<i ng-if="expense_and_cat['category'].icon != ''" class="fa {{expense_and_cat['category'].icon}}"></i>
 	      		<i ng-if="expense_and_cat['category'].icon == ''" class="fa">{{expense_and_cat['category'].initial}}</i>
 	      	</div>
-			SEK {{expense_and_cat["expense"].amount}}&nbsp;
+			{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
+
 			{{expense_and_cat["expense"].description}}
 	      </div>
 	    </a>

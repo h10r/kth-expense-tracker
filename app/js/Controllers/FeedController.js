@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel) {
+expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
@@ -18,6 +18,8 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function($sc
 			});
 		}
 	}
+
+	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
 	$scope.openDetailView = function (expenseId) {
 		$location.path('/feeds/detail/' + expenseId);
