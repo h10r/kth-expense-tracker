@@ -1,9 +1,11 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <a class="btn pull-left" href="#settings">
+  <a class="btn btn-link btn-nav pull-left" href="#settings">
+    <span class="icon icon-left-nav"></span>
     Back
   </a>
   <h1 class="title">Manage Categories</h1>
+  <a class="icon icon-plus pull-right" href="#categories/add"></a>
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
@@ -25,6 +27,7 @@
 
     <div class="input-row">
       <a class="btn btn-positive btn-block" href="#categories/add">Add new category</a>
+      <a class="btn btn-negative btn-outlined btn-block" href="#categories/add">Delete categories</a>
     </div>
   </div>  
 </div>
