@@ -1,13 +1,17 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, UserModel, GoalsModel) {
+expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel, GoalsModel) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
+	$scope.goal = GoalsModel.addGoal();
+
+	$scope.redirectToSettingsPage = function() {
+		$location.path('/settings');
+	}
 
 	$scope.saveBudget = function() {
-	$location.path('/settings');
-	};
-
-	$scope.goal = GoalsModel.addGoal();
+		$scope.redirectToSettingsPage();
+	}
+	
 	$scope.saveGoal = function() {
-	$location.path('/settings');
-	};
+		$scope.redirectToSettingsPage();
+	}
 });
