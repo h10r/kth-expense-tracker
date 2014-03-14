@@ -23,7 +23,10 @@
       <a>
         {{category.title}}
       </a>
-     <i class="fa fa-2x {{category.icon}}"></i>
+     <i ng-if="category.icon != ''" class="fa fa-2x {{category.icon}}"></i>
+     <i ng-if="category.icon == ''" class="fa fa-2x">{{category.initial}}</i>
+
+
     </li>
   </ul>
 
