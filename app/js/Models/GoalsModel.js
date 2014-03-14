@@ -2,27 +2,42 @@
 expenseTrackerAppModule.service('GoalsModel', function () {
 	'use strict';
 
+	// @TODO: use the ID from the backend / database
+	var nextIDCounter = 0;
+
 	var goals = [],
+		currentGoal,
 		goal = {
-			id : '',
+			id : -1,
 			target : '',
 			timestamp : '',
-			location : '',
 			description : ''
 		};
 
 	return {
 
-		addGoal : function (goal) {
-			return goal;
+		initNewGoal : function() {
+			currentGoal = jQuery.extend(true, {}, goal);
+			currentGoal.id = nextIDCounter;
+			nextIDCounter = nextIDCounter + 1;
+			return currentGoal;
 		},
 
-		removeGoal : function (goalId) {
-			// return detailViewId;
+		saveCurrentGoalToCollection : function() {
+			goals.push( currentGoal );
 		},
 
-		getGoalById : function (goalId) {
-			// return detailViewId;
+		removeGoalFromCollection : function (GoalId) {
+			for (var key in goals) {
+				if (goals[key].id == GoalId) {
+					goals.splice( goals.indexOf( goals[key] ), 1 );
+				}				
+			}
+		},
+
+		getAllGoals : function() {
+			return goals;
 		}
+
 	};
 });

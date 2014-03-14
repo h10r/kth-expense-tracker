@@ -1,0 +1,45 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <a class="btn btn-link btn-nav pull-left" href="#settings">
+    <span class="icon icon-left-nav"></span>
+    Back
+  </a>
+  <h1 class="title">Goals</h1>
+  <a class="icon icon-plus pull-right" href="#goals/add"></a>
+</header>
+
+<ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">      
+  <div class="content-padded">
+    <ul class="table-view">
+      <li class="table-view-cell media" ng-repeat="goal in goals">
+        <a class="navigate-right">
+          <div class="media-body">
+            {{goal.target}} {{userCurrency}}
+            <p>Until: {{goal.timestamp}}<br/>
+              {{goal.description}}
+            </p>
+          </div>
+        </a>
+        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
+      </li>
+    </ul>
+    
+    <div class="input-row">
+
+      <div ng-if="goals.length == 0">
+          You have not defined any saving goals yet.<br/><br/>
+
+          As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
+        
+          <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
+      </div>
+      <div ng-if="goals.length != 0">
+        <a ng-if="!deleteMode" class="btn btn-negative btn-outlined btn-block" ng-click="toggleDeleteMode()">Delete a goal</a>
+        <a ng-if="deleteMode" class="btn btn-positive btn-outlined btn-block" ng-click="toggleDeleteMode()">Done with deleting</a>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -13,6 +13,10 @@
   //background-color: #acbdbf;
 }
 
+.content > .table-view:first-child {
+  margin-top: 0;
+}
+
 .dataChart {
   display: block !important;
     margin: 0 auto;

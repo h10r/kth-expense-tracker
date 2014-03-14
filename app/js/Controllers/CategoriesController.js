@@ -26,7 +26,6 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	
 	$scope.toggleDeleteMode = function() {
 		$scope.deleteMode = !$scope.deleteMode;
-		console.log( $scope.deleteMode );
 	}
 
 	$scope.saveCategory = function() {
