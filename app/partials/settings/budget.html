@@ -1,20 +1,25 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <h1 class="title">Budget</h1>
+    <a class="btn btn-link btn-nav pull-left" href="#settings">
+    <span class="icon icon-left-nav"></span>
+    Back
+    </a>
+  <h1 class="title">Set Budget</h1>
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
-	<div id="settings">
-      <form class="input-group">
-        <div class="input-row">
-          <label>Budget</label>
-          <input type="text" placeholder="400" ng-model="currentUser.budget">
-        </div>
-      </form>
+<div class="content content-padded">
 
-      <button class="btn btn-positive btn-block" ng-click="saveBudget()">Save</button>
-	</div>
+<form class="input-group">
+  <div class="input-row">
+    <label>Budget</label>
+    <input type="text" placeholder="400" ng-model="currentUser.budget">
+  </div>
+  <div class="input-row">
+    <button class="btn btn-positive btn-block" ng-click="saveBudget()">Save</button>
+  </div>
+</form>
+
 </div>
