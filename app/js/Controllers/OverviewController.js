@@ -2,6 +2,9 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	'use strict';
 	//TODO: get currency type from user model for display.
 
+	$scope.catChartVisible = true;
+	$scope.timeChartVisible= false;
+
 	$scope.categories = (function(){
 		//console.log("test log");
 		var categoryList = CategoriesModel.listCategories();
@@ -14,6 +17,28 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	})();
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
+	$scope.getWeekChart = function () {
+		var canvas = document.getElementById('byTimeChart');
+      	var context = canvas.getContext('2d');
+      	context.canvas.width = 300;
+		context.canvas.height = 200;
+		context.clearRect(0,0,canvas.width,canvas.height)
+		$scope.chartTime = new Chart(context).Line(getTimeData(),{});
+		$scope.catChartVisible = false;
+		$scope.timeChartVisible= true;
+	};
+
+	$scope.getCatChart = function () {
+		var canvas = document.getElementById('byCategoryChart');
+      	var context = canvas.getContext('2d');
+      	context.canvas.width = 300;
+		context.canvas.height = 200;
+		context.clearRect(0,0,canvas.width,canvas.height)
+		$scope.chartCategory = new Chart(context).Doughnut(getCategoryData());
+		$scope.catChartVisible = true;
+		$scope.timeChartVisible= false;
+	};
+
 	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
 
 	var getCategoryData = function(){	
@@ -25,12 +50,17 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	};
 
 	//Get context with jQuery - using jQuery's .get() method.
-	$scope.ctxCategory = $("#byCategoryChart").get(0).getContext("2d");
-	$scope.myNewChart1 = new Chart($scope.ctxCategory);
-	$scope.chartCategory = new Chart($scope.ctxCategory).Doughnut(getCategoryData(),{});
-	$scope.ctxTime = $("#byTimeChart").get(0).getContext("2d");
-	$scope.myNewChart2 = new Chart($scope.ctxTime);
-	$scope.chartTime = new Chart($scope.ctxTime).Line(getTimeData(),{});
+	var ctxCategory = $("#byCategoryChart").get(0).getContext("2d");
+	ctxCategory.width = 300;
+	ctxCategory.height= 200;
+	var myNewChart1 = new Chart(ctxCategory);
+	$scope.chartCategory = new Chart(ctxCategory).Doughnut(getCategoryData(),{});
+
+	var ctxTime = $("#byTimeChart").get(0).getContext("2d");
+	ctxTime.width = 300;
+	ctxTime.height= 200;
+	var myNewChart2 = new Chart(ctxTime);
+	$scope.chartTime = new Chart(ctxTime).Line(getTimeData(),{});
 
 	// currency user has selected in the settings
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());

@@ -9,15 +9,16 @@
 <div class="content">
 	<div class="overview">
 	  <div class="segmented-control">
-      <a id="categoryTab" class="control-item active" href="#byCategoryContainer">
+      <li id="categoryTab" ng-click="getCatChart()" class="control-item active"> <!-- href="#byCategoryContainer"> -->
         By Category
-      </a>
-      <a id="timeTab" class="control-item" href="#byTimeContainer">
+      </li>
+      <li id="timeTab" ng-click="getWeekChart()" class="control-item"> <!--  href="#byTimeContainer" > -->
         By Time
-      </a>
+      </li>
     </div>
+
     <div class="charts">
-      <div id="byCategoryContainer" class="control-content active">
+      <div id="byCategoryContainer" ng-show="catChartVisible"> <!-- class="control-content active"> -->
         <canvas id="byCategoryChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell" ng-repeat="category in categories">
@@ -40,7 +41,8 @@
           </li>
         </ul>
       </div>
-      <div id="byTimeContainer" class="control-content">
+
+      <div id="byTimeContainer" ng-show="timeChartVisible"> <!-- class="control-content ng-hide"> -->
         <canvas id="byTimeChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell">
