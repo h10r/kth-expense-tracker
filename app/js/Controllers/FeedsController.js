@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.FeedsController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
