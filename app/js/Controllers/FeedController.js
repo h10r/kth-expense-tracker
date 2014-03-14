@@ -1,5 +1,7 @@
 expenseTrackerAppModule.controller('expenseTracker.FeedController', function($scope, $location, $routeParams, UserModel, ExpensesModel, CategoriesModel) {
 
+	$scope.categoryColors = CategoriesModel.getAvailableColors();
+
 	// if on feeds/detail page
 	if( $location.$$path.indexOf("/feeds/detail/") != -1) {
 		$scope.expense = ExpensesModel.getExpenseById( $routeParams.id );
