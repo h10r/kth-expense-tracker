@@ -120,6 +120,14 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	    return WN; 
 	}
 
+	function range(start, end) {
+    var foo = [];
+    for (var i = start; i <= end; i++) {
+        foo.push(i);
+    }
+    return foo;
+	};
+
 	return {
 		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
@@ -134,7 +142,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 		getExpenses : function () {
 			return expenses.reverse();
-    },
+    	},
 
 		getAmount : function () {
 			return currentExpense.amount;
@@ -211,6 +219,35 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			      		pointColor : "rgba(151,187,205,1)",
 			      		pointStrokeColor : "#fff",
 			        	data : this.getThisWeeksExpenses()
+			      	}
+			    ]
+			}
+			return data;
+		},
+
+		getExpensesByBudget : function () {
+			var test = $.map( range(1,30), function( n ) {
+			  return n*4;
+			});
+			console.log(test)
+			var data = {
+			  labels : range(1,30),
+			    datasets : [
+					{
+			      		//grey color
+			      		fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						data : range(1,30)
+					},
+					{
+			            //blue color
+			            fillColor : "rgba(151,187,205,0.3)",
+			      		strokeColor : "rgba(151,187,205,1)",
+			      		pointColor : "rgba(151,187,205,1)",
+			      		pointStrokeColor : "#fff",
+			        	data : test
 			      	}
 			    ]
 			}

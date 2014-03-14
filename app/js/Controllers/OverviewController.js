@@ -1,6 +1,6 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 	'use strict';
-	$scope.bugetChartVisible = true;
+	$scope.budgetChartVisible = true;
 	$scope.catChartVisible = false;
 	$scope.timeChartVisible= false;
 
@@ -20,8 +20,8 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
       	context.canvas.width = 300;
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
-		//$scope.chartTime = new Chart(context).Line(getTimeData(),{});
-		$scope.bugetChartVisible = true;
+		$scope.chartBudget = new Chart(context).Line(getBudgetData(),{pointDot : false, bezierCurve : false});
+		$scope.budgetChartVisible = true;
 		$scope.catChartVisible = false;
 		$scope.timeChartVisible= false;
 	};
@@ -33,7 +33,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
 		$scope.chartTime = new Chart(context).Line(getTimeData(),{});
-		$scope.bugetChartVisible = false;
+		$scope.budgetChartVisible = false;
 		$scope.catChartVisible = false;
 		$scope.timeChartVisible= true;
 	};
@@ -45,7 +45,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
 		$scope.chartCategory = new Chart(context).Doughnut(getCategoryData());
-		$scope.bugetChartVisible = false;
+		$scope.budgetChartVisible = false;
 		$scope.catChartVisible = true;
 		$scope.timeChartVisible= false;
 	};
@@ -60,6 +60,10 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		return ExpensesModel.getExpensesByTime();
 	};
 
+	var getBudgetData = function(){
+		return ExpensesModel.getExpensesByBudget();
+	};
+
 	//Get context with jQuery - using jQuery's .get() method.
 	var ctxCategory = $("#byCategoryChart").get(0).getContext("2d");
 	ctxCategory.width = 300;
@@ -72,6 +76,12 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	ctxTime.height= 200;
 	var myNewChart2 = new Chart(ctxTime);
 	$scope.chartTime = new Chart(ctxTime).Line(getTimeData(),{});
+
+	var ctxBudget = $("#byBudgetChart").get(0).getContext("2d");
+	ctxBudget.width = 300;
+	ctxBudget.height= 200;
+	var myNewChart3 = new Chart(ctxBudget);
+	$scope.chartBudget = new Chart(ctxBudget).Line(getBudgetData(),{pointDot : false, bezierCurve : false});
 
 	// currency user has selected in the settings
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
