@@ -19,4 +19,9 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 		$location.path('/categories');
 	}
 
+	$scope.removeCategory = function(categoryId) {
+		CategoriesModel.removeCategoryFromCollection(categoryId);
+
+		//$scope.categories = CategoriesModel.listCategories();
+	}
 });
