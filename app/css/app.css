@@ -37,7 +37,7 @@ h3 {
 
 .add-expenses {
   position: relative;
-  margin-top: 65px; }
+  margin: 65px 0 70px 0; }
   .add-expenses div {
     margin: 0 auto; }
   .add-expenses .amount {
@@ -110,7 +110,7 @@ h3 {
   text-align: center;
   float: left;
   border-radius: 15px;
-  margin: 0 10px 0 0; }
+  margin: 0 15px 0 0; }
   .category-icon i {
     color: rgba(255, 255, 255, 0.4);
     text-align: center;
