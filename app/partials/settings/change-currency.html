@@ -8,7 +8,12 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
 	<div id="settings" class="content-padded">
-      Currency
+      <h2>Currency</h2>
+
+      <ul class="table-view">
+        {{currencies}}
+        <li class="table-view-cell">Item 1</li>
+      </ul>
 
       <div class="segmented-control">
         <a class="control-item active">€</a>
