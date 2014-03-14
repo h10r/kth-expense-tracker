@@ -3,6 +3,8 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	$scope.currentUser = UserModel.getCurrentUser();
 
 	$scope.deleteMode = false;
+	
+	$scope.selectedColor = -1;
 
 	if( $location.$$path == "/categories/add" ) {
 		$scope.currentCategory = CategoriesModel.initNewCategory();
@@ -12,6 +14,12 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	}
 	
 	$scope.chooseColorForCategory = function(colorId) {
+		// reset color id on toggle
+		if ( $scope.selectedColor === colorId ) {
+			colorId = -1;
+		}
+
+		$scope.selectedColor = colorId;
 		CategoriesModel.setCategoryColorById( colorId );
 	}
 	

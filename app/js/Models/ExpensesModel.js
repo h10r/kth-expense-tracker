@@ -2,6 +2,9 @@
 expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	'use strict';
 
+	// @TODO: use the ID from the backend / database
+	var nextIDCounter = 9;
+
 	var expenses = [],
 		currentExpense,
 		expense = {
@@ -118,6 +121,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	return {
 		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
+			currentExpense.id = nextIDCounter;
+			nextIDCounter = nextIDCounter + 1;
 			return currentExpense;
 		},
 
@@ -153,10 +158,10 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		removeExpenseFromCollection : function (expenseId) {
-			for (var i = 0; i < expenses.length; i++) {
-				if (expenses[i].id === expenseId) {
-					expenses.splice( i, 1 );
-				}
+			for (var key in expenses) {
+				if (expenses[key].id == expenseId) {
+					expenses.splice( expenses.indexOf( expenses[key] ), 1 );
+				}				
 			}
 		},
 

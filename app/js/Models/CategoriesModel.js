@@ -2,6 +2,9 @@
 expenseTrackerAppModule.service('CategoriesModel', function () {
 	'use strict';
 
+	// @TODO: use the ID from the backend / database
+	var nextIDCounter = 5;
+
 	var categories = [],
 		category = {
 			id : -1,
@@ -106,6 +109,8 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 		initNewCategory : function() {
 			currentCategory = jQuery.extend(true, {}, category);
+			currentCategory.id = nextIDCounter;
+			nextIDCounter = nextIDCounter + 1;
 			return currentCategory;
 		},
 
@@ -119,10 +124,10 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		removeCategoryFromCollection : function (categoryId) {
-			for (var i = 0; i < categories.length; i++) {
-				if (categories[i].id === categoryId) {
-					categories.splice( i, 1 );
-				}
+			for (var key in categories) {
+				if (categories[key].id == categoryId) {
+					categories.splice( categories.indexOf( categories[key] ), 1 );
+				}				
 			}
 		},
 

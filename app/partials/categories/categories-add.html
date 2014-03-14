@@ -22,15 +22,13 @@
 
     <div class="input-row">
       <h3>Color</h3>
-    </div>
     
-    <ul class="table-view color-list">
-      <li class="table-view-cell" ng-repeat="c in availableColors" style="background-color: {{c.color}}" ng-click="chooseColorForCategory(c.id)">
-        <a>
-          {{c.title}}
-        </a>
-      </li>
-    </ul>
+      <ul class="table-view color-list">
+         <button class="btn btn-color-select" style="background-color: {{c.color}};" ng-repeat="c in availableColors" ng-click="chooseColorForCategory(c.id)">
+           <span ng-if="selectedColor == c.id" class="icon icon-check"></span>
+         </button>
+      </ul>
+    </div>
     
     <div class="input-row">
       <button class="btn btn-positive btn-block" ng-click="saveCategory()">Save category</button>
