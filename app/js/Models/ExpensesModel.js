@@ -272,5 +272,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			}
 			return [thisWeekTotal, lastWeekTotal];
 		}
+		
 	};
 });

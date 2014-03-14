@@ -1,20 +1,29 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 	'use strict';
-	//TODO: get currency type from user model for display.
-
-	$scope.catChartVisible = true;
+	$scope.bugetChartVisible = true;
+	$scope.catChartVisible = false;
 	$scope.timeChartVisible= false;
 
-	$scope.categories = (function(){
-		//console.log("test log");
+	$scope.categoriesList = (function(){
 		var categoryList = CategoriesModel.listCategories();
 		var amountPerCategory = ExpensesModel.getExpensesByCategory();
 		for (var key in categoryList){
 			categoryList[key].amount = amountPerCategory[key].value;
 		}
-		//console.log(categoryList);
 		return categoryList;
 	})();
+
+	$scope.getBudgetChart = function () {
+		var canvas = document.getElementById('byBudgetChart');
+      	var context = canvas.getContext('2d');
+      	context.canvas.width = 300;
+		context.canvas.height = 200;
+		context.clearRect(0,0,canvas.width,canvas.height)
+		//$scope.chartTime = new Chart(context).Line(getTimeData(),{});
+		$scope.bugetChartVisible = true;
+		$scope.catChartVisible = false;
+		$scope.timeChartVisible= false;
+	};
 
 	$scope.getWeekChart = function () {
 		var canvas = document.getElementById('byTimeChart');
@@ -23,6 +32,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
 		$scope.chartTime = new Chart(context).Line(getTimeData(),{});
+		$scope.bugetChartVisible = false;
 		$scope.catChartVisible = false;
 		$scope.timeChartVisible= true;
 	};
@@ -34,6 +44,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
 		$scope.chartCategory = new Chart(context).Doughnut(getCategoryData());
+		$scope.bugetChartVisible = false;
 		$scope.catChartVisible = true;
 		$scope.timeChartVisible= false;
 	};

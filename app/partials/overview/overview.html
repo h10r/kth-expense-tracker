@@ -9,19 +9,31 @@
 <div class="content">
 	<div class="overview">
 	  <div class="segmented-control">
-      <li id="categoryTab" ng-click="getCatChart()" class="control-item active"> <!-- href="#byCategoryContainer"> -->
-        By Category
+      <li id="budgetTab" ng-click="getBudgetChart()" class="control-item active"> 
+        Budget
       </li>
-      <li id="timeTab" ng-click="getWeekChart()" class="control-item"> <!--  href="#byTimeContainer" > -->
-        By Time
+      <li id="categoryTab" ng-click="getCatChart()" class="control-item">
+        Category
+      </li>
+      <li id="timeTab" ng-click="getWeekChart()" class="control-item">
+        Time
       </li>
     </div>
 
     <div class="charts">
-      <div id="byCategoryContainer" ng-show="catChartVisible"> <!-- class="control-content active"> -->
+      <div id="byBudgetContainer" ng-show="budgetChartVisible"> 
+        <canvas id="byBudgetChart" class="dataChart" width="150" height="100"></canvas>
+        <ul class="table-view">
+          <li class="table-view-cell" >
+            
+          </li>
+        </ul>
+      </div>
+
+      <div id="byCategoryContainer" ng-show="catChartVisible"> 
         <canvas id="byCategoryChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
-          <li class="table-view-cell" ng-repeat="category in categories">
+          <li class="table-view-cell" ng-repeat="category in categoriesList">
             <a class="navigate-right">
               <div class="category-icon" style="background-color: {{category.color}};"><i class="fa {{category.icon}}"></i></div>{{category.title}} <span class="pull-right">{{category.amount}} {{userCurrency.sign}}</span>
             </a>
@@ -34,7 +46,7 @@
         </ul>
       </div>
 
-      <div id="byTimeContainer" ng-show="timeChartVisible"> <!-- class="control-content ng-hide"> -->
+      <div id="byTimeContainer" ng-show="timeChartVisible">
         <canvas id="byTimeChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell">
