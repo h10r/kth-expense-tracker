@@ -126,3 +126,9 @@ h3 {
 
 .btn-block {
   width: 100%; }
+
+.btn-color-select {
+  width: 42px;
+  height: 42px;
+  margin: 0 5px 5px 0;
+}
