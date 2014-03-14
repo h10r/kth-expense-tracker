@@ -21,13 +21,13 @@
           <div class="category-icon" style="background-color: {{c.color}};"><i class="fa {{c.icon}}"></i></div>
           {{c.title}}
         </a>
-        <a class="btn btn-negative" ng-click="removeCategory(c.id)">Delete</a>
+        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeCategory(c.id)">Delete</a>
       </li>
     </ul>
 
     <div class="input-row">
-      <a class="btn btn-positive btn-block" href="#categories/add">Add new category</a>
-      <a class="btn btn-negative btn-outlined btn-block" href="#categories/add">Delete categories</a>
+      <a ng-if="!deleteMode" class="btn btn-negative btn-outlined btn-block" ng-click="toggleDeleteMode()">Delete categories</a>
+      <a ng-if="deleteMode" class="btn btn-positive btn-outlined btn-block" ng-click="toggleDeleteMode()">Done with deleting</a>
     </div>
   </div>  
 </div>
