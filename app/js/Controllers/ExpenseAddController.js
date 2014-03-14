@@ -10,6 +10,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
     $ival = $('div.ival');
 
 	$scope.categories = CategoriesModel.listCategories();
+  $scope.categoryColors = CategoriesModel.getAvailableColors();
 
   if ($location.$$path === '/expenses/add') {
     $scope.currentExpense = ExpensesModel.initNewExpense();
