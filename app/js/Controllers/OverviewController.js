@@ -12,6 +12,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		}
 		return categoryList;
 	})();
+	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
 	$scope.getBudgetChart = function () {
 		var canvas = document.getElementById('byBudgetChart');

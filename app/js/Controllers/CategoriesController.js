@@ -4,6 +4,7 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 
 	$scope.deleteMode = false;
 	
+	$scope.categoryColors = CategoriesModel.getAvailableColors();
 	$scope.selectedColor = -1;
 
 	if( $location.$$path == "/categories/add" ) {

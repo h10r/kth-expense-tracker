@@ -5,6 +5,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	// @TODO: use the ID from the backend / database
 	var nextIDCounter = 9;
 
+	var categoryColors = CategoriesModel.getAvailableColors();
+
 	var expenses = [],
 		currentExpense,
 		expense = {
@@ -186,7 +188,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 				}
 				dataArray[category]={
 					value : sum,
-					color : categories[category].color
+					color : categoryColors[ categories[category].color_id ].color_value
 				};
 			};
 			return dataArray;

@@ -24,7 +24,8 @@
       <h3>Color</h3>
     
       <ul class="table-view color-list">
-         <button class="btn btn-color-select" style="background-color: {{c.color}};" ng-repeat="c in availableColors" ng-click="chooseColorForCategory(c.id)">
+         <button class="btn btn-color-select" style="background-color: {{c.color_value}};" ng-repeat="c in availableColors" ng-click="chooseColorForCategory(c.id)">
+            {{c.color}}
            <span ng-if="selectedColor == c.id" class="icon icon-check"></span>
          </button>
       </ul>

@@ -18,7 +18,10 @@
     <ul class="table-view">
       <li class="table-view-cell" ng-repeat="c in categories">
         <a class="navigate-right">
-          <div class="category-icon" style="background-color: {{c.color}};"><i class="fa {{c.icon}}"></i></div>
+          <div class="category-icon" style="background-color: {{categoryColors[c.color_id].color_value}};">
+            <i ng-if="c.icon != ''" class="fa {{c.icon}}"></i>
+            <i ng-if="c.icon == ''" class="fa">{{c.initial}}</i>
+          </div>
           {{c.title}}
         </a>
         <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeCategory(c.id)">Delete</a>

@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
   'use strict';
 
   var now,
@@ -10,6 +10,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
     $ival = $('div.ival');
 
 	$scope.categories = CategoriesModel.listCategories();
+  $scope.categoryColors = CategoriesModel.getAvailableColors();
 
   if ($location.$$path === '/expenses/add') {
     $scope.currentExpense = ExpensesModel.initNewExpense();

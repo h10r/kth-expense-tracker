@@ -11,10 +11,14 @@
 	  <li class="table-view-cell media" ng-repeat="expense_and_cat in expenses_categories">
 	    <a class="navigate-right" ng-click="openDetailView(expense_and_cat['expense'].id)">
 	      <div class="media-body">
-	      	<div class="category-icon" style="background-color: {{expense_and_cat['category'].color}};"><i class="fa {{expense_and_cat['category'].icon}}"></i></div>
+	      	<div class="category-icon" 
+	      		style="background-color: {{ categoryColors[ expense_and_cat['category'].color_id ].color_value }};">
+	      		<i ng-if="expense_and_cat['category'].icon != ''" class="fa {{expense_and_cat['category'].icon}}"></i>
+	      		<i ng-if="expense_and_cat['category'].icon == ''" class="fa">{{expense_and_cat['category'].initial}}</i>
+	      	</div>
 			{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
-			{{expense_and_cat["expense"].description}}
 
+			{{expense_and_cat["expense"].description}}
 	      </div>
 	    </a>
 	  </li>

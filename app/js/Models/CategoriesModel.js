@@ -9,14 +9,15 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		category = {
 			id : -1,
 			title : '',
-			color : '',
+			color_id : '',
 			icon : ''
 		},
 		currentCategory,
 		color = {
 			id : -1,
 			title : '',
-			color : ''
+			initial : '',
+			color_value : ''
 		},
 		availableColors = [];
 
@@ -24,51 +25,51 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		{
 			id 	  : 0, 	
 			title : 'turquoise',
-			color : '#1abc9c'
+			color_value : '#1abc9c'
 		},{
 			id 	  : 1, 	
 			title : 'green sea',
-			color : '#16a085'
+			color_value : '#16a085'
 		},{
 			id 	  : 2, 	
 			title : 'emerland',
-			color : '#2ecc71'
+			color_value : '#2ecc71'
 		},{
 			id 	  : 3, 	
 			title : 'nephritis',
-			color : '#27ae60'
+			color_value : '#27ae60'
 		},{
 			id 	  : 4, 	
 			title : 'peter priver',
-			color : '#3498db'
+			color_value : '#3498db'
 		},{
 			id 	  : 5, 	
 			title : 'belize hole',
-			color : '#2980d9'
+			color_value : '#2980d9'
 		},{
 			id 	  : 6, 	
 			title : 'sun flower',
-			color : '#f1c40f'
+			color_value : '#f1c40f'
 		},{
 			id 	  : 7, 	
 			title : 'orange',
-			color : '#f39c12'
+			color_value : '#f39c12'
 		},{
 			id 	  : 8, 	
 			title : 'carrot',
-			color : '#d35400'
+			color_value : '#d35400'
 		},{
 			id 	  : 9, 	
 			title : 'alazarin',
-			color : '#e74c3c'
+			color_value : '#e74c3c'
 		},{
 			id 	  : 10, 	
 			title : 'pomegranate',
-			color : '#c0392b'
+			color_value : '#c0392b'
 		},{
 			id 	  : 11, 	
 			title : 'amethyst',
-			color : '#9b59b6'
+			color_value : '#9b59b6'
 		});
 
 	// default categories
@@ -76,31 +77,31 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		{
 			id : 0,
 			title : 'groceries',
-			color : '#1a9b53',
+			color_id : 1,
 			icon : 'fa-shopping-cart'
 		},
 		{
 			id : 1,
 			title : 'eating out',
-			color : '#9b1a44',
+			color_id : 6,
 			icon : 'fa-cutlery'
 		},
 		{
 			id : 2,
 			title : 'coffee',
-			color : '#875d2f',
+			color_id : 8,
 			icon : 'fa-coffee'
 		},
 		{
 			id : 3,
 			title : 'beer',
-			color : '#fbb600',
+			color_id : 7,
 			icon : 'fa-beer'
 		},
 		{
 			id : 4,
 			title : 'mobile phone',
-			color : '#cb3687',
+			color_id : 4,
 			icon : 'fa-phone'
 		}
 	);
@@ -115,12 +116,8 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		saveCurrentCategoryToCollection : function() {
+			currentCategory.initial = currentCategory.title.charAt(0);
 			categories.push( currentCategory );
-		},
-
-		setCategoryColorById : function(colorId) {
-			var newColor = this.getCategoryColorById( colorId );
-			currentCategory.color = newColor;
 		},
 
 		removeCategoryFromCollection : function (categoryId) {
@@ -129,6 +126,10 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 					categories.splice( categories.indexOf( categories[key] ), 1 );
 				}				
 			}
+		},
+		
+		setCategoryColorById : function(colorId) {
+			currentCategory.color_id = colorId;
 		},
 
 		getAvailableColors : function() {
