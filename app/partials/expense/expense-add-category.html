@@ -18,7 +18,7 @@
   <h2>Pick a category</h2>
 
   <ul class="table-view category-list">
-    <li class="table-view-cell" ng-repeat="category in categories" style="background-color: {{ categoryColors[category.color_id].color_value }}; border: 2px solid {{ categoryColors[category.color_id].color_value }};">
+    <li class="table-view-cell" ng-repeat="category in categories" style="background-color: {{ categoryColors[category.color_id].color_value }};">
       <span ng-click="chooseCategory(category.id)"></span>
       <a>
         {{category.title}}
