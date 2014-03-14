@@ -2,6 +2,9 @@
 expenseTrackerAppModule.service('CategoriesModel', function () {
 	'use strict';
 
+	// @TODO: use the ID from the backend / database
+	var nextIDCounter = 5;
+
 	var categories = [],
 		category = {
 			id : -1,
@@ -106,6 +109,8 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 		initNewCategory : function() {
 			currentCategory = jQuery.extend(true, {}, category);
+			currentCategory.id = nextIDCounter;
+			nextIDCounter = nextIDCounter + 1;
 			return currentCategory;
 		},
 

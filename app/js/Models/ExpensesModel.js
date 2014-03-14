@@ -2,6 +2,9 @@
 expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	'use strict';
 
+	// @TODO: use the ID from the backend / database
+	var nextIDCounter = 9;
+
 	var expenses = [],
 		currentExpense,
 		expense = {
@@ -118,6 +121,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	return {
 		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
+			currentExpense.id = nextIDCounter;
+			nextIDCounter = nextIDCounter + 1;
 			return currentExpense;
 		},
 
