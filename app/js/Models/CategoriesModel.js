@@ -116,15 +116,14 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		setCategoryColorById : function(colorId) {
 			var newColor = this.getCategoryColorById( colorId );
 			currentCategory.color = newColor;
-
-			console.log( newColor.title );
-
-			// simpler alternative
-			//currentCategory.color = colorId;
 		},
 
-		removeCategoryFromCollection : function (expenseId) {
-			// return detailViewId;
+		removeCategoryFromCollection : function (categoryId) {
+			for (var i = 0; i < categories.length; i++) {
+				if (categories[i].id === categoryId) {
+					categories.splice( i, 1 );
+				}
+			}
 		},
 
 		getAvailableColors : function() {
@@ -132,7 +131,6 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		listCategories : function () {
-			// return detailViewId;
 			return categories;
 		},
 
