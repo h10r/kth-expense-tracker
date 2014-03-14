@@ -22,12 +22,20 @@
         <ul class="table-view">
           <li class="table-view-cell" ng-repeat="category in categories">
             <a class="navigate-right">
-              <div class="category-icon" style="background-color: {{category.color}};"><i class="fa {{category.icon}}"></i></div>{{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
+              <div class="category-icon" style="background-color: {{ categoryColors[category.color_id].color_value }};">
+                <i ng-if="category.icon != ''" class="fa {{category.icon}}"></i>
+               <i ng-if="category.icon == ''" class="fa">{{category.initial}}</i>
+
+              </div>{{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
             </a>
           </li>
           <li class="table-view-cell" ng-repeat-end>
             <a class="navigate-right">
-              <div class="category-icon" style="background-color: {{category.color}};"><i class="fa {{category.icon}}"></i></div>{{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
+              <div class="category-icon" style="background-color: {{ categoryColors[category.color_id].color_value }};">
+                <i ng-if="category.icon != ''" class="fa {{category.icon}}"></i>
+               <i ng-if="category.icon == ''" class="fa">{{category.initial}}</i>
+
+              </div>{{category.title}} <span class="pull-right">{{category.amount}} SEK</span>
             </a>
           </li>
         </ul>

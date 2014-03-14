@@ -12,6 +12,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		//console.log(categoryList);
 		return categoryList;
 	})();
+	$scope.categoryColors = CategoriesModel.getAvailableColors();
 
 	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
 
