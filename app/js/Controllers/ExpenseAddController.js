@@ -1,4 +1,4 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
+expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
   'use strict';
 
   var now,
@@ -25,8 +25,12 @@ expenseTrackerAppModule.controller('expenseTracker.ExpenseAddController', functi
 	}
 
 	$scope.amount = ExpensesModel.getAmount();
+
   currentCategoryId = ExpensesModel.getCategory();
+
   $scope.selectedCategory = CategoriesModel.getCategoryById(currentCategoryId);
+
+  $scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
 
 	$scope.chooseCategory = function (categoryId) {
