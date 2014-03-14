@@ -119,6 +119,23 @@ h3 {
 .feed-detail .category .category-icon {
   margin: 5px 0 0 0; }
 
+.settings .table-view {
+  margin-bottom: 65px; }
+.settings ul.list-of-currencies li {
+  padding: 11px 35px 9px 35px; }
+  .settings ul.list-of-currencies li span {
+    color: #CCC;
+    padding: 0 0 0 10px; }
+  .settings ul.list-of-currencies li .icon {
+    float: right;
+    color: #FFF; }
+.settings ul.list-of-currencies li.active {
+  background: #36b451;
+  color: #FFF;
+  font-weight: bold; }
+  .settings ul.list-of-currencies li.active span {
+    color: #FFF; }
+
 .dataChart {
   display: block !important;
   margin: 0 auto;

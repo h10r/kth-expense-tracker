@@ -1,6 +1,6 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <h1 class="title">SEK {{amount}}</h1>
+  <h1 class="title">{{amount}}&nbsp;{{userCurrency.sign}}</h1>
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
@@ -14,7 +14,7 @@
 
 		<div class="amount">
     	<div class="ival">0</div>
-    	<div class="currency">SEK</div>
+    	<div class="currency">{{userCurrency.token}}</div>
     </div>
 
 		<a class="btn btn-positive btn-block" href="#expenses/add/category">Add</a>

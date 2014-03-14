@@ -1,5 +1,5 @@
-expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel) {
-	"use strict"
+expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+	'use strict';
 	//TODO: get currency type from user model for display.
 
 	$scope.catChartVisible = true;
@@ -60,5 +60,8 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	ctxTime.height= 200;
 	var myNewChart2 = new Chart(ctxTime);
 	$scope.chartTime = new Chart(ctxTime).Line(getTimeData(),{});
+
+	// currency user has selected in the settings
+	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
 });

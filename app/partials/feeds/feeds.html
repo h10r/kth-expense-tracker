@@ -12,7 +12,7 @@
 	    <a class="navigate-right" ng-click="openDetailView(expense_and_cat['expense'].id)">
 	      <div class="media-body">
 	      	<div class="category-icon" style="background-color: {{expense_and_cat['category'].color}};"><i class="fa {{expense_and_cat['category'].icon}}"></i></div>
-			SEK {{expense_and_cat["expense"].amount}}&nbsp;
+			{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
 			{{expense_and_cat["expense"].description}}
 
 	      </div>

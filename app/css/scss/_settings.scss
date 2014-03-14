@@ -1,0 +1,34 @@
+.settings {
+
+  .table-view {
+    margin-bottom: 65px;
+  }
+
+  ul.list-of-currencies {
+    li {
+      padding: 11px 35px 9px 35px;
+
+      span {
+        color: #CCC;
+        padding: 0 0 0 10px;
+      }
+
+      .icon {
+        float: right;
+        color: #FFF;
+      }
+
+    }
+
+    li.active {
+      background: #36b451;
+      color: #FFF;
+      font-weight: bold;
+
+      span {
+        color: #FFF;
+      }
+    }
+  }
+
+}
