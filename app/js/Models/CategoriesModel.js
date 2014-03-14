@@ -16,6 +16,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		color = {
 			id : -1,
 			title : '',
+			initial : '',
 			color_value : ''
 		},
 		availableColors = [];
@@ -115,6 +116,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 
 		saveCurrentCategoryToCollection : function() {
+			currentCategory.initial = currentCategory.title.charAt(0);
 			categories.push( currentCategory );
 		},
 
