@@ -11,14 +11,13 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 			id : -1,
 			target : '',
 			timestamp : '',
-			location : '',
 			description : ''
 		};
 
 	return {
 
 		initNewGoal : function() {
-			currentGoal = jQuery.extend(true, {}, Goal);
+			currentGoal = jQuery.extend(true, {}, goal);
 			currentGoal.id = nextIDCounter;
 			nextIDCounter = nextIDCounter + 1;
 			return currentGoal;
@@ -36,16 +35,9 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 			}
 		},
 
-		addGoal : function (goal) {
-			return goal;
-		},
-
-		removeGoal : function (goalId) {
-			// return detailViewId;
-		},
-
-		getGoalById : function (goalId) {
-			// return detailViewId;
+		getAllGoals : function() {
+			return goals;
 		}
+
 	};
 });
