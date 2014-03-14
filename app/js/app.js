@@ -11,8 +11,8 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/expenses/add/details', {templateUrl: 'partials/expense/expense-add-details.html', controller: 'expenseTracker.ExpensesController'});
   $routeProvider.when('/expenses/remove/:id', {templateUrl: 'partials/expense/expense-add.html', controller: 'expenseTracker.ExpensesController'});
 
-  $routeProvider.when('/feeds', {templateUrl: 'partials/feeds/feeds.html', controller: 'expenseTracker.FeedController'});
-  $routeProvider.when('/feeds/detail/:id', {templateUrl: 'partials/feeds/feeds-detail.html', controller: 'expenseTracker.FeedController'});
+  $routeProvider.when('/feed', {templateUrl: 'partials/feed/feed.html', controller: 'expenseTracker.FeedController'});
+  $routeProvider.when('/feed/detail/:id', {templateUrl: 'partials/feed/feed-detail.html', controller: 'expenseTracker.FeedController'});
 
   $routeProvider.when('/overview', {templateUrl: 'partials/overview/overview.html', controller: 'expenseTracker.OverviewController'});
   $routeProvider.when('/settings', {templateUrl: 'partials/settings/settings.html', controller: 'expenseTracker.SettingsController'});
@@ -22,7 +22,8 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/categories', {templateUrl: 'partials/categories/categories.html', controller: 'expenseTracker.CategoriesController'});
   $routeProvider.when('/categories/add', {templateUrl: 'partials/categories/categories-add.html', controller: 'expenseTracker.CategoriesController'});
   
-  $routeProvider.when('/goal/add', {templateUrl: 'partials/goal/goal-add.html', controller: 'expenseTracker.SettingsController'});
+  $routeProvider.when('/goals', {templateUrl: 'partials/goals/goals.html', controller: 'expenseTracker.GoalsController'});
+  $routeProvider.when('/goals/add', {templateUrl: 'partials/goals/goals-add.html', controller: 'expenseTracker.GoalsController'});
 
   $routeProvider.when('/settings/budget', {templateUrl: 'partials/settings/budget.html', controller: 'expenseTracker.SettingsController'});
   $routeProvider.when('/settings/change-currency', {templateUrl: 'partials/settings/change-currency.html', controller: 'expenseTracker.SettingsController'});

@@ -20,7 +20,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
     $scope.currentExpense.time = now.toLocaleTimeString();
   } else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
 		ExpensesModel.removeExpenseFromCollection($routeParams.id);
-		$location.path('/feeds');
+		$location.path('/feed');
 	} else {
 		$scope.currentExpense = ExpensesModel.getCurrentExpense();
 	}
@@ -45,7 +45,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
 		
 		ExpensesModel.addExpenseToCollection();
 
-		$location.path('/feeds');
+		$location.path('/feed');
 	};
 
 

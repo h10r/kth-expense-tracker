@@ -1,6 +1,6 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <a class="btn btn-link btn-nav pull-left" href="#settings">
+  <a class="btn btn-link btn-nav pull-left" href="#goals">
     <span class="icon icon-left-nav"></span>
     Back
   </a>
@@ -14,10 +14,17 @@
 
 <form class="input-group">
   <div class="input-row">
-    <label>Goal</label>
-    <input type="text" placeholder="500" ng-model="goal.target" >
+    <label>Target in  {{userCurrency}}</label>
+    <input type="text" placeholder="500" ng-model="currentGoal.target" >
   </div>
-
+  <div class="input-row">
+    <label>Goal Date</label>
+    <input type="date" placeholder="" ng-model="currentGoal.timestamp" >
+  </div>
+  <div class="input-row">
+    <label>Description</label>
+    <textarea rows="3" ng-model="currentGoal.description"></textarea>
+  </div>
    <div class="input-row">
     <button class="btn btn-positive btn-block" ng-click="saveGoal()">Save</button>
   </div>  
