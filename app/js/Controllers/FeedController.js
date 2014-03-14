@@ -19,7 +19,12 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function($sc
 		}
 	}
 
+	$scope.monthlyTotal = ExpensesModel.getMonthlyTotal();
+	$scope.spentBudgetPercentage = Math.round(($scope.monthlyTotal / UserModel.getBudget()) * 100);
+
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
+
+	
 
 	$scope.openDetailView = function (expenseId) {
 		$location.path('/feeds/detail/' + expenseId);

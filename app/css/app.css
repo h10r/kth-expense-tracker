@@ -10,13 +10,20 @@ header.bar {
 
 .nav-bar-bottom {
   background-color: #ededed;
-  height: 65px; }
+  height: 65px;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */ }
   .nav-bar-bottom .tab-item {
     padding: 6px 0 0 0; }
     .nav-bar-bottom .tab-item i {
       display: block; }
     .nav-bar-bottom .tab-item .tab-label {
       font-size: 14px; }
+    .nav-bar-bottom .tab-item:active, .nav-bar-bottom .tab-item.active {
+      color: #428bca;
+      background-color: #dadada; }
 
 h2 {
   margin: 15px 5% 15px 5%;
@@ -109,6 +116,27 @@ h3 {
     text-align: center;
     margin: 7px 0 0 -1px; }
 
+.feed .budget-status {
+  padding: 15px 0 15px 0;
+  -webkit-box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+  box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */ }
+  .feed .budget-status h2 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    margin: 0 5% 0 5%; }
+    .feed .budget-status h2 span {
+      color: white;
+      font-size: 16px;
+      font-weight: 400; }
+.feed .budget-status.good {
+  background: #5cb85c; }
+.feed .budget-status.bad {
+  background: #f24c21; }
+
 .feed-detail .input-row label {
   color: #969696; }
 .feed-detail .category input {
@@ -153,4 +181,3 @@ h3 {
 .content > .table-view:first-child {
   margin-top: 0;
 }
-

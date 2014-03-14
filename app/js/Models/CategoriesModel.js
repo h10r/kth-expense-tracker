@@ -100,7 +100,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 		},
 		{
 			id : 4,
-			title : 'mobile phone',
+			title : 'cell phone',
 			color_id : 4,
 			icon : 'fa-phone'
 		}
