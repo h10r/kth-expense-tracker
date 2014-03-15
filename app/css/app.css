@@ -1,8 +1,9 @@
-header.bar-nav ~ .content {
-  padding-top: 55px; }
-
 header.bar {
-  height: 55px; }
+  background-color: #ededed;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */ }
   header.bar .subline {
     width: 100%;
     text-align: center;
@@ -10,7 +11,6 @@ header.bar {
 
 .nav-bar-bottom {
   background-color: #ededed;
-  height: 65px;
   -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
   /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
@@ -36,8 +36,11 @@ h3 {
   font-size: 16px; }
 
 .add-expenses {
-  position: relative;
-  margin: 65px 0 70px 0; }
+  height: 320px;
+  position: absolute;
+  top: 50%;
+  margin-top: -160px;
+  width: 100%; }
   .add-expenses div {
     margin: 0 auto; }
   .add-expenses .amount {
@@ -151,7 +154,7 @@ h3 {
     .feed .budget-reminder .table-view-cell a:after {
       color: #FFF; }
 .feed .table-view.feed-list {
-  margin-bottom: 65px; }
+  margin-bottom: 64px; }
   .feed .table-view.feed-list .table-view-cell a .media-body span {
     line-height: 30px; }
   .feed .table-view.feed-list .table-view-cell a .media-body span.date {

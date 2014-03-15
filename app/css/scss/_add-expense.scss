@@ -11,8 +11,11 @@ h3 {
 }
 
 .add-expenses {
-  position: relative;
-  margin: 65px 0 70px 0;
+  height: 320px;
+  position: absolute;
+  top: 50%; 
+  margin-top: -160px;
+  width: 100%;
 
   div {
     margin: 0 auto;

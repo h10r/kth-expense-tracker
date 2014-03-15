@@ -7,16 +7,14 @@
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
+  <div class="add-expenses">
+  	<input class="infinite" value="0">
 
-	<div class="content-padded add-expenses">
-
-		<input class="infinite" value="0">
-
-		<div class="amount">
+  	<div class="amount">
     	<div class="ival">0</div>
     	<div class="currency">{{userCurrency.token}}</div>
     </div>
-
-		<a class="btn btn-positive btn-block" href="#expenses/add/category">Add</a>
-	</div>	
-</div>
+  
+	 <a class="btn btn-positive btn-block" href="#expenses/add/category">Add</a>
+  </div>
+</div>	

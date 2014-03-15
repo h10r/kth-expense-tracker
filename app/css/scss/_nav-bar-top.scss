@@ -1,9 +1,8 @@
-header.bar-nav ~ .content {
-  padding-top: 55px;
-}
-
 header.bar {
-  height: 55px;
+  //height: 55px;
+  background-color: $uiGray;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1); /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+          box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1); /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
 
   .subline {
     width: 100%;
