@@ -154,7 +154,7 @@ h3 {
     .feed .budget-reminder .table-view-cell a:after {
       color: #FFF; }
 .feed .table-view.feed-list {
-  margin-bottom: 64px; }
+  margin-bottom: 50px; }
   .feed .table-view.feed-list .table-view-cell a .media-body span {
     line-height: 30px; }
   .feed .table-view.feed-list .table-view-cell a .media-body span.date {

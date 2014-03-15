@@ -5,8 +5,9 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function ($s
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 	$scope.userBudget = UserModel.getBudget();
 	$scope.monthlyTotal = ExpensesModel.getMonthlyTotal();
+
 	$scope.spentBudgetPercentage = (function () {
-		if($scope.userBudget > 0) {
+		if ($scope.userBudget > 0) {
 			return Math.round(($scope.monthlyTotal / $scope.userBudget) * 100);
 		} else {
 			return false;
@@ -29,13 +30,13 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function ($s
 
 	// if on feeds main page	
 	} else {
-		$scope.expenses = ExpensesModel.getExpenses();
+		$scope.expenses = ExpensesModel.getExpensesChronologically();
 		$scope.expenses_categories = [];
 
-		for (var expense in $scope.expenses) {
+		for (var i = 0; i < $scope.expenses.length; i++) {
 			$scope.expenses_categories.push({
-				expense : $scope.expenses[expense],
-				category : CategoriesModel.getCategoryById($scope.expenses[expense].category_id)
+				expense : $scope.expenses[i],
+				category : CategoriesModel.getCategoryById($scope.expenses[i].category_id)
 			});
 		}
 	}
