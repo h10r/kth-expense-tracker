@@ -1,7 +1,7 @@
 // define variables
 $mainAccentColor: #0fb2be;
 $lightGreyFont: #e1e1e1;
-$uiGray: #ededed;
+$uiGray: #f7f7f7;
 
 // import partials
 @import "nav-bar-top";
@@ -11,13 +11,14 @@ $uiGray: #ededed;
 @import "overview";
 @import "settings";
 
+body,
 .content {
-  //background-color: #acbdbf;
+  background-color: #f3f3f3;
 }
 
-.content > .table-view:first-child {
+/*.content > .table-view:first-child {
   margin-top: 0;
-}
+}*/
 
 .dataChart {
   display: block !important;

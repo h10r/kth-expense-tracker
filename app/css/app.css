@@ -1,5 +1,5 @@
 header.bar {
-  background-color: #ededed;
+  background-color: #f7f7f7;
   -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
   /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@ header.bar {
     margin: 30px 0 0 0; }
 
 .nav-bar-bottom {
-  background-color: #ededed;
+  background-color: #f7f7f7;
   -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
   /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
@@ -189,9 +189,13 @@ h3 {
   .settings ul.list-of-currencies li.active span {
     color: #FFF; }
 
-.content > .table-view:first-child {
-  margin-top: 0; }
+body,
+.content {
+  background-color: #f3f3f3; }
 
+/*.content > .table-view:first-child {
+  margin-top: 0;
+}*/
 .dataChart {
   display: block !important;
   margin: 0 auto;
