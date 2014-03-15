@@ -289,7 +289,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 			for (i = 0; i < expenses.length; i++) {
 
-				if ( typeof expenses[i].date == 'string' ){
+				if (typeof expenses[i].date === 'string') {
 					expenses[i].date = new Date(expenses[i].date);
 				}
 				if (expenses[i]['date'].getMonth() ===  month) {

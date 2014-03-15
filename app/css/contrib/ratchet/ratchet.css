@@ -1,10 +1,10 @@
-/*
+/*!
  * =====================================================
- * Ratchet v2.0.0
+ * Ratchet v2.0.1 (http://goratchet.com)
  * Copyright 2014 Connor Sears
- * Licensed under http://www.opensource.org/licenses/MIT
+ * Licensed under MIT.
  *
- * V2.0.0 designed by @connors.
+ * v2.0.1 designed by @connors.
  * =====================================================
  */
 
@@ -367,6 +367,7 @@ p {
   color: #333;
   text-align: center;
   vertical-align: top;
+  white-space: nowrap;
   cursor: pointer;
   background-color: white;
   border: 1px solid #ccc;
@@ -443,6 +444,7 @@ p {
 
 .btn-block {
   display: block;
+  width: 100%;
   padding: 15px 0;
   margin-bottom: 10px;
   font-size: 18px;
@@ -785,12 +787,24 @@ input[type="button"] {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.table-view-cell .navigate-left > .btn,
+.table-view-cell .navigate-left > .badge,
+.table-view-cell .navigate-left > .toggle,
+.table-view-cell .navigate-right > .btn,
+.table-view-cell .navigate-right > .badge,
+.table-view-cell .navigate-right > .toggle,
 .table-view-cell .push-left > .btn,
 .table-view-cell .push-left > .badge,
 .table-view-cell .push-left > .toggle,
 .table-view-cell .push-right > .btn,
 .table-view-cell .push-right > .badge,
 .table-view-cell .push-right > .toggle,
+.table-view-cell > a .navigate-left > .btn,
+.table-view-cell > a .navigate-left > .badge,
+.table-view-cell > a .navigate-left > .toggle,
+.table-view-cell > a .navigate-right > .btn,
+.table-view-cell > a .navigate-right > .badge,
+.table-view-cell > a .navigate-right > .toggle,
 .table-view-cell > a .push-left > .btn,
 .table-view-cell > a .push-left > .badge,
 .table-view-cell > a .push-left > .toggle,
@@ -1204,6 +1218,8 @@ select {
   transform: translate3d(100%, 0, 0);
 }
 
+.navigate-left:after,
+.navigate-right:after,
 .push-left:after,
 .push-right:after {
   position: absolute;
@@ -1214,18 +1230,19 @@ select {
   font-size: inherit;
   text-decoration: none;
   line-height: 1;
-  cursor: default;
   -webkit-font-smoothing: antialiased;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
+.navigate-left:after,
 .push-left:after {
   left: 15px;
   content: '\e822';
 }
 
+.navigate-right:after,
 .push-right:after {
   right: 15px;
   content: '\e826';
@@ -1233,8 +1250,8 @@ select {
 
 @font-face {
   font-family: Ratchicons;
-  src: url("img/ratchicons/ratchicons.eot");
-  src: url("img/ratchicons/ratchicons.eot?#iefix") format("embedded-opentype"), url("ratchicons/ratchicons.woff") format("woff"), url("ratchicons/ratchicons.ttf") format("truetype"), url("ratchicons/ratchicons.svg#svgFontName") format("svg");
+  src: url("../fonts/ratchicons.eot");
+  src: url("../fonts/ratchicons.eot?#iefix") format("embedded-opentype"), url("../fonts/ratchicons.woff") format("woff"), url("../fonts/ratchicons.ttf") format("truetype"), url("../fonts/ratchicons.svg#svgFontName") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1245,7 +1262,6 @@ select {
   font-size: 24px;
   text-decoration: none;
   line-height: 1;
-  cursor: default;
   -webkit-font-smoothing: antialiased;
 }
 
