@@ -3,11 +3,9 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
-	var nextIDCounter = 9;
-
-	var categoryColors = CategoriesModel.getAvailableColors();
-
-	var expenses = [],
+	var nextIDCounter = 9,
+		categoryColors = CategoriesModel.getAvailableColors(),
+		expenses = [],
 		currentExpense,
 		expense = {
 			id : -1,
@@ -19,12 +17,13 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			category_id : null
 		};
 
+	// pre-defined expenses for testing
 	expenses.push(
 		{
 			id : 0,
 			amount : 123.00,
 			time : null,
-			date : new Date(2014,2,1),
+			date : new Date(2014, 2, 1),
 			location : null,
 			description : null,
 			category_id : 2
@@ -33,7 +32,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 1,
 			amount : 45.00,
 			time : null,
-			date : new Date(2014,2,3),
+			date : new Date(2014, 2, 3),
 			location : null,
 			description : null,
 			category_id : 2
@@ -42,7 +41,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 2,
 			amount : 301,
 			time : null,
-			date : new Date(2014,2,4),
+			date : new Date(2014, 2, 4),
 			location : null,
 			description : null,
 			category_id : 3
@@ -51,7 +50,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 3,
 			amount : 21,
 			time : null,
-			date : new Date(2014,2,4),
+			date : new Date(2014, 2, 4),
 			location : null,
 			description : null,
 			category_id : 1
@@ -60,7 +59,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 4,
 			amount : 79,
 			time : null,
-			date : new Date(2014,2,5),
+			date : new Date(2014, 2, 5),
 			location : null,
 			description : null,
 			category_id : 3
@@ -69,7 +68,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 5,
 			amount : 103,
 			time : null,
-			date : new Date(2014,2,8),
+			date : new Date(2014, 2, 8),
 			location : null,
 			description : null,
 			category_id : 0
@@ -78,7 +77,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 6,
 			amount : 73,
 			time : null,
-			date : new Date(2014,2,10),
+			date : new Date(2014, 2, 10),
 			location : null,
 			description : null,
 			category_id : 2
@@ -87,7 +86,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 7,
 			amount : 137,
 			time : null,
-			date : new Date(2014,2,11),
+			date : new Date(2014, 2, 11),
 			location : null,
 			description : null,
 			category_id : 4
@@ -96,7 +95,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			id : 8,
 			amount : 89,
 			time : null,
-			date : new Date(2014,2,12),
+			date : new Date(2014, 2, 12),
 			location : null,
 			description : null,
 			category_id : 1
@@ -171,7 +170,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			for (var key in expenses) {
 				if (expenses[key].id == expenseId) {
 					expenses.splice( expenses.indexOf( expenses[key] ), 1 );
-				}				
+				}
 			}
 		},
 
@@ -181,6 +180,19 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					return expenses[key];
 				}
 			}
+		},
+
+		getExpensesChronologically : function () {
+
+			var chronologicalExpenses = expenses;
+
+			chronologicalExpenses.sort(function (a, b) {
+				// Turn your strings into dates, and then subtract them
+				// to get a value that is either negative, positive, or zero.
+				//return new Date(b.date) - new Date(a.date);
+				return b.date - a.date;
+			});
+			return chronologicalExpenses;
 		},
 
 		getExpensesByCategory : function () {
@@ -326,7 +338,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 
 			for (i = 0; i < expenses.length; i++) {
 
-				if ( typeof expenses[i].date == 'string' ){
+				if (typeof expenses[i].date === 'string') {
 					expenses[i].date = new Date(expenses[i].date);
 				}
 				if (expenses[i]['date'].getMonth() ===  month) {

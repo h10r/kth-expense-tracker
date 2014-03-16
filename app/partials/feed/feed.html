@@ -7,10 +7,17 @@
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content feed">
-	<div class="budget-status good">
+	<ul ng-if="userBudget == 0" class="table-view budget-reminder">
+	  <li class="table-view-cell">
+	    <a class="navigate-right" href="#settings/budget">
+	      Define your monthly budget now!
+	    </a>
+	  </li>
+	 </ul>
+	<div ng-if="userBudget > 0" class="budget-status" ng-class="{bad: isOverBudget}">
 		<h2>You've spent <span>{{monthlyTotal}} {{userCurrency.sign}} ({{spentBudgetPercentage}}%)</span> of your monthly budget so far.</h2>
 	</div>
-	<ul class="table-view">
+	<ul class="table-view feed-list">
 	  <li class="table-view-cell media" ng-repeat="expense_and_cat in expenses_categories">
 	    <a class="navigate-right" ng-click="openDetailView(expense_and_cat['expense'].id)">
 	      <div class="media-body">

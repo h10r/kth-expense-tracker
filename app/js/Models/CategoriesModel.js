@@ -10,7 +10,8 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			id : -1,
 			title : '',
 			color_id : '',
-			icon : ''
+			icon : '',
+			custom: null
 		},
 		currentCategory,
 		color = {
@@ -23,51 +24,51 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 		availableColors.push( 
 		{
-			id 	  : 0, 	
+			id 	  : 0,
 			title : 'turquoise',
 			color_value : '#1abc9c'
 		},{
-			id 	  : 1, 	
+			id 	  : 1,
 			title : 'green sea',
 			color_value : '#16a085'
 		},{
-			id 	  : 2, 	
+			id 	  : 2,
 			title : 'emerland',
 			color_value : '#2ecc71'
 		},{
-			id 	  : 3, 	
+			id 	  : 3,
 			title : 'nephritis',
 			color_value : '#27ae60'
 		},{
-			id 	  : 4, 	
+			id 	  : 4,
 			title : 'peter priver',
 			color_value : '#3498db'
 		},{
-			id 	  : 5, 	
+			id 	  : 5,
 			title : 'belize hole',
 			color_value : '#2980d9'
 		},{
-			id 	  : 6, 	
+			id 	  : 6,
 			title : 'sun flower',
 			color_value : '#f1c40f'
 		},{
-			id 	  : 7, 	
+			id 	  : 7,
 			title : 'orange',
 			color_value : '#f39c12'
 		},{
-			id 	  : 8, 	
+			id 	  : 8,
 			title : 'carrot',
 			color_value : '#d35400'
 		},{
-			id 	  : 9, 	
+			id 	  : 9,
 			title : 'alazarin',
 			color_value : '#e74c3c'
 		},{
-			id 	  : 10, 	
+			id 	  : 10,
 			title : 'pomegranate',
 			color_value : '#c0392b'
 		},{
-			id 	  : 11, 	
+			id 	  : 11,
 			title : 'amethyst',
 			color_value : '#9b59b6'
 		});
@@ -78,31 +79,36 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			id : 0,
 			title : 'groceries',
 			color_id : 1,
-			icon : 'fa-shopping-cart'
+			icon : 'fa-shopping-cart',
+			custom : false
 		},
 		{
 			id : 1,
 			title : 'eating out',
 			color_id : 6,
-			icon : 'fa-cutlery'
+			icon : 'fa-cutlery',
+			custom : false
 		},
 		{
 			id : 2,
 			title : 'coffee',
 			color_id : 8,
-			icon : 'fa-coffee'
+			icon : 'fa-coffee',
+			custom : false
 		},
 		{
 			id : 3,
 			title : 'beer',
 			color_id : 7,
-			icon : 'fa-beer'
+			icon : 'fa-beer',
+			custom : false
 		},
 		{
 			id : 4,
 			title : 'cell phone',
 			color_id : 4,
-			icon : 'fa-phone'
+			icon : 'fa-phone',
+			custom : false
 		}
 	);
 
@@ -112,6 +118,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			currentCategory = jQuery.extend(true, {}, category);
 			currentCategory.id = nextIDCounter;
 			nextIDCounter = nextIDCounter + 1;
+			currentCategory.custom = true;
 			return currentCategory;
 		},
 

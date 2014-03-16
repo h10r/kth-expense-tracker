@@ -82,6 +82,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
     stopper: false,
     cursor: 30,
     inline: false,
+    fgColor: '#0fb2be',
+    bgColor: '#e6e6e7',
     displayInput: false,
     change: function () {
       if (v > this.cv) {

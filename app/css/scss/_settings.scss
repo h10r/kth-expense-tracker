@@ -1,15 +1,17 @@
 .settings {
 
-  .table-view {
-    margin-bottom: 65px;
+  .list-of-categories {
+    li a:not(.btn) {
+      line-height: 27px;
+    }
   }
 
-  ul.list-of-currencies {
+  .list-of-currencies {
     li {
-      padding: 11px 35px 9px 35px;
+      padding: 11px 20px 9px 20px;
 
       span {
-        color: #CCC;
+        color: $lightGreyFont;
         padding: 0 0 0 10px;
       }
 

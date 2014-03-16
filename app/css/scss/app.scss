@@ -1,7 +1,10 @@
 // define variables
-
+$mainAccentColor: #0fb2be;
+$lightGreyFont: #e1e1e1;
+$uiGray: #f7f7f7;
 
 // import partials
+@import "typography";
 @import "nav-bar-top";
 @import "nav-bar-bottom";
 @import "add-expense";
@@ -9,21 +12,17 @@
 @import "overview";
 @import "settings";
 
+body,
 .content {
-  //background-color: #acbdbf;
+  background-color: #f3f3f3;
 }
 
-.content > .table-view:first-child {
-  margin-top: 0;
+.bar-nav~.content {
+  padding: 44px 0 50px 0;
 }
 
 .dataChart {
   display: block !important;
-    margin: 0 auto;
-    padding: 10px 10px;
+  margin: 0 auto;
+  padding: 10px 10px;
 }
-
-.btn-block {
-  width: 100%;
-}
-
