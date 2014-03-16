@@ -11,23 +11,30 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
-      
-  <div id="category-add">
-    
-    <ul class="table-view">
-      <li class="table-view-cell" ng-repeat="c in categories">
-        <a>
-          <div class="category-icon" style="background-color: {{categoryColors[c.color_id].color_value}};">
-            <i ng-if="c.icon != ''" class="fa {{c.icon}}"></i>
-            <i ng-if="c.icon == ''" class="fa">{{c.initial}}</i>
-          </div>
-          {{c.title}}
-          <a href="#deleteCategoryConfirm" class="btn btn-negative open-modal" data-categoryid="{{c.id}}">Delete</a>
-        </a>
-      </li>
-    </ul>
-  </div>
+<div class="content settings">
+
+  <ul class="table-view list-of-categories">
+    <li class="table-view-divider">Standard</li>
+    <li class="table-view-cell" ng-repeat="c in categories" ng-if="c.custom == false">
+      <a>
+        <div class="category-icon" style="background-color: {{categoryColors[c.color_id].color_value}};">
+          <i ng-if="c.icon != ''" class="fa {{c.icon}}"></i>
+        </div>
+        {{c.title}}
+        <a href="#deleteCategoryConfirm" class="btn btn-negative open-modal" data-categoryid="{{c.id}}">Delete</a>
+      </a>
+    </li>
+    <li class="table-view-divider">Custom</li>
+    <li class="table-view-cell" ng-repeat="c in categories" ng-if="c.custom == true">
+      <a>
+        <div class="category-icon" style="background-color: {{categoryColors[c.color_id].color_value}};">
+          <i ng-if="c.icon == ''" class="fa">{{c.initial}}</i>
+        </div>
+        {{c.title}}
+        <a href="#deleteCategoryConfirm" class="btn btn-negative open-modal" data-categoryid="{{c.id}}">Delete</a>
+      </a>
+    </li>
+  </ul>
 
   
   <div id="deleteCategoryConfirm" class="modal">

@@ -59,6 +59,13 @@ header.bar {
     margin: 30px auto 0 auto;
     width: 80%; }
 
+.add-expense-category h2 {
+  color: #CCC;
+  text-align: center;
+  font-weight: 300;
+  margin: 10px 0 18px 0;
+  font-size: 25px; }
+
 .category-list {
   width: 90%;
   margin: 0 auto;
@@ -153,14 +160,12 @@ header.bar {
       font-size: 14px; }
     .feed .budget-reminder .table-view-cell a:after {
       color: #FFF; }
-.feed .table-view.feed-list {
-  margin-bottom: 50px; }
-  .feed .table-view.feed-list .table-view-cell a .media-body span {
-    line-height: 30px; }
-  .feed .table-view.feed-list .table-view-cell a .media-body span.date {
-    float: right;
-    color: #e1e1e1;
-    text-align: right; }
+.feed .table-view.feed-list .table-view-cell a .media-body span {
+  line-height: 30px; }
+.feed .table-view.feed-list .table-view-cell a .media-body span.date {
+  float: right;
+  color: #e1e1e1;
+  text-align: right; }
 
 .feed-detail .input-row label {
   color: #969696; }
@@ -172,31 +177,31 @@ header.bar {
 .feed-detail .category .category-icon {
   margin: 5px 0 0 0; }
 
-.settings .table-view {
-  margin-bottom: 65px; }
-.settings ul.list-of-currencies li {
+.settings .list-of-categories li a:not(.btn) {
+  line-height: 27px; }
+.settings .list-of-currencies li {
   padding: 11px 20px 9px 20px; }
-  .settings ul.list-of-currencies li span {
+  .settings .list-of-currencies li span {
     color: #e1e1e1;
     padding: 0 0 0 10px; }
-  .settings ul.list-of-currencies li .icon {
+  .settings .list-of-currencies li .icon {
     float: right;
     color: #FFF; }
-.settings ul.list-of-currencies li.active {
+.settings .list-of-currencies li.active {
   background: #36b451;
   color: #FFF;
   font-weight: bold; }
-  .settings ul.list-of-currencies li.active span {
+  .settings .list-of-currencies li.active span {
     color: #FFF; }
 
 body,
 .content {
   background-color: #f3f3f3; }
 
+.bar-nav ~ .content {
+  padding: 44px 0 50px 0; }
+
 .dataChart {
   display: block !important;
   margin: 0 auto;
   padding: 10px 10px; }
-
-.btn-block {
-  width: 100%; }

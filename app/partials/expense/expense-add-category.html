@@ -1,10 +1,12 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-  <a class="btn pull-left" href="#expenses/add">
-    Previous
+  <a class="btn btn-link btn-nav pull-left" href="#expenses/add">
+    <span class="icon icon-left-nav"></span>
+    Back
   </a>
-  <a class="btn pull-right" href="#expenses/add/details">
+  <a class="btn btn-link btn-nav pull-right" href="#expenses/add/details">
     Next
+    <span class="icon icon-right-nav"></span>
   </a>
 
   <h1 class="title">SEK {{amount}}</h1>
@@ -13,7 +15,7 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
+<div class="content add-expense-category">
 
   <h2>Pick a category</h2>
 
@@ -23,10 +25,15 @@
       <a>
         {{category.title}}
       </a>
-     <i ng-if="category.icon != ''" class="fa fa-2x {{category.icon}}"></i>
-     <i ng-if="category.icon == ''" class="fa fa-2x">{{category.initial}}</i>
+      <i ng-if="category.icon != ''" class="fa fa-2x {{category.icon}}"></i>
+      <i ng-if="category.icon == ''" class="fa fa-2x">{{category.initial}}</i>
 
-
+    </li>
+    <li class="table-view-cell" style="background-color: #CCC">
+      <a href="#categories/add">
+        Add category
+      </a>
+      <i class="fa fa-2x fa-plus"></i>
     </li>
   </ul>
 
