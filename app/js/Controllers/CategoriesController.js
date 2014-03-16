@@ -1,8 +1,6 @@
 expenseTrackerAppModule.controller('expenseTracker.CategoriesController', function($scope, $location, CategoriesModel, UserModel) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
-
-	$scope.deleteMode = false;
 	
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 	$scope.selectedColor = -1;
@@ -14,7 +12,7 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 		$scope.categories = CategoriesModel.listCategories();
 	}
 	
-	$scope.chooseColorForCategory = function(colorId) {
+	$scope.chooseColorForCategory = function (colorId) {
 		// reset color id on toggle
 		if ( $scope.selectedColor === colorId ) {
 			colorId = -1;
@@ -22,21 +20,30 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 
 		$scope.selectedColor = colorId;
 		CategoriesModel.setCategoryColorById( colorId );
-	}
-	
-	$scope.toggleDeleteMode = function() {
-		$scope.deleteMode = !$scope.deleteMode;
-	}
+	};
 
-	$scope.saveCategory = function() {
+	$scope.saveCategory = function () {
 		CategoriesModel.saveCurrentCategoryToCollection();
 
 		$location.path('/categories');
-	}
+	};
 
-	$scope.removeCategory = function(categoryId) {
+	$scope.removeCategory = function () {
+		var clickedAnchor = document.getElementsByClassName('triggered-active-modal'),
+			anchorHref,
+			currentModal,
+			categoryId;
+
+		clickedAnchor = clickedAnchor[0];
+		categoryId = clickedAnchor.dataset.categoryid;
+
 		CategoriesModel.removeCategoryFromCollection(categoryId);
 
-		//$scope.categories = CategoriesModel.listCategories();
-	}
+		anchorHref = clickedAnchor.getAttribute('href');
+
+		currentModal = document.querySelector(anchorHref);
+		currentModal.classList.toggle('active');
+
+	};
+
 });

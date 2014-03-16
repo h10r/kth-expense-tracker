@@ -49,6 +49,10 @@
     margin: 0;
     border: 0;
 
+    &:first-child {
+      margin-top: 0;
+    }
+
     .table-view-cell {
       padding: 14px 65px 13px 15px;
 
