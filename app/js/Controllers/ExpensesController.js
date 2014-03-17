@@ -34,6 +34,9 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
   $scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
 
   $scope.chooseCategory = function (categoryId) {
+    if (categoryId === undefined) {
+      categoryId = 5;
+    }
     ExpensesModel.setCategory(categoryId);
 
     $location.path('/expenses/add/details');

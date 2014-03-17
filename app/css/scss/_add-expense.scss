@@ -63,11 +63,11 @@
     border-radius: 43px;
 
     a {
-      font-size: 12px;
+      font-size: 11px;
       margin: 0;
       line-height: 12px;
       width: 100%;
-      bottom: 19px;
+      bottom: 20px;
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
       z-index: 50;
@@ -95,6 +95,15 @@
       width: 86px;
       height: 86px;
       z-index: 100;
+    }
+  }
+
+  .add-new-category-button {
+    border: 1px solid #CCC;
+    background-color: transparent;
+
+    a, .fa {
+      color: #CCC;
     }
   }
 

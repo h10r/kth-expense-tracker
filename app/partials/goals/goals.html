@@ -28,7 +28,7 @@
     <ul class="table-view">
       <li class="table-view-cell media" ng-repeat="goal in goals">
         <div class="media-body">
-          <div class="goal-days">
+          <div class="goal-days {{ getGoalColorBasedOnDays( goal.daysUntilGoalIsReached ) }}">
             <span class="goal-days-number">{{goal.daysUntilGoalIsReached}}</span>
             <span class="goal-days-tagline">days</span>
           </div>

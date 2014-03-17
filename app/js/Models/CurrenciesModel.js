@@ -7,7 +7,8 @@ expenseTrackerAppModule.service('CurrenciesModel', function () {
       id: 0,
       name: '',
       sign: '',
-      token: ''
+      token: '',
+      position: ''
     };
 
   // available currencies
@@ -16,61 +17,71 @@ expenseTrackerAppModule.service('CurrenciesModel', function () {
       id: 0,
       name: 'Euro',
       sign: '€',
-      token: 'EUR'
+      token: 'EUR',
+      position: 'right'
     },
     {
       id: 1,
       name: 'US Dollar',
       sign: '$',
-      token: 'USD'
+      token: 'USD',
+      position: 'left'
     },
     {
       id: 2,
       name: 'Swedish Kronor',
-      sign: 'SEK',
-      token: 'SEK'
+      sign: 'Kr',
+      token: 'SEK',
+      position: 'right'
     },
     {
       id: 3,
       name: 'Japanese Yen',
       sign: '¥',
-      token: 'JPY'
+      token: 'JPY',
+      position: 'right'
     },
     {
       id: 4,
       name: 'British Pound',
       sign: '£',
-      token: 'GBP'
+      token: 'GBP',
+      position: 'left'
     },
     {
       id: 5,
       name: 'Swiss Franc',
       sign: 'SFr',
-      token: 'CHF'
+      token: 'CHF',
+      position: 'right'
     },
     {
       id: 6,
       name: 'Canadian Dollar',
       sign: '$',
-      token: 'CAD'
+      token: 'CAD',
+      position: 'left'
     },
     {
       id: 7,
       name: 'Australian Dollar',
       sign: '$',
-      token: 'AUD'
+      token: 'AUD',
+      position: 'left'
     },
     {
       id: 8,
       name: 'New Zealand Dollar',
       sign: '$',
-      token: 'NZD'
+      token: 'NZD',
+      position: 'left'
     },
     {
       id: 9,
       name: 'South African Rand',
       sign: 'R',
-      token: 'ZAR'
+      token: 'ZAR',
+      position: 'right'
     }
   );
 
