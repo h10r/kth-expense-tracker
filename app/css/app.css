@@ -97,6 +97,8 @@ header.bar {
       color: rgba(255, 255, 255, 0.6);
       z-index: 50;
       text-align: center; }
+      .category-list .table-view-cell a:active {
+        background-color: transparent; }
     .category-list .table-view-cell .fa {
       position: absolute;
       width: 86px;
