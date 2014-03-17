@@ -351,21 +351,23 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 		calculateAverageSpendingPerDay : function () {
 			var NO_OF_DAYS = 30;
 
-			console.log( UserModel.isBudgetSet() );
-
 			var userBudget = UserModel.getBudget();
-			console.log( userBudget );
 
 			// sort expenses, descending
 			expenses.sort(function(a,b){
 			  return new Date(b['date']) - new Date(a['date']);
 			});
 
+			var oneMonthAgoDate = new Date();
+			oneMonthAgoDate.setMonth( oneMonthAgoDate.getMonth() - 1 );
+
 			var sumOfExpenses = 0;
 
 			for (var i = 0; i < NO_OF_DAYS; i++) {
-				if ( expenses[i] !== undefined) {
-					sumOfExpenses += expenses[i]['amount'];
+				if ( expenses[i] !== undefined ) {
+					if ( expenses[i]['date'] > oneMonthAgoDate ) {
+						sumOfExpenses += expenses[i]['amount'];
+					}
 				}
 			}
 
@@ -374,11 +376,13 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 
 			var spendingDelta = optimalSpendingPerDayByBudget - averageSpendingPerDay;
 
-			console.log( averageSpendingPerDay );
-			console.log( optimalSpendingPerDayByBudget );
-			console.log( spendingDelta );
+			var spendingStats = { 
+				"spendingDelta" : spendingDelta,
+				"averageSpendingPerDay" : averageSpendingPerDay,
+				"optimalSpendingPerDayByBudget" : optimalSpendingPerDayByBudget
+			};
 
-			return spendingDelta;
+			return spendingStats;
 		}
 		
 	};
