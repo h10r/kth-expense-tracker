@@ -38,23 +38,16 @@
             <p>{{goal.target}} {{userCurrency}}</p>
           </div>
         </div>
-        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
+        <a class="btn btn-negative" ng-click="removeGoal(goal.id)">Delete</a>
       </li>
     </ul>
     
-    <div class="input-row">
+    <div ng-if="goals.length == 0" class="input-row">
+      You have not defined any saving goals yet.<br/><br/>
 
-      <div ng-if="goals.length == 0">
-          You have not defined any saving goals yet.<br/><br/>
-
-          As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
-        
-          <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
-      </div>
-      <div ng-if="goals.length != 0">
-        <a ng-if="!deleteMode" class="btn btn-negative btn-outlined btn-block" ng-click="toggleDeleteMode()">Delete a goal</a>
-        <a ng-if="deleteMode" class="btn btn-positive btn-outlined btn-block" ng-click="toggleDeleteMode()">Done with deleting</a>
-      </div>
+      As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
+    
+      <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
     </div>
   </div>  
   
