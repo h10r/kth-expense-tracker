@@ -167,15 +167,21 @@ header.bar {
   color: #e1e1e1;
   text-align: right; }
 
-.feed-detail .input-row label {
-  color: #969696; }
-.feed-detail .category input {
-  float: left;
-  width: 55%;
-  margin: 0;
-  float: left; }
-.feed-detail .category .category-icon {
-  margin: 5px 0 0 0; }
+.feed-detail .input-group {
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 0 0 15px 0; }
+  .feed-detail .input-group .input-row label {
+    color: #969696;
+    font-size: 15px; }
+  .feed-detail .input-group .input-row:last-child {
+    border-bottom: 0; }
+  .feed-detail .input-group .input-row.category {
+    position: relative; }
+    .feed-detail .input-group .input-row.category .category-icon {
+      position: absolute;
+      top: 4px;
+      right: 0; }
 
 .settings.add-category h3 {
   margin: 10px 0 8px 10px; }
