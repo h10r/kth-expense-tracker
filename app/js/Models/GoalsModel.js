@@ -13,6 +13,18 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			description : ''
 		};
 
+		goals.push(
+		{
+			id : 0,
+			target : 1000,
+			description : "Jetski"
+		},{
+			id : 1,
+			target : 5000,
+			description : "iPad"
+		}
+		);
+
 	return {
 
 		initNewGoal : function() {
@@ -34,11 +46,19 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			}
 		},
 
+		calculateDaysUntilUserSavedEnough : function( target, spendingPerDay ) {
+			console.log( target );
+			console.log( spendingPerDay );
+		},
+
 		getAllGoals : function() {
-			var averageSpendingPerDay = ExpensesModel.calculateAverageSpendingPerDay();
+			var spendingStats = ExpensesModel.calculateAverageSpendingPerDay();
+
+			for (var key in goals) {
+				goals[key].daysUntilSavedEnough = this.calculateDaysUntilUserSavedEnough(goals[key].target, spendingStats.spendingDelta);
+			}
 
 			return goals;
 		}
-
 	};
 });

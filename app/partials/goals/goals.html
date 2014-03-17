@@ -15,13 +15,10 @@
   <div ng-if="hasBudget == true" class="content-padded">
     <ul class="table-view">
       <li class="table-view-cell media" ng-repeat="goal in goals">
-        <a class="navigate-right">
-          <div class="media-body">
-            {{goal.target}} {{userCurrency}} for {{goal.description}}
-            <span class="pull-right">5 days</span>
-            </p>
-          </div>
-        </a>
+        <div class="media-body">
+          {{goal.description}}
+          <p>{{goal.target}} {{userCurrency}}</p>
+        </div>
         <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
       </li>
     </ul>
