@@ -50,6 +50,10 @@ expenseTrackerAppModule.service('UserModel', function () {
 		setBudget : function (value) {
 			currentUser.budget = value;
 		},
+
+		isBudgetSet : function () {
+			return( currentUser.budget != 0.0 );
+		},
 		
 		getGoals : function () {
 			// Goal Model

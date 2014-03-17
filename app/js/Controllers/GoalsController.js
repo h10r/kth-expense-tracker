@@ -8,7 +8,12 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 	if( $location.$$path == "/goals/add" ) {
 		$scope.currentGoal = GoalsModel.initNewGoal();
 	} else {
-		$scope.goals = GoalsModel.getAllGoals();
+		if ( UserModel.isBudgetSet() ) {
+			$scope.hasBudget = true;
+			$scope.goals = GoalsModel.getAllGoals();
+		} else {
+			$scope.hasBudget = false;
+		}
 	}
 	
 	$scope.toggleDeleteMode = function() {
