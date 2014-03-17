@@ -20,7 +20,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
       	context.canvas.width = 300;
 		context.canvas.height = 200;
 		context.clearRect(0,0,canvas.width,canvas.height)
-		$scope.chartBudget = new Chart(context).Line(getBudgetData(),{pointDot : false, bezierCurve : false});
+		$scope.chartBudget = new Chart(context).Line(getBudgetData(),{pointDot : false, bezierCurve : false,scaleShowGridLines : false});
 		$scope.budgetChartVisible = true;
 		$scope.catChartVisible = false;
 		$scope.timeChartVisible= false;
@@ -51,6 +51,9 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	};
 
 	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
+	var currentMonth = (new Date()).getMonth();
+	$scope.monthlyTotal = ExpensesModel.getMonthlyTotal(currentMonth);
+	$scope.budget = UserModel.getBudget();
 
 	var getCategoryData = function(){	
 		return ExpensesModel.getExpensesByCategory();
@@ -81,7 +84,7 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	ctxBudget.width = 300;
 	ctxBudget.height= 200;
 	var myNewChart3 = new Chart(ctxBudget);
-	$scope.chartBudget = new Chart(ctxBudget).Line(getBudgetData(),{pointDot : false, bezierCurve : false});
+	$scope.chartBudget = new Chart(ctxBudget).Line(getBudgetData(),{pointDot : false, bezierCurve : false,scaleShowGridLines : false});
 
 	// currency user has selected in the settings
 	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());

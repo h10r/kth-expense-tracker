@@ -1,7 +1,7 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
+expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, UserModel) {
 	'use strict';
-
+	
 	// @TODO: use the ID from the backend / database
 	var nextIDCounter = 9,
 		categoryColors = CategoriesModel.getAvailableColors(),
@@ -16,7 +16,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			description : null,
 			category_id : null
 		};
-
 	// pre-defined expenses for testing
 	expenses.push(
 		{
@@ -120,14 +119,23 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	}
 
 	function range(start, end) {
-    var foo = [];
-    for (var i = start; i <= end; i++) {
-        foo.push(i);
-    }
-    return foo;
+	    var foo = [];
+	    for (var i = start; i <= end; i++) {
+	        foo.push(i);
+	    }
+	    return foo;
+	};
+
+	function rangeEmpty(start, end) {
+	    var foo = [];
+	    for (var i = start; i <= end; i++) {
+	        foo.push("");
+	    }
+	    return foo;
 	};
 
 	return {
+		self : this,
 		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
 			currentExpense.id = nextIDCounter;
@@ -238,28 +246,41 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpensesByBudget : function () {
-			var test = $.map( range(1,30), function( n ) {
-			  return n*4;
+			var date = new Date();
+			var currentMonth = date.getMonth();
+			var currentDay = date.getDate();
+			var monthlyTotal = this.getMonthlyTotal(currentMonth);
+			var monthlyBudget = UserModel.getBudget();
+			var budgetGradArray = $.map( range(1,date.monthDays()), function( n ) {
+			  //get budget gradient from expenseModel
+			  
+			  var daysOfMonth = date.monthDays();
+			  return n*(monthlyBudget/daysOfMonth);
 			});
-			console.log(test)
+			var monthlyGradArray = $.map( range(1,currentDay), function( n ) {
+			  //get budget gradient from expenseModel
+			  
+			  return n*(monthlyTotal/currentDay);
+			});
+
 			var data = {
-			  labels : range(1,30),
+			  labels : rangeEmpty(1,30),
 			    datasets : [
-					{
+			    	{
 			      		//grey color
-			      		fillColor : "rgba(220,220,220,0.5)",
-						strokeColor : "rgba(220,220,220,1)",
-						pointColor : "rgba(220,220,220,1)",
+			      		fillColor : "rgba(245,49,49,0.5)",
+						strokeColor : "rgba(245,49,49,1)",
+						pointColor : "rgba(245,49,49,1)",
 						pointStrokeColor : "#fff",
-						data : range(1,30)
+						data : monthlyGradArray
 					},
-					{
+			    	{
 			            //blue color
 			            fillColor : "rgba(151,187,205,0.3)",
 			      		strokeColor : "rgba(151,187,205,1)",
 			      		pointColor : "rgba(151,187,205,1)",
 			      		pointStrokeColor : "#fff",
-			        	data : test
+			        	data : budgetGradArray
 			      	}
 			    ]
 			}
@@ -270,14 +291,12 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			var currentDate = new Date();
 			var currentWeekNumber = currentDate.getWeek();
 			var expenses = this.getExpenses();
-			console.log(expenses);
 			var weekData = [0,0,0,0,0,0,0];
-			console.log("current week number: " + currentWeekNumber);
+
 			for (var idx in expenses){
 
 				if ( typeof expenses[idx].date == 'string' ){
 					expenses[idx].date = new Date(expenses[idx].date);
-					console.log(expenses[idx].date)
 				}
 
 				if (expenses[idx].date.getWeek() == currentWeekNumber){
@@ -285,7 +304,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					weekData[dayIndex] += expenses[idx].amount;
 				}
 			}
-			console.log("current week day totals: "+weekData);
 			return weekData;
 		},
 
@@ -293,7 +311,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 			var currentDate = new Date();
 			var currentWeekNumber = currentDate.getWeek()-1;
 			var expenses = this.getExpenses();
-			console.log(expenses);
+
 			var weekData = [0,0,0,0,0,0,0];
 
 			for (var idx in expenses){
@@ -307,7 +325,6 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 					weekData[dayIndex] += expenses[idx].amount;
 				}
 			}
-			console.log("previous week day totals: "+weekData);
 			return weekData;
 
 		},

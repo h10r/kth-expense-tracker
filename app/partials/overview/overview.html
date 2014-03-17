@@ -25,7 +25,10 @@
         <canvas id="byBudgetChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell" >
-            test
+            Monthly Budget <span class="pull-right">{{budget}} {{userCurrency.sign}}</span>
+          </li>
+          <li class="table-view-cell" >
+            Spent this month <span class="pull-right">{{monthlyTotal}} {{userCurrency.sign}}</span>
           </li>
         </ul>
       </div>
