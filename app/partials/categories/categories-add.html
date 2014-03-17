@@ -10,33 +10,23 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
+<div class="content settings add-category">
       
-	<div id="category-add" class="content-padded">
-    <form class="input-group">
-      <div class="input-row">
-        <label>Title</label>
-        <input type="text" placeholder="Beer" ng-model="currentCategory.title">
-      </div>
-    </form>
+  <form>
+    <h3>Title</h3>
+    <input type="text" placeholder="Beer" name="category-name" ng-model="currentCategory.title">
+  </form>
 
-    <div class="input-row">
-      <h3>Color</h3>
+  <div class="pick-color">
+    <h3>Color</h3>
+  
+    <ul class="table-view color-list">
+       <button class="btn btn-color-select" style="background-color: {{c.color_value}};" ng-repeat="c in availableColors" ng-click="chooseColorForCategory(c.id)">
+          {{c.color}}
+         <span ng-if="selectedColor == c.id" class="icon icon-check"></span>
+       </button>
+    </ul>
     
-      <ul class="table-view color-list">
-         <button class="btn btn-color-select" style="background-color: {{c.color_value}};" ng-repeat="c in availableColors" ng-click="chooseColorForCategory(c.id)">
-            {{c.color}}
-           <span ng-if="selectedColor == c.id" class="icon icon-check"></span>
-         </button>
-      </ul>
-    </div>
-    
-    <div class="input-row">
-      <button class="btn btn-positive btn-block" ng-click="saveCategory()">Save category</button>
-    </div>
-
-    </br>
-    </br>
-    </br>
+    <button class="btn btn-positive btn-block" ng-click="saveCategory()">Save category</button>
   </div>  
 </div>

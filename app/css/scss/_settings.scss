@@ -1,11 +1,47 @@
 .settings {
 
-  .list-of-categories {
-    li a:not(.btn) {
-      line-height: 27px;
+  // styling for add category screen
+  &.add-category {
+
+    h3 {
+      margin: 10px 0 8px 15px;
+    }
+
+    .btn-block {
+      width: 92%;
+      margin: 0 auto;
+    }
+
+    .color-list {
+      padding: 0 0 15px 0;
+
+      .btn-color-select {
+        width: 12%;
+        margin: 4% 0 0 4%;
+        height: 30px;
+
+        &:active,
+        &:focus {
+          outline: 0;
+        }
+
+        .icon {
+          color: #FFF;
+          font-size: 20px;
+          line-height: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .list-of-categories {
+      li a:not(.btn) {
+        line-height: 27px;
+      }
     }
   }
 
+  // styling for currencies selection screen
   .list-of-currencies {
     li {
       padding: 11px 20px 9px 20px;
