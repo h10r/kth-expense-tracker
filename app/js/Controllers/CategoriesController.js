@@ -1,9 +1,10 @@
-expenseTrackerAppModule.controller('expenseTracker.CategoriesController', function($scope, $location, CategoriesModel, UserModel) {
+expenseTrackerAppModule.controller('expenseTracker.CategoriesController', function($scope, $location, CategoriesModel, UserModel, NavigationService) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	
 	$scope.categoryColors = CategoriesModel.getAvailableColors();
 	$scope.selectedColor = -1;
+	$scope.goBack = NavigationService.goBack;
 
 	if( $location.$$path == "/categories/add" ) {
 		$scope.currentCategory = CategoriesModel.initNewCategory();
@@ -25,7 +26,8 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	$scope.saveCategory = function () {
 		CategoriesModel.saveCurrentCategoryToCollection();
 
-		$location.path('/categories');
+		//$location.path('/categories');
+		$scope.goBack();
 	};
 
 	$scope.removeCategory = function () {

@@ -1,7 +1,8 @@
-expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($scope, $location, GoalsModel, UserModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($scope, $location, GoalsModel, UserModel, CurrenciesModel, NavigationService) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.userCurrency = CurrenciesModel.getCurrencyById( $scope.currentUser.currency ).sign;
+	$scope.goBack = NavigationService.goBack;
 
 	$scope.deleteMode = false;
 	
@@ -22,7 +23,7 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 
 	$scope.saveGoal = function() {
 		GoalsModel.saveCurrentGoalToCollection();
-		$location.path('/goals');
+		$scope.goBack();
 	}
 
 	$scope.removeGoal = function( goalId ) {

@@ -1,6 +1,6 @@
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar bar-nav">
-    <a class="btn btn-link btn-nav pull-left" href="#settings">
+    <a class="btn btn-link btn-nav pull-left" ng-click="goBack()">
     <span class="icon icon-left-nav"></span>
     Back
     </a>
@@ -10,16 +10,21 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
+<div class="content settings budget">
 
-<form class="input-group">
-  <div class="input-row">
-    <label>Budget in {{userCurrency}}</label>
-    <input type="text" placeholder="400" ng-model="currentUser.budget">
+  <div class="content-padded">
+    <h3>Define monthly budget in {{userCurrency}}</h3>
+    <form class="input-group">
+      
+      <div class="input-row">
+        <label>Budget</label>
+        <input type="text" placeholder="400" ng-model="currentUser.budget">
+      </div>
+
+    </form>
+
+    <button class="btn btn-positive btn-block" ng-click="goBack()">Save</button>
+
   </div>
-  <div class="input-row">
-    <button class="btn btn-positive btn-block" ng-click="saveBudget()">Save</button>
-  </div>
-</form>
 
 </div>

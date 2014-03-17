@@ -1,8 +1,9 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel, GoalsModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel, GoalsModel, CurrenciesModel, NavigationService) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.currencies = CurrenciesModel.getCurrenciesList();
 	$scope.userCurrency = CurrenciesModel.getCurrencyById( $scope.currentUser.currency ).sign;
+	$scope.goBack = NavigationService.goBack;
 
 	$scope.setCurrency = function (currencyId) {
 		$scope.userCurrency = currencyId;
@@ -21,8 +22,4 @@ expenseTrackerAppModule.controller('expenseTracker.SettingsController', function
 	$scope.redirectToSettingsPage = function () {
 		$location.path('/settings');
 	};
-
-	$scope.saveBudget = function () {
-		$scope.redirectToSettingsPage();
-	};	
 });

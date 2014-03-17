@@ -1,10 +1,16 @@
+h1, h2, h3, h4, h5, h6, p, .title {
+  color: #545454; }
+
 h2 {
   font-size: 22px; }
 
 h3 {
-  margin: 15px 0 10px 4px;
+  margin: 10px 0 10px 4px;
   width: 90%;
   font-size: 16px; }
+
+h3 span {
+  font-weight: 300; }
 
 header.bar {
   background-color: #f7f7f7;
@@ -184,8 +190,15 @@ header.bar {
       top: 4px;
       right: 0; }
 
-.settings.add-category h3 {
-  margin: 10px 0 8px 10px; }
+.settings.budget .input-group {
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 0 0 15px 0; }
+  .settings.budget .input-group .input-row {
+    border: 0; }
+    .settings.budget .input-group .input-row label {
+      color: #969696;
+      font-size: 15px; }
 .settings.add-category .color-list {
   padding: 0 0 15px 0;
   border: 1px solid #dddddd;

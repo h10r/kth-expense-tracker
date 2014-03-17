@@ -1,11 +1,25 @@
 .settings {
 
+  &.budget {
+
+    .input-group {
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      margin: 0 0 15px 0;
+
+      .input-row {
+        border: 0;
+
+        label {
+          color: #969696;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
   // styling for add category screen
   &.add-category {
-
-    h3 {
-      margin: 10px 0 8px 10px;
-    }
 
     .color-list {
       padding: 0 0 15px 0;
