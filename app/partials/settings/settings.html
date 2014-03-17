@@ -6,11 +6,12 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">
-  <ul class="table-view">
+<div class="content settings">
+  <ul class="table-view list-of-settings">
     <li class="table-view-cell media">
       <a class="navigate-right" href="#categories">
-        <span class="media-object pull-left icon icon-plus"></span>
+        <!--<span class="media-object pull-left icon icon-plus"></span>-->
+        <i class="fa fa-tags pull-left"></i>
         <div class="media-body">
           Manage Categories
         </div>
@@ -18,7 +19,8 @@
     </li>
     <li class="table-view-cell media">
       <a class="navigate-right" href="#goals">
-        <span class="media-object pull-left icon icon-edit"></span>
+        <!--<span class="media-object pull-left icon icon-edit"></span>-->
+        <i class="fa fa-calendar pull-left"></i>
         <div class="media-body">
           Manage Goals
         </div>
@@ -26,7 +28,8 @@
     </li>
     <li class="table-view-cell media">
       <a class="navigate-right" href="#settings/budget">
-        <span class="media-object pull-left icon icon-compose"></span>
+        <i class="fa fa-money pull-left"></i>
+        <!--<span class="media-object pull-left icon icon-compose"></span>-->
         <div class="media-body">
           Set Budget
         </div>
@@ -34,7 +37,8 @@
     </li>
     <li class="table-view-cell media">
       <a class="navigate-right" href="#settings/change-currency">
-        <span class="media-object pull-left icon icon-gear"></span>
+        <!--<span class="media-object pull-left icon icon-gear"></span>-->
+        <i class="fa fa-dollar pull-left"></i>
         <div class="media-body">
           Set Currency
         </div>
