@@ -90,23 +90,30 @@
 
 .feed-detail {
 
-  .input-row {
-    label {
-      color: #969696;
-    }
-  }
+  .input-group {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 0 0 15px 0;
 
-  .category {
-
-    input {
-      float: left;
-      width: 55%;
-      margin: 0;
-      float: left;
+    .input-row {
+      label {
+        color: #969696;
+        font-size: 15px;
+      }
     }
 
-    .category-icon {
-      margin: 5px 0 0 0;
+    .input-row:last-child {
+      border-bottom: 0;
+    }
+
+    .input-row.category {
+      position: relative;
+
+      .category-icon {
+        position: absolute;
+        top: 4px;
+        right: 0;
+      }
     }
   }
 }

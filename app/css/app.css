@@ -89,7 +89,8 @@ header.bar {
       bottom: 19px;
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
-      z-index: 50; }
+      z-index: 50;
+      text-align: center; }
     .category-list .table-view-cell .fa {
       position: absolute;
       width: 86px;
@@ -100,7 +101,7 @@ header.bar {
       z-index: 50; }
     .category-list .table-view-cell .fa-beer {
       left: -2px; }
-    .category-list .table-view-cell span {
+    .category-list .table-view-cell span, .category-list .table-view-cell a.clickArea {
       position: absolute;
       top: 0;
       left: 0;
@@ -167,23 +168,28 @@ header.bar {
   color: #e1e1e1;
   text-align: right; }
 
-.feed-detail .input-row label {
-  color: #969696; }
-.feed-detail .category input {
-  float: left;
-  width: 55%;
-  margin: 0;
-  float: left; }
-.feed-detail .category .category-icon {
-  margin: 5px 0 0 0; }
+.feed-detail .input-group {
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 0 0 15px 0; }
+  .feed-detail .input-group .input-row label {
+    color: #969696;
+    font-size: 15px; }
+  .feed-detail .input-group .input-row:last-child {
+    border-bottom: 0; }
+  .feed-detail .input-group .input-row.category {
+    position: relative; }
+    .feed-detail .input-group .input-row.category .category-icon {
+      position: absolute;
+      top: 4px;
+      right: 0; }
 
 .settings.add-category h3 {
-  margin: 10px 0 8px 15px; }
-.settings.add-category .btn-block {
-  width: 92%;
-  margin: 0 auto; }
+  margin: 10px 0 8px 10px; }
 .settings.add-category .color-list {
-  padding: 0 0 15px 0; }
+  padding: 0 0 15px 0;
+  border: 1px solid #dddddd;
+  border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;
     margin: 4% 0 0 4%;

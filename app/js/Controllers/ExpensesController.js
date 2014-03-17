@@ -1,7 +1,8 @@
 expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel, KnobModel) {
   'use strict';
 
-  var currentCategoryId;
+  var currentCategoryId,
+    now;
 
   $scope.categories = CategoriesModel.listCategories();
   $scope.categoryColors = CategoriesModel.getAvailableColors();
@@ -9,13 +10,14 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
   if ($location.$$path === '/expenses/add') {
     $scope.currentExpense = ExpensesModel.initNewExpense();
 
-    var now = new Date();
+    now = new Date();
     $scope.currentExpense.date = now.toDateString();
     $scope.currentExpense.time = now.toLocaleTimeString();
 
     $scope.amount = ExpensesModel.getAmount();
 
     KnobModel.initialize( $('div.ival') );
+
   } else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
     ExpensesModel.removeExpenseFromCollection($routeParams.id);
     $location.path('/feed');

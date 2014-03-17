@@ -363,6 +363,43 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 				}
 			}
 			return monthlyTotal;
+		},
+		
+		calculateAverageSpendingPerDay : function () {
+			var NO_OF_DAYS = 30;
+
+			var userBudget = UserModel.getBudget();
+
+			// sort expenses, descending
+			expenses.sort(function(a,b){
+			  return new Date(b['date']) - new Date(a['date']);
+			});
+
+			var oneMonthAgoDate = new Date();
+			oneMonthAgoDate.setMonth( oneMonthAgoDate.getMonth() - 1 );
+
+			var sumOfExpenses = 0;
+
+			for (var i = 0; i < NO_OF_DAYS; i++) {
+				if ( expenses[i] !== undefined ) {
+					if ( expenses[i]['date'] > oneMonthAgoDate ) {
+						sumOfExpenses += expenses[i]['amount'];
+					}
+				}
+			}
+
+			var averageSpendingPerDay = sumOfExpenses / NO_OF_DAYS;
+			var optimalSpendingPerDayByBudget = userBudget / NO_OF_DAYS;
+
+			var spendingDelta = optimalSpendingPerDayByBudget - averageSpendingPerDay;
+
+			var spendingStats = { 
+				"spendingDelta" : spendingDelta,
+				"averageSpendingPerDay" : averageSpendingPerDay,
+				"optimalSpendingPerDayByBudget" : optimalSpendingPerDayByBudget
+			};
+
+			return spendingStats;
 		}
 		
 	};

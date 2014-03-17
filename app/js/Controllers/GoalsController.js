@@ -8,7 +8,12 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 	if( $location.$$path == "/goals/add" ) {
 		$scope.currentGoal = GoalsModel.initNewGoal();
 	} else {
-		$scope.goals = GoalsModel.getAllGoals();
+		if ( UserModel.isBudgetSet() ) {
+			$scope.hasBudget = true;
+			$scope.goals = GoalsModel.getAllGoals();
+		} else {
+			$scope.hasBudget = false;
+		}
 	}
 	
 	$scope.toggleDeleteMode = function() {
@@ -22,19 +27,5 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 
 	$scope.removeGoal = function( goalId ) {
 		GoalsModel.removeGoalFromCollection( goalId );
-	}
-
-	$scope.getTodayForDateField = function() {
-		var now = new Date();
-	    var month = (now.getMonth() + 1);
-	    var day = now.getDate();
-	    if (month < 10) {
-	        month = "0" + month;
-	    }
-	    if (day < 10) {
-	        day = "0" + day;
-	    }
-	    var today = now.getFullYear() + '-' + month + '-' + day;
-    	return today;
 	}
 });

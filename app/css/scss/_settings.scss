@@ -4,16 +4,13 @@
   &.add-category {
 
     h3 {
-      margin: 10px 0 8px 15px;
-    }
-
-    .btn-block {
-      width: 92%;
-      margin: 0 auto;
+      margin: 10px 0 8px 10px;
     }
 
     .color-list {
       padding: 0 0 15px 0;
+      border: 1px solid #ddd;
+      border-radius: 3px;
 
       .btn-color-select {
         width: 12%;

@@ -5,24 +5,20 @@
     Back
   </a>
   <h1 class="title">Goals</h1>
-  <a class="icon icon-plus pull-right" href="#goals/add"></a>
+  <a ng-if="hasBudget == true" class="icon icon-plus pull-right" href="#goals/add"></a>
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">      
-  <div class="content-padded">
+  <div ng-if="hasBudget == true" class="content-padded">
     <ul class="table-view">
       <li class="table-view-cell media" ng-repeat="goal in goals">
-        <a class="navigate-right">
-          <div class="media-body">
-            {{goal.target}} {{userCurrency}}
-            <p>Until: {{goal.timestamp}}<br/>
-              {{goal.description}}
-            </p>
-          </div>
-        </a>
+        <div class="media-body">
+          {{goal.description}}
+          <p>{{goal.target}} {{userCurrency}}</p>
+        </div>
         <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
       </li>
     </ul>
@@ -42,4 +38,12 @@
       </div>
     </div>
   </div>  
+  
+  <p ng-if="hasBudget == false" class="content-padded">
+     You have not set your budget yet.
+     <br/><br/>
+     We need the budget to calculate your average savings.
+     <br/><br/>
+     <a href="#settings/budget" class="btn btn-positive btn-block">Set budget</a>
+  </p>  
 </div>

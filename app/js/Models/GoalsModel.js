@@ -1,5 +1,5 @@
 //GoalModel Object constructor
-expenseTrackerAppModule.service('GoalsModel', function () {
+expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
@@ -10,9 +10,20 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 		goal = {
 			id : -1,
 			target : '',
-			timestamp : '',
 			description : ''
 		};
+
+		goals.push(
+		{
+			id : 0,
+			target : 1000,
+			description : "Jetski"
+		},{
+			id : 1,
+			target : 5000,
+			description : "iPad"
+		}
+		);
 
 	return {
 
@@ -35,9 +46,19 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 			}
 		},
 
+		calculateDaysUntilUserSavedEnough : function( target, spendingPerDay ) {
+			console.log( target );
+			console.log( spendingPerDay );
+		},
+
 		getAllGoals : function() {
+			var spendingStats = ExpensesModel.calculateAverageSpendingPerDay();
+
+			for (var key in goals) {
+				goals[key].daysUntilSavedEnough = this.calculateDaysUntilUserSavedEnough(goals[key].target, spendingStats.spendingDelta);
+			}
+
 			return goals;
 		}
-
 	};
 });

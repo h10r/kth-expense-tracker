@@ -6,7 +6,7 @@ expenseTrackerAppModule.service('UserModel', function () {
 		firstName : '',
 		lastName : '',
 		eMailAddress : '',
-		budget : 0.0,
+		budget : 1000.0,
 		token : '',
 		currency: 2
 	};
@@ -49,6 +49,10 @@ expenseTrackerAppModule.service('UserModel', function () {
 		
 		setBudget : function (value) {
 			currentUser.budget = value;
+		},
+
+		isBudgetSet : function () {
+			return( currentUser.budget != 0.0 );
 		},
 		
 		getGoals : function () {

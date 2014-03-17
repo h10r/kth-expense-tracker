@@ -27,6 +27,7 @@ expenseTrackerAppModule.controller('expenseTracker.FeedController', function ($s
 	if ($location.$$path.indexOf('/feed/detail/') !== -1) {
 		$scope.expense = ExpensesModel.getExpenseById($routeParams.id);
 		$scope.category = CategoriesModel.getCategoryById($scope.expense.category_id);
+		$scope.categoryColor = CategoriesModel.getCategoryColorById($scope.category.color_id);
 
 	// if on feeds main page	
 	} else {
