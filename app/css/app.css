@@ -178,12 +178,11 @@ header.bar {
   margin: 5px 0 0 0; }
 
 .settings.add-category h3 {
-  margin: 10px 0 8px 15px; }
-.settings.add-category .btn-block {
-  width: 92%;
-  margin: 0 auto; }
+  margin: 10px 0 8px 10px; }
 .settings.add-category .color-list {
-  padding: 0 0 15px 0; }
+  padding: 0 0 15px 0;
+  border: 1px solid #dddddd;
+  border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;
     margin: 4% 0 0 4%;

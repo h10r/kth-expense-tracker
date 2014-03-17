@@ -9,28 +9,28 @@ expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
     $ival,
     now = new Date();
 
-    var resetKnob = function(element) {
-	    infiniteValue = 0;
-	    up = 0;
-	    down = 0;
-	    now = new Date();
+  var resetKnob = function (element) {
+    infiniteValue = 0;
+    up = 0;
+    down = 0;
+    now = new Date();
 
-	    $ival = element;
+    $ival = element;
 	}
 
-    var incr = function() {
+   var incr = function () {
 		infiniteValue++;
 		updateValue();
 	};
 
-	var decr = function() {
+	var decr = function () {
 		if (ExpensesModel.getAmount() !== 0) {
 			infiniteValue--;
 			updateValue();
 		}
 	};
 
-	var updateValue = function() {
+	var updateValue = function () {
 		var newValue = infiniteValue;
 
 		// YOU ARE HERE
@@ -39,7 +39,7 @@ expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
 		ExpensesModel.setAmount( newValue );
 	};
 
-	var changeEventHandler = function() {
+	var changeEventHandler = function () {
 		if (v > this.cv) {
 			if (up) {
 			  decr();
