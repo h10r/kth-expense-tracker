@@ -5,7 +5,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
 
   $scope.categories = CategoriesModel.listCategories();
   $scope.categoryColors = CategoriesModel.getAvailableColors();
-
+  
   if ($location.$$path === '/expenses/add') {
     $scope.currentExpense = ExpensesModel.initNewExpense();
 
@@ -14,8 +14,8 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
     $scope.currentExpense.time = now.toLocaleTimeString();
 
     $scope.amount = ExpensesModel.getAmount();
-    
-    KnobModel.initialize();
+
+    KnobModel.initialize( $('div.ival') );
   } else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
     ExpensesModel.removeExpenseFromCollection($routeParams.id);
     $location.path('/feed');
@@ -30,7 +30,6 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
   $scope.selectedCategory = CategoriesModel.getCategoryById(currentCategoryId);
 
   $scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
-
 
   $scope.chooseCategory = function (categoryId) {
     ExpensesModel.setCategory(categoryId);

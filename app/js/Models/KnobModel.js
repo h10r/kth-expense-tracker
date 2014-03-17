@@ -2,27 +2,41 @@
 expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
 	'use strict';
 	
-	var infiniteValue = 0,
+	var infiniteValue,
     v,
-    up = 0,
-    down = 0,
-    $ival = $('div.ival'),
+    up,
+    down,
+    $ival,
     now = new Date();
+
+    var resetKnob = function(element) {
+	    infiniteValue = 0;
+	    up = 0;
+	    down = 0;
+	    now = new Date();
+
+	    $ival = element;
+	}
 
     var incr = function() {
 		infiniteValue++;
-		$ival.html(infiniteValue);
-		
-		ExpensesModel.setAmount(infiniteValue);
+		updateValue();
 	};
 
 	var decr = function() {
 		if (ExpensesModel.getAmount() !== 0) {
 			infiniteValue--;
-			$ival.html(infiniteValue);
-		
-			ExpensesModel.setAmount(infiniteValue);
+			updateValue();
 		}
+	};
+
+	var updateValue = function() {
+		var newValue = infiniteValue;
+
+		// YOU ARE HERE
+
+		$ival.html( newValue );
+		ExpensesModel.setAmount( newValue );
 	};
 
 	var changeEventHandler = function() {
@@ -49,7 +63,9 @@ expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
 	};
 
 	return {
-		initialize : function() {
+		initialize : function(element) {
+			resetKnob(element);
+
 			$('.infinite').knob({
 			    min: 0,
 			    max: 30,
