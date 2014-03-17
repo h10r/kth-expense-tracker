@@ -247,12 +247,23 @@ header.bar {
   .goal-days .goal-days-number {
     font-size: 30px;
     display: block;
-    font-weight: bold; }
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2px; }
   .goal-days .goal-days-tagline {
     color: #777; }
 
 .goal-description {
   padding-top: 10px; }
+
+.goal-border-soon {
+  border: 2px solid #2ecc71 !important; }
+
+.goal-border-near {
+  border: 2px solid #f1c40f !important; }
+
+.goal-border-far {
+  border: 2px solid #e74c3c !important; }
 
 body,
 .content {

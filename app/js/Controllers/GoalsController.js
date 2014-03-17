@@ -23,6 +23,18 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 		$scope.goBack();
 	}
 
+	$scope.getGoalColorBasedOnDays = function (days) {
+		var className = "goal-border-";
+
+		if ( days <= 10 ) {
+			return className + "soon";
+		} else if ( days > 10 && days <= 42 ) {
+			return className + "near";
+		} else if ( days > 42 ) {
+			return className + "far";
+		}
+	}
+
 	$scope.removeGoal = function () {
 		var clickedAnchor = document.getElementsByClassName('triggered-active-modal'),
 			anchorHref,
