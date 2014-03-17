@@ -89,7 +89,8 @@ header.bar {
       bottom: 19px;
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
-      z-index: 50; }
+      z-index: 50;
+      text-align: center; }
     .category-list .table-view-cell .fa {
       position: absolute;
       width: 86px;
@@ -100,7 +101,7 @@ header.bar {
       z-index: 50; }
     .category-list .table-view-cell .fa-beer {
       left: -2px; }
-    .category-list .table-view-cell span {
+    .category-list .table-view-cell span, .category-list .table-view-cell a.clickArea {
       position: absolute;
       top: 0;
       left: 0;

@@ -71,6 +71,7 @@
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
       z-index: 50;
+      text-align: center;
     }
 
     .fa {
@@ -87,7 +88,7 @@
       left: -2px;
     }
 
-    span {
+    span, a.clickArea {
       position: absolute;
       top: 0;
       left: 0;
