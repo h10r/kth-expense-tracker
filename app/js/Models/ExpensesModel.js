@@ -7,6 +7,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 		categoryColors = CategoriesModel.getAvailableColors(),
 		expenses = [],
 		currentExpense,
+		spendingStats,
+
 		expense = {
 			id : -1,
 			amount : 0.0,
@@ -388,18 +390,29 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 				}
 			}
 
-			var averageSpendingPerDay = sumOfExpenses / NO_OF_DAYS;
-			var optimalSpendingPerDayByBudget = userBudget / NO_OF_DAYS;
-
+			var averageSpendingPerDay = Math.ceil( sumOfExpenses / NO_OF_DAYS );
+			var optimalSpendingPerDayByBudget = Math.ceil( userBudget / NO_OF_DAYS );
 			var spendingDelta = optimalSpendingPerDayByBudget - averageSpendingPerDay;
 
-			var spendingStats = { 
+			spendingStats = { 
 				"spendingDelta" : spendingDelta,
 				"averageSpendingPerDay" : averageSpendingPerDay,
 				"optimalSpendingPerDayByBudget" : optimalSpendingPerDayByBudget
 			};
 
 			return spendingStats;
+		},
+
+		getAverageSpendingPerDay : function () {
+			return spendingStats.averageSpendingPerDay;
+		},
+		
+		getOptimalSpendingPerDayByBudget : function () {
+			return spendingStats.optimalSpendingPerDayByBudget;
+		},
+	
+		getSpendingDelta : function () {
+			return spendingStats.spendingDelta;
 		}
 		
 	};

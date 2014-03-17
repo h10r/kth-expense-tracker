@@ -14,9 +14,23 @@
 <div class="content">      
   <div ng-if="hasBudget == true" class="content-padded">
     <ul class="table-view">
+      <li class="table-view-cell media">
+        <div class="media-body">
+          Statistics
+          <p>
+            Your average spending per day: {{ averageSpendingPerDay }} {{userCurrency}} 
+            <br/>
+            Optimal spending per day based on your budget: {{ optimalSpendingPerDayByBudget }} {{userCurrency}} 
+          </p>
+        </div>
+        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
+      </li>
+    </ul>
+    <ul class="table-view">
       <li class="table-view-cell media" ng-repeat="goal in goals">
         <div class="media-body">
           {{goal.description}}
+          <span class="pull-right">{{goal.daysUntilGoalIsReached}} days</span>
           <p>{{goal.target}} {{userCurrency}}</p>
         </div>
         <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
