@@ -62,6 +62,10 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 				goals[key].daysUntilGoalIsReached = this.calculateDaysUntilGoalIsReached(goals[key].target, spendingStats.spendingDelta);
 			}
 
+			goals.sort(function(a,b){
+			  return a['daysUntilGoalIsReached'] - b['daysUntilGoalIsReached'];
+			});
+
 			return goals;
 		}
 	};
