@@ -1,7 +1,7 @@
 //ExpenseModel Object constructor
 expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, UserModel) {
 	'use strict';
-	
+	var sefl = this;
 	// @TODO: use the ID from the backend / database
 	var nextIDCounter = 9,
 		categoryColors = CategoriesModel.getAvailableColors(),
@@ -248,28 +248,24 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 		},
 
 		getExpensesByBudget : function () {
-			var date = new Date();
-			var currentMonth = date.getMonth();
-			var currentDay = date.getDate();
-			var monthlyTotal = this.getMonthlyTotal(currentMonth);
-			var monthlyBudget = UserModel.getBudget();
-			var budgetGradArray = $.map( range(1,date.monthDays()), function( n ) {
-			  //get budget gradient from expenseModel
-			  
-			  var daysOfMonth = date.monthDays();
-			  return n*(monthlyBudget/daysOfMonth);
-			});
-			var monthlyGradArray = $.map( range(1,currentDay), function( n ) {
-			  //get budget gradient from expenseModel
-			  
-			  return n*(monthlyTotal/currentDay);
-			});
 
+			var currentDay = (new Date()).getDate();;
+			var budgetGrad = this.calculateAverageSpendingPerDay().optimalSpendingPerDayByBudget;
+
+			var budgetGradArray = $.map( range(1,30), function( n ) {
+				return n*budgetGrad;
+			});
+			
+			var monthlyGrad = this.calculateAverageSpendingPerDay().averageSpendingPerDay;
+			var monthlyGradArray = $.map( range(1,currentDay), function( n ) {
+				return n*monthlyGrad;
+			});
+			
 			var data = {
 			  labels : rangeEmpty(1,30),
 			    datasets : [
 			    	{
-			      		//grey color
+			      		//red color
 			      		fillColor : "rgba(245,49,49,0.5)",
 						strokeColor : "rgba(245,49,49,1)",
 						pointColor : "rgba(245,49,49,1)",

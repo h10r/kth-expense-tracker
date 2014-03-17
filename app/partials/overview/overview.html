@@ -45,15 +45,6 @@
               </div>{{category.title}} <span class="pull-right">{{category.amount}} {{userCurrency.sign}}</span>
             </a>
           </li>
-          <li class="table-view-cell" ng-repeat-end>
-            <a class="navigate-right">
-              <div class="category-icon" style="background-color: {{ categoryColors[category.color_id].color_value }};">
-                <i ng-if="category.icon != ''" class="fa {{category.icon}}"></i>
-                <i ng-if="category.icon == ''" class="fa">{{category.initial}}</i>
-
-              </div>{{category.title}} <span class="pull-right">{{category.amount}} {{userCurrency.sign}}</span>
-            </a>
-          </li>
         </ul>
       </div>
 
