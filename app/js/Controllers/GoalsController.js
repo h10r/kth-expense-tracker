@@ -23,18 +23,4 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 	$scope.removeGoal = function( goalId ) {
 		GoalsModel.removeGoalFromCollection( goalId );
 	}
-
-	$scope.getTodayForDateField = function() {
-		var now = new Date();
-	    var month = (now.getMonth() + 1);
-	    var day = now.getDate();
-	    if (month < 10) {
-	        month = "0" + month;
-	    }
-	    if (day < 10) {
-	        day = "0" + day;
-	    }
-	    var today = now.getFullYear() + '-' + month + '-' + day;
-    	return today;
-	}
 });

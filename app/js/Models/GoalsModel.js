@@ -10,7 +10,6 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 		goal = {
 			id : -1,
 			target : '',
-			timestamp : '',
 			description : ''
 		};
 

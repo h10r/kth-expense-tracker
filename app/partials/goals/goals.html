@@ -17,9 +17,8 @@
       <li class="table-view-cell media" ng-repeat="goal in goals">
         <a class="navigate-right">
           <div class="media-body">
-            {{goal.target}} {{userCurrency}}
-            <p>Until: {{goal.timestamp}}<br/>
-              {{goal.description}}
+            {{goal.target}} {{userCurrency}} for {{goal.description}}
+            <span class="pull-right">5 days</span>
             </p>
           </div>
         </a>
