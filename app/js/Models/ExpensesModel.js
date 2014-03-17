@@ -407,7 +407,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			return spendingStats.optimalSpendingPerDayByBudget;
 		},
 	
-		getSpendingDelta : function () {
+		getSavingsPerDay : function () {
 			return spendingStats.spendingDelta;
 		}
 		

@@ -13,6 +13,7 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 
 			$scope.averageSpendingPerDay = ExpensesModel.getAverageSpendingPerDay();
 			$scope.optimalSpendingPerDayByBudget = ExpensesModel.getOptimalSpendingPerDayByBudget();
+			$scope.savingsPerDay = ExpensesModel.getSavingsPerDay();
 		} else {
 			$scope.hasBudget = false;
 		}
