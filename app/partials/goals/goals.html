@@ -18,9 +18,9 @@
         <div class="media-body">
           Statistics
           <p>
-            Your average spending per day: {{ averageSpendingPerDay }} {{userCurrency}} 
+            Your average spending per day: <strong>{{ averageSpendingPerDay }}</strong> {{userCurrency}} 
             <br/>
-            Optimal spending per day based on your budget: {{ optimalSpendingPerDayByBudget }} {{userCurrency}} 
+            Maximum spending per day based on your budget: <strong>{{ optimalSpendingPerDayByBudget }}</strong> {{userCurrency}} 
           </p>
         </div>
       </li>
@@ -38,7 +38,7 @@
             <p>{{goal.target}} {{userCurrency}}</p>
           </div>
         </div>
-        <a class="btn btn-negative" ng-click="removeGoal(goal.id)">Delete</a>
+        <a href="#deleteGoalConfirm" class="btn btn-negative open-modal" data-goalid="{{goal.id}}">Delete</a>
       </li>
     </ul>
     
@@ -57,5 +57,20 @@
      We need the budget to calculate your average savings.
      <br/><br/>
      <a href="#settings/budget" class="btn btn-positive btn-block">Set budget</a>
-  </p>  
+  </p>
+
+  <div id="deleteGoalConfirm" class="modal">
+    <header class="bar bar-nav">
+      <a class="icon icon-close pull-right" href="#deleteGoalConfirm"></a>
+      <h1 class="title">Delete Goal?</h1>
+    </header>
+
+    <div class="content">
+      <div class="content-padded">
+        <h2>Are you sure you want to delete this goal?</h2>
+        <button class="btn btn-block btn-negative" ng-click="removeGoal()">Delete</button>
+        <a class="btn btn-block close-modal" href="#deleteGoalConfirm">Cancel</a>
+      </div>
+    </div>
+  </div>
 </div>

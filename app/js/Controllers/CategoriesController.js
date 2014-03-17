@@ -45,7 +45,6 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 
 		currentModal = document.querySelector(anchorHref);
 		currentModal.classList.toggle('active');
-
 	};
 
 });
