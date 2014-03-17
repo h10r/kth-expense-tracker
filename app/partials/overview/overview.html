@@ -37,7 +37,7 @@
         <canvas id="byCategoryChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell" ng-repeat="category in categoriesList">
-            <a class="navigate-right">
+            <a>
               <div class="category-icon" style="background-color: {{ categoryColors[category.color_id].color_value }};">
                 <i ng-if="category.icon != ''" class="fa {{category.icon}}"></i>
                 <i ng-if="category.icon == ''" class="fa">{{category.initial}}</i>
