@@ -58,7 +58,7 @@
     <script src="js/Models/GoalsModel.js"></script>
     <script src="js/Models/UserModel.js"></script>
     <script src="js/Models/CurrenciesModel.js"></script>
-    <script src="js/Models/KnobModel.js"></script>
+
     
     <!-- Controllers -->
     <script src="js/Controllers/CategoriesController.js"></script>
