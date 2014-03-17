@@ -11,7 +11,7 @@
 
   <h1 class="title">{{userCurrency.token}} {{amount}}</h1>
 
-  <p class="subline">{{selectedCategory.title}}</p>
+  <!--<p class="subline">{{selectedCategory.title}}</p>-->
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
@@ -19,11 +19,11 @@
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content content-padded">
 
-<h3>Description (optional)</h3>
+<h3>Description <span>(optional)</span></h3>
 
   <input type="text" placeholder="Description" ng-model="currentExpense.description">
 
-  <h3>Location (optional)</h3>
+  <h3>Location <span>(optional)</span></h3>
 
   <input type="text" placeholder="Location" ng-model="currentExpense.location">
 

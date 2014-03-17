@@ -3,7 +3,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
-	var nextIDCounter = 2;
+	var nextIDCounter = 3;
 
 	var goals = [],
 		currentGoal,
@@ -22,6 +22,10 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			id : 1,
 			target : 5000,
 			description : "iPad"
+		},{
+			id : 2,
+			target : 2500,
+			description : "Paris"
 		}
 		);
 

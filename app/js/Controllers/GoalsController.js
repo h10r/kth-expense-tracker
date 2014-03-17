@@ -1,10 +1,9 @@
-expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($scope, $location, GoalsModel, UserModel, CurrenciesModel, ExpensesModel) {
+expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($scope, $location, GoalsModel, UserModel, CurrenciesModel, ExpensesModel, NavigationService) {
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.userCurrency = CurrenciesModel.getCurrencyById( $scope.currentUser.currency ).sign;
+	$scope.goBack = NavigationService.goBack;
 
-	$scope.deleteMode = false;
-	
 	if( $location.$$path == "/goals/add" ) {
 		$scope.currentGoal = GoalsModel.initNewGoal();
 	} else {
@@ -19,13 +18,9 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 		}
 	}
 	
-	$scope.toggleDeleteMode = function() {
-		$scope.deleteMode = !$scope.deleteMode;
-	}
-
 	$scope.saveGoal = function() {
 		GoalsModel.saveCurrentGoalToCollection();
-		$location.path('/goals');
+		$scope.goBack();
 	}
 
 	$scope.removeGoal = function( goalId ) {

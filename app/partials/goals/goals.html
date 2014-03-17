@@ -23,33 +23,31 @@
             Optimal spending per day based on your budget: {{ optimalSpendingPerDayByBudget }} {{userCurrency}} 
           </p>
         </div>
-        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
       </li>
     </ul>
     <ul class="table-view">
       <li class="table-view-cell media" ng-repeat="goal in goals">
         <div class="media-body">
-          {{goal.description}}
-          <span class="pull-right">{{goal.daysUntilGoalIsReached}} days</span>
-          <p>{{goal.target}} {{userCurrency}}</p>
+          <div class="goal-days">
+            <span class="goal-days-number">{{goal.daysUntilGoalIsReached}}</span>
+            <span class="goal-days-tagline">days</span>
+          </div>
+
+          <div class="goal-description">
+            {{goal.description}}
+            <p>{{goal.target}} {{userCurrency}}</p>
+          </div>
         </div>
-        <a class="btn btn-negative" ng-if="deleteMode" ng-click="removeGoal(goal.id)">Delete</a>
+        <a class="btn btn-negative" ng-click="removeGoal(goal.id)">Delete</a>
       </li>
     </ul>
     
-    <div class="input-row">
+    <div ng-if="goals.length == 0" class="input-row">
+      You have not defined any saving goals yet.<br/><br/>
 
-      <div ng-if="goals.length == 0">
-          You have not defined any saving goals yet.<br/><br/>
-
-          As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
-        
-          <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
-      </div>
-      <div ng-if="goals.length != 0">
-        <a ng-if="!deleteMode" class="btn btn-negative btn-outlined btn-block" ng-click="toggleDeleteMode()">Delete a goal</a>
-        <a ng-if="deleteMode" class="btn btn-positive btn-outlined btn-block" ng-click="toggleDeleteMode()">Done with deleting</a>
-      </div>
+      As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
+    
+      <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
     </div>
   </div>  
   
