@@ -51,7 +51,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 		},
 
 		calculateDaysUntilGoalIsReached : function( target, spendingPerDay ) {
-			var daysUntilGoalIsReached = Math.ceil( target / spendingPerDay );
+			var daysUntilGoalIsReached = Math.floor( target / spendingPerDay );
 			return daysUntilGoalIsReached;
 		},
 

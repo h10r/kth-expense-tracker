@@ -126,3 +126,15 @@
   border: 2px solid #e74c3c !important;
 }
 
+.savings-postive,
+.savings-negative {
+  font-weight: bold;
+}
+
+.savings-positive {
+  color: #27ae60;
+}
+
+.savings-negative {
+  color: #e74c3c;
+}

@@ -21,6 +21,14 @@
             Your average spending per day: <strong>{{ averageSpendingPerDay }}</strong> {{userCurrency}} 
             <br/>
             Maximum spending per day based on your budget: <strong>{{ optimalSpendingPerDayByBudget }}</strong> {{userCurrency}} 
+            <br/>
+            
+            <span ng-if="savingsPerDay >= 0">
+              Current saving per day: <strong class="savings-positive">{{ savingsPerDay }}</strong> {{userCurrency}} 
+            </span>
+            <span ng-if="savingsPerDay < 0">
+              Current saving per day: <strong class="savings-negative">{{ savingsPerDay }}</strong> {{userCurrency}} 
+            </span>
           </p>
         </div>
       </li>

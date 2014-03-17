@@ -117,7 +117,7 @@ header.bar {
       height: 86px;
       z-index: 100; }
   .category-list .add-new-category-button {
-    border: 1px solid #cccccc;
+    border: 1px solid #CCC;
     background-color: transparent; }
     .category-list .add-new-category-button a, .category-list .add-new-category-button .fa {
       color: #CCC; }
@@ -182,7 +182,7 @@ header.bar {
   text-align: right; }
 
 .feed-detail .input-group {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 3px;
   margin: 0 0 15px 0; }
   .feed-detail .input-group .input-row label {
@@ -211,7 +211,7 @@ header.bar {
       font-size: 15px; }
 .settings.add-category .color-list {
   padding: 0 0 15px 0;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;
@@ -267,6 +267,16 @@ header.bar {
 
 .goal-border-far {
   border: 2px solid #e74c3c !important; }
+
+.savings-postive,
+.savings-negative {
+  font-weight: bold; }
+
+.savings-positive {
+  color: #27ae60; }
+
+.savings-negative {
+  color: #e74c3c; }
 
 body,
 .content {
