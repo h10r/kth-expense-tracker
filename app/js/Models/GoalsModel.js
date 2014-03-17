@@ -1,5 +1,5 @@
 //GoalModel Object constructor
-expenseTrackerAppModule.service('GoalsModel', function () {
+expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
@@ -35,6 +35,8 @@ expenseTrackerAppModule.service('GoalsModel', function () {
 		},
 
 		getAllGoals : function() {
+			var averageSpendingPerDay = ExpensesModel.calculateAverageSpendingPerDay();
+
 			return goals;
 		}
 

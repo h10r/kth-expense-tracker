@@ -1,5 +1,5 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
+expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, UserModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
@@ -346,6 +346,39 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 				}
 			}
 			return monthlyTotal;
+		},
+		
+		calculateAverageSpendingPerDay : function () {
+			var NO_OF_DAYS = 30;
+
+			console.log( UserModel.isBudgetSet() );
+
+			var userBudget = UserModel.getBudget();
+			console.log( userBudget );
+
+			// sort expenses, descending
+			expenses.sort(function(a,b){
+			  return new Date(b['date']) - new Date(a['date']);
+			});
+
+			var sumOfExpenses = 0;
+
+			for (var i = 0; i < NO_OF_DAYS; i++) {
+				if ( expenses[i] !== undefined) {
+					sumOfExpenses += expenses[i]['amount'];
+				}
+			}
+
+			var averageSpendingPerDay = sumOfExpenses / NO_OF_DAYS;
+			var optimalSpendingPerDayByBudget = userBudget / NO_OF_DAYS;
+
+			var spendingDelta = optimalSpendingPerDayByBudget - averageSpendingPerDay;
+
+			console.log( averageSpendingPerDay );
+			console.log( optimalSpendingPerDayByBudget );
+			console.log( spendingDelta );
+
+			return spendingDelta;
 		}
 		
 	};
