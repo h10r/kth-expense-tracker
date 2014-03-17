@@ -24,7 +24,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 0,
 			amount : 123.00,
 			time : null,
-			date : new Date(2014, 2, 1),
+			date : new Date(2014, 2, 10),
 			location : null,
 			description : null,
 			category_id : 2
@@ -33,7 +33,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 1,
 			amount : 45.00,
 			time : null,
-			date : new Date(2014, 2, 3),
+			date : new Date(2014, 2, 10),
 			location : null,
 			description : null,
 			category_id : 2
@@ -42,7 +42,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 2,
 			amount : 301,
 			time : null,
-			date : new Date(2014, 2, 4),
+			date : new Date(2014, 2, 11),
 			location : null,
 			description : null,
 			category_id : 3
@@ -51,7 +51,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 3,
 			amount : 21,
 			time : null,
-			date : new Date(2014, 2, 4),
+			date : new Date(2014, 2, 12),
 			location : null,
 			description : null,
 			category_id : 1
@@ -60,7 +60,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 4,
 			amount : 79,
 			time : null,
-			date : new Date(2014, 2, 5),
+			date : new Date(2014, 2, 13),
 			location : null,
 			description : null,
 			category_id : 3
@@ -69,7 +69,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 5,
 			amount : 103,
 			time : null,
-			date : new Date(2014, 2, 8),
+			date : new Date(2014, 2, 15),
 			location : null,
 			description : null,
 			category_id : 0
@@ -78,7 +78,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 6,
 			amount : 73,
 			time : null,
-			date : new Date(2014, 2, 10),
+			date : new Date(2014, 2, 15),
 			location : null,
 			description : null,
 			category_id : 2
@@ -87,7 +87,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 7,
 			amount : 137,
 			time : null,
-			date : new Date(2014, 2, 11),
+			date : new Date(2014, 2, 16),
 			location : null,
 			description : null,
 			category_id : 4
@@ -96,7 +96,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 			id : 8,
 			amount : 89,
 			time : null,
-			date : new Date(2014, 2, 12),
+			date : new Date(2014, 2, 17),
 			location : null,
 			description : null,
 			category_id : 1

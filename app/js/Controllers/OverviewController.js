@@ -1,7 +1,7 @@
 expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
 	'use strict';
-	$scope.budgetChartVisible = true;
-	$scope.catChartVisible = false;
+	$scope.budgetChartVisible = false;
+	$scope.catChartVisible = true;
 	$scope.timeChartVisible= false;
 
 	$scope.categoriesList = (function(){
