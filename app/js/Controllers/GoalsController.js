@@ -23,7 +23,20 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 		$scope.goBack();
 	}
 
-	$scope.removeGoal = function( goalId ) {
-		GoalsModel.removeGoalFromCollection( goalId );
-	}
+	$scope.removeGoal = function () {
+		var clickedAnchor = document.getElementsByClassName('triggered-active-modal'),
+			anchorHref,
+			currentModal,
+			goalId;
+
+		clickedAnchor = clickedAnchor[0];
+		goalId = clickedAnchor.dataset.goalid;
+
+		GoalsModel.removeGoalFromCollection(goalId);
+
+		anchorHref = clickedAnchor.getAttribute('href');
+
+		currentModal = document.querySelector(anchorHref);
+		currentModal.classList.toggle('active');
+	};
 });
