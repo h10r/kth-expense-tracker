@@ -65,5 +65,26 @@
       }
     }
   }
+}
 
+.goal-days {
+  float: left;
+  border-radius: 20px;
+  border: 2px solid grey;
+  padding: 9px 10px;
+  margin-right: 15px;
+
+  .goal-days-number {
+    font-size: 30px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .goal-days-tagline {
+    color: #777;
+  }
+}
+
+.goal-description {
+  padding-top: 10px;
 }
