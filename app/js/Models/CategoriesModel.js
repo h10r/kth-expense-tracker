@@ -71,6 +71,10 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			id 	  : 11,
 			title : 'amethyst',
 			color_value : '#9b59b6'
+		},{
+			id 	  : 12,
+			title : 'grey',
+			color_value : '#CCC'
 		});
 
 	// default categories
@@ -108,6 +112,13 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			title : 'cell phone',
 			color_id : 4,
 			icon : 'fa-phone',
+			custom : false
+		},
+		{
+			id : 5,
+			title : 'other',
+			color_id : 12,
+			icon : 'fa-ellipsis-h',
 			custom : false
 		}
 	);

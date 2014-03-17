@@ -88,11 +88,11 @@ header.bar {
     padding: 0;
     border-radius: 43px; }
     .category-list .table-view-cell a {
-      font-size: 12px;
+      font-size: 11px;
       margin: 0;
       line-height: 12px;
       width: 100%;
-      bottom: 19px;
+      bottom: 20px;
       position: absolute;
       color: rgba(255, 255, 255, 0.6);
       z-index: 50;
@@ -114,6 +114,11 @@ header.bar {
       width: 86px;
       height: 86px;
       z-index: 100; }
+  .category-list .add-new-category-button {
+    border: 1px solid #cccccc;
+    background-color: transparent; }
+    .category-list .add-new-category-button a, .category-list .add-new-category-button .fa {
+      color: #CCC; }
   .category-list .table-view-cell:nth-child(3n) {
     margin-right: 0; }
 
@@ -175,7 +180,7 @@ header.bar {
   text-align: right; }
 
 .feed-detail .input-group {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 3px;
   margin: 0 0 15px 0; }
   .feed-detail .input-group .input-row label {
@@ -201,7 +206,7 @@ header.bar {
       font-size: 15px; }
 .settings.add-category .color-list {
   padding: 0 0 15px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;
