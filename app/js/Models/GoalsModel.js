@@ -3,7 +3,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
-	var nextIDCounter = 0;
+	var nextIDCounter = 2;
 
 	var goals = [],
 		currentGoal,
@@ -46,16 +46,16 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			}
 		},
 
-		calculateDaysUntilUserSavedEnough : function( target, spendingPerDay ) {
-			console.log( target );
-			console.log( spendingPerDay );
+		calculateDaysUntilGoalIsReached : function( target, spendingPerDay ) {
+			var daysUntilGoalIsReached = Math.ceil( target / spendingPerDay );
+			return daysUntilGoalIsReached;
 		},
 
 		getAllGoals : function() {
 			var spendingStats = ExpensesModel.calculateAverageSpendingPerDay();
 
 			for (var key in goals) {
-				goals[key].daysUntilSavedEnough = this.calculateDaysUntilUserSavedEnough(goals[key].target, spendingStats.spendingDelta);
+				goals[key].daysUntilGoalIsReached = this.calculateDaysUntilGoalIsReached(goals[key].target, spendingStats.spendingDelta);
 			}
 
 			return goals;
