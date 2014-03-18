@@ -15,7 +15,16 @@
 	  </li>
 	 </ul>
 	<div ng-if="userBudget > 0" class="budget-status" ng-class="{bad: isOverBudget}">
-		<h2>You've spent <span>{{monthlyTotal}} {{userCurrency.sign}} ({{spentBudgetPercentage}}%)</span> of your monthly budget so far.</h2>
+		<h2>
+			You've spent 
+			<span class="expense-summary">
+				<span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+				{{monthlyTotal}} 
+				<span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+				({{spentBudgetPercentage}}%)
+			</span> 
+			of your monthly budget so far.
+		</h2>
 	</div>
 	<ul class="table-view feed-list">
 	  <li class="table-view-cell media" ng-repeat="expense_and_cat in expenses_categories">
@@ -27,7 +36,9 @@
 	      		<i ng-if="expense_and_cat['category'].icon == ''" class="fa">{{expense_and_cat['category'].initial}}</i>
 	      	</div>
 	      	<span class="amount">
-						{{expense_and_cat["expense"].amount}}&nbsp;{{userCurrency.sign}}
+	      		<span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+						{{expense_and_cat["expense"].amount}}
+						<span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
 					</span>
 					<span class="date">
 						{{expense_and_cat["expense"].date | date: 'MMM d'}}

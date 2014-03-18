@@ -117,7 +117,7 @@ header.bar {
       height: 86px;
       z-index: 100; }
   .category-list .add-new-category-button {
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     background-color: transparent; }
     .category-list .add-new-category-button a, .category-list .add-new-category-button .fa {
       color: #CCC; }
@@ -151,7 +151,7 @@ header.bar {
     line-height: 18px;
     font-weight: 400;
     margin: 0 8% 0 8%; }
-    .feed .budget-status h2 span {
+    .feed .budget-status h2 span.expense-summary {
       color: white;
       font-size: 16px;
       font-weight: 400; }
@@ -182,7 +182,7 @@ header.bar {
   text-align: right; }
 
 .feed-detail .input-group {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 3px;
   margin: 0 0 15px 0; }
   .feed-detail .input-group .input-row label {
@@ -211,7 +211,7 @@ header.bar {
       font-size: 15px; }
 .settings.add-category .color-list {
   padding: 0 0 15px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;

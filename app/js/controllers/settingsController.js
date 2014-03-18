@@ -3,7 +3,7 @@ expenseTrackerAppModule.controller('expenseTracker.SettingsController', function
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.currencies = CurrenciesModel.getCurrenciesList();
-	$scope.userCurrency = CurrenciesModel.getCurrencyById($scope.currentUser.currency).sign;
+	$scope.userCurrency = CurrenciesModel.getCurrencyById($scope.currentUser.currency);
 	$scope.goBack = NavigationService.goBack;
 
 	$scope.setCurrency = function (currencyId) {

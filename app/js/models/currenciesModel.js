@@ -30,7 +30,7 @@ expenseTrackerAppModule.service('CurrenciesModel', function () {
     {
       id: 2,
       name: 'Swedish Kronor',
-      sign: 'Kr',
+      sign: 'kr',
       token: 'SEK',
       position: 'right'
     },

@@ -14,18 +14,28 @@
         <div class="media-body">
           Statistics
           <p>
-            Your average spending per day: <strong>{{ averageSpendingPerDay }}</strong> {{userCurrency}} 
-            <br/>
-            Maximum spending per day based on your budget: <strong>{{ optimalSpendingPerDayByBudget }}</strong> {{userCurrency}} 
-            <br/>
-            
+            Your average spending per day: 
+            <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+            <strong>{{ averageSpendingPerDay }}</strong>
+            <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+          </p>
+
+          <p>
+            Maximum spending per day based on your budget: 
+            <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span>
+            <strong>{{ optimalSpendingPerDayByBudget }}</strong>
+            <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+          </p>
+
+          <p>
             <span ng-if="savingsPerDay >= 0">
-              Current saving per day: <strong class="savings-positive">{{ savingsPerDay }}</strong> {{userCurrency}} 
-            </span>
-            <span ng-if="savingsPerDay < 0">
-              Current saving per day: <strong class="savings-negative">{{ savingsPerDay }}</strong> {{userCurrency}} 
+              Current saving per day: 
+              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+              <strong class="savings-positive" ng-class="{savings-positive: savingsPerDay >= 0, savings-negative: savingsPerDay < 0}">{{ savingsPerDay }}</strong>
+              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
             </span>
           </p>
+
         </div>
       </li>
     </ul>
@@ -39,7 +49,11 @@
 
           <div class="goal-description">
             {{goal.description}}
-            <p>{{goal.target}} {{userCurrency}}</p>
+            <p>
+              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+              {{goal.target}}
+              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+            </p>
           </div>
         </div>
         <a href="#deleteGoalConfirm" class="btn btn-negative open-modal" data-goalid="{{goal.id}}">Delete</a>
@@ -47,9 +61,9 @@
     </ul>
     
     <div ng-if="goals.length == 0" class="input-row">
-      You have not defined any saving goals yet.<br/><br/>
+      <p>You have not defined any saving goals yet.</p>
 
-      As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).<br/><br/>
+      <p>As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).</p>
     
       <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
     </div>

@@ -25,10 +25,20 @@
         <canvas id="byBudgetChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell" >
-            Monthly Budget <span class="pull-right">{{budget}} {{userCurrency.sign}}</span>
+            Monthly Budget 
+            <span class="pull-right">
+              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+              {{budget}}
+              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+            </span>
           </li>
           <li class="table-view-cell" >
-            Spent this month <span class="pull-right">{{monthlyTotal}} {{userCurrency.sign}}</span>
+            Spent this month 
+            <span class="pull-right">
+              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+              {{monthlyTotal}}
+              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+            </span>
           </li>
         </ul>
       </div>
@@ -42,7 +52,12 @@
                 <i ng-if="category.icon != ''" class="fa {{category.icon}}"></i>
                 <i ng-if="category.icon == ''" class="fa">{{category.initial}}</i>
 
-              </div>{{category.title}} <span class="pull-right">{{category.amount}} {{userCurrency.sign}}</span>
+              </div>{{category.title}} 
+              <span class="pull-right">
+                <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+                {{category.amount}}
+                <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+              </span>
             </a>
           </li>
         </ul>
@@ -52,10 +67,22 @@
         <canvas id="byTimeChart" class="dataChart" width="150" height="100"></canvas>
         <ul class="table-view">
           <li class="table-view-cell">
-              <div class="category-icon" style="background-color: #97BBCD;"></div>This Week<span class="pull-right">{{weeklyTotals[0]}} {{userCurrency.sign}}</span>
+              <div class="category-icon" style="background-color: #97BBCD;"></div>
+              This Week
+              <span class="pull-right">
+                <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+                {{weeklyTotals[0]}} 
+                <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+              </span>
           </li>
           <li class="table-view-cell">
-              <div class="category-icon" style="background-color: #DCDCDC;"></div>Last Week<span class="pull-right">{{weeklyTotals[1]}} {{userCurrency.sign}}</span>
+              <div class="category-icon" style="background-color: #DCDCDC;"></div>
+              Last Week
+              <span class="pull-right">
+                <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+                {{weeklyTotals[1]}} 
+                <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+              </span>
           </li>
         </ul>
       </div> 
