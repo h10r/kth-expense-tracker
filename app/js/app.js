@@ -32,9 +32,3 @@ expenseTrackerAppModule.config(['$routeProvider', function ($routeProvider) {
   // root path
   $routeProvider.otherwise({redirectTo: '/expenses/add'});
 }]);
-
-// instantiates fastclick, which gets rid of the 300ms click delay
-// on mobile browsers
-window.addEventListener('load', function() {
-    FastClick.attach(document.body);
-}, false);
