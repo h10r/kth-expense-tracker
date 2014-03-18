@@ -1,21 +1,21 @@
-<nav class="bar bar-tab nav-bar-bottom">
-  <a class="tab-item" href="#expenses/add">
+<nav class="bar bar-tab nav-bar-bottom" ng-controller="expenseTracker.NavigationController">
+  <a class="tab-item" href="#expenses/add" ng-class="equalsCurrentSection('expenses')">
     <i class="fa fa-plus"></i>
     <span class="tab-label">Add</span>
   </a>
-  <a class="tab-item" href="#overview">
+  <a class="tab-item" href="#overview" ng-class="equalsCurrentSection('overview')">
     <i class="fa fa-bar-chart-o"></i>
     <span class="tab-label">Overview</span>
   </a>
-  <a class="tab-item" href="#feed">
+  <a class="tab-item" href="#feed" ng-class="equalsCurrentSection('feed')">
     <i class="fa fa-th-list"></i>
     <span class="tab-label">Feed</span>
   </a>
-  <a class="tab-item" href="#goals">
+  <a class="tab-item" href="#goals" ng-class="equalsCurrentSection('goals')">
     <i class="fa fa-calendar"></i>
     <span class="tab-label">Goals</span>
   </a>
-  <a class="tab-item" href="#settings/">
+  <a class="tab-item" href="#settings/" ng-class="equalsCurrentSection('settings')">
     <i class="fa fa-gear"></i>
     <span class="tab-label">Settings</span>
   </a>

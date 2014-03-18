@@ -1,4 +1,5 @@
-expenseTrackerAppModule.controller('expenseTracker.CategoriesController', function($scope, $location, CategoriesModel, UserModel, NavigationService) {
+expenseTrackerAppModule.controller('expenseTracker.CategoriesController', function ($scope, $location, CategoriesModel, UserModel, NavigationService) {
+	'use strict';
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	
@@ -6,7 +7,7 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	$scope.selectedColor = -1;
 	$scope.goBack = NavigationService.goBack;
 
-	if( $location.$$path == "/categories/add" ) {
+	if ($location.$$path === '/settings/categories/add') {
 		$scope.currentCategory = CategoriesModel.initNewCategory();
 		$scope.availableColors = CategoriesModel.getAvailableColors();
 	} else {
@@ -15,12 +16,12 @@ expenseTrackerAppModule.controller('expenseTracker.CategoriesController', functi
 	
 	$scope.chooseColorForCategory = function (colorId) {
 		// reset color id on toggle
-		if ( $scope.selectedColor === colorId ) {
+		if ($scope.selectedColor === colorId) {
 			colorId = -1;
 		}
 
 		$scope.selectedColor = colorId;
-		CategoriesModel.setCategoryColorById( colorId );
+		CategoriesModel.setCategoryColorById(colorId);
 	};
 
 	$scope.saveCategory = function () {

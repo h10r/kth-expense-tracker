@@ -1,8 +1,9 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function($scope, $location, CategoriesModel, UserModel, GoalsModel, CurrenciesModel, NavigationService) {
+expenseTrackerAppModule.controller('expenseTracker.SettingsController', function ($scope, $location, CategoriesModel, UserModel, GoalsModel, CurrenciesModel, NavigationService) {
+	'use strict';
 
 	$scope.currentUser = UserModel.getCurrentUser();
 	$scope.currencies = CurrenciesModel.getCurrenciesList();
-	$scope.userCurrency = CurrenciesModel.getCurrencyById( $scope.currentUser.currency ).sign;
+	$scope.userCurrency = CurrenciesModel.getCurrencyById($scope.currentUser.currency).sign;
 	$scope.goBack = NavigationService.goBack;
 
 	$scope.setCurrency = function (currencyId) {
@@ -12,7 +13,7 @@ expenseTrackerAppModule.controller('expenseTracker.SettingsController', function
 	};
 
 	$scope.checkCurrency = function (currencyId) {
-		if (UserModel.getCurrency() == currencyId) {
+		if (UserModel.getCurrency() === currencyId) {
 			return 'active';
 		} else {
 			return '';

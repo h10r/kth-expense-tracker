@@ -4,7 +4,7 @@ expenseTrackerAppModule.controller('expenseTracker.GoalsController', function($s
 	$scope.userCurrency = CurrenciesModel.getCurrencyById( $scope.currentUser.currency ).sign;
 	$scope.goBack = NavigationService.goBack;
 
-	if( $location.$$path == "/goals/add" ) {
+	if( $location.$$path == "/settings/goals/add" ) {
 		$scope.currentGoal = GoalsModel.initNewGoal();
 	} else {
 		if ( UserModel.isBudgetSet() ) {

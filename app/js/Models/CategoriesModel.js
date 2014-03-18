@@ -3,7 +3,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
-	var nextIDCounter = 5;
+	var nextIDCounter = 6;
 
 	var categories = [],
 		category = {
@@ -125,7 +125,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 	return {
 
-		initNewCategory : function() {
+		initNewCategory : function () {
 			currentCategory = jQuery.extend(true, {}, category);
 			currentCategory.id = nextIDCounter;
 			nextIDCounter = nextIDCounter + 1;
@@ -133,24 +133,24 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 			return currentCategory;
 		},
 
-		saveCurrentCategoryToCollection : function() {
+		saveCurrentCategoryToCollection : function () {
 			currentCategory.initial = currentCategory.title.charAt(0);
-			categories.push( currentCategory );
+			categories.push(currentCategory);
 		},
 
 		removeCategoryFromCollection : function (categoryId) {
 			for (var key in categories) {
-				if (categories[key].id == categoryId) {
-					categories.splice( categories.indexOf( categories[key] ), 1 );
-				}				
+				if (categories[key].id === categoryId) {
+					categories.splice(categories.indexOf(categories[key]), 1);
+				}
 			}
 		},
 		
-		setCategoryColorById : function(colorId) {
+		setCategoryColorById : function (colorId) {
 			currentCategory.color_id = colorId;
 		},
 
-		getAvailableColors : function() {
+		getAvailableColors : function () {
 			return availableColors;
 		},
 

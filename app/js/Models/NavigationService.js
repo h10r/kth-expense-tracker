@@ -7,5 +7,4 @@ expenseTrackerAppModule.service('NavigationService', function () {
       window.history.back();
     }
   };
-  
 });
