@@ -140,7 +140,7 @@ expenseTrackerAppModule.service('CategoriesModel', function () {
 
 		removeCategoryFromCollection : function (categoryId) {
 			for (var key in categories) {
-				if (categories[key].id === categoryId) {
+				if (categories[key].id === parseInt(categoryId, 10)) {
 					categories.splice(categories.indexOf(categories[key]), 1);
 				}
 			}
