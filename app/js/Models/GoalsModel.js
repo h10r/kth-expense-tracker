@@ -43,7 +43,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 
 		removeGoalFromCollection : function (GoalId) {
 			for (var key in goals) {
-				if (goals[key].id === GoalId) {
+				if (goals[key].id === parseInt(GoalId, 10)) {
 					goals.splice(goals.indexOf(goals[key]), 1);
 				}
 			}
