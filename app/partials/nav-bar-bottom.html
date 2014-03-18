@@ -1,21 +1,22 @@
-<nav class="bar bar-tab nav-bar-bottom" ng-controller="expenseTracker.NavigationController">
-  <a class="tab-item" href="#expenses/add" ng-class="equalsCurrentSection('expenses')">
+<nav class="bar bar-tab nav-bar-bottom">
+  <a class="tab-item" href="#expenses/add" data-sectionname="expenses" expt-when-active>
     <i class="fa fa-plus"></i>
     <span class="tab-label">Add</span>
   </a>
-  <a class="tab-item" href="#overview" ng-class="equalsCurrentSection('overview')">
+  <a class="tab-item" href="#overview" data-sectionname="overview" expt-when-active>
     <i class="fa fa-bar-chart-o"></i>
     <span class="tab-label">Overview</span>
   </a>
-  <a class="tab-item" href="#feed" ng-class="equalsCurrentSection('feed')">
+  <a class="tab-item" href="#feed" data-sectionname="feed" expt-when-active>
     <i class="fa fa-th-list"></i>
     <span class="tab-label">Feed</span>
   </a>
-  <a class="tab-item" href="#goals" ng-class="equalsCurrentSection('goals')">
+  <a class="tab-item" href="#goals" data-sectionname="goals" expt-when-active>
     <i class="fa fa-calendar"></i>
     <span class="tab-label">Goals</span>
   </a>
-  <a class="tab-item" href="#settings/" ng-class="equalsCurrentSection('settings')">
+  <!--<a class="tab-item" href="#settings/" ng-class="equalsCurrentSection('settings')">-->
+  <a class="tab-item" href="#settings/" data-sectionname="settings" expt-when-active>
     <i class="fa fa-gear"></i>
     <span class="tab-label">Settings</span>
   </a>
