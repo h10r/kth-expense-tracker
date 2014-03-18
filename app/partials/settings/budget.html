@@ -10,7 +10,7 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content settings budget">
+<div class="content settings budget" ng-swipe-right="goBack()">
 
   <div class="content-padded">
     <h3>Define monthly budget in {{userCurrency}}</h3>

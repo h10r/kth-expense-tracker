@@ -11,7 +11,7 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content settings">
+<div class="content settings" ng-swipe-right="goBack()">
 
   <ul class="table-view list-of-categories">
     <li class="table-view-divider">Standard</li>
