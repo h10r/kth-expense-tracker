@@ -23,7 +23,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 0,
 			amount : 123.00,
-			time : null,
+			time : "10:33:51 AM",
 			date : new Date(2014, 2, 10),
 			location : null,
 			description : null,
@@ -32,7 +32,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 1,
 			amount : 45.00,
-			time : null,
+			time : "11:33:51 AM",
 			date : new Date(2014, 2, 10),
 			location : null,
 			description : null,
@@ -41,7 +41,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 2,
 			amount : 301,
-			time : null,
+			time : "10:44:51 AM",
 			date : new Date(2014, 2, 11),
 			location : null,
 			description : null,
@@ -50,7 +50,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 3,
 			amount : 21,
-			time : null,
+			time : "7:33:51 AM",
 			date : new Date(2014, 2, 12),
 			location : null,
 			description : null,
@@ -59,7 +59,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 4,
 			amount : 79,
-			time : null,
+			time : "3:33:51 PM",
 			date : new Date(2014, 2, 13),
 			location : null,
 			description : null,
@@ -68,7 +68,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 5,
 			amount : 103,
-			time : null,
+			time : "8:03:51 AM",
 			date : new Date(2014, 2, 15),
 			location : null,
 			description : null,
@@ -77,7 +77,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 6,
 			amount : 73,
-			time : null,
+			time : "10:33:51 AM",
 			date : new Date(2014, 2, 15),
 			location : null,
 			description : null,
@@ -86,7 +86,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 7,
 			amount : 137,
-			time : null,
+			time : "10:33:51 AM",
 			date : new Date(2014, 2, 16),
 			location : null,
 			description : null,
@@ -95,7 +95,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 		{
 			id : 8,
 			amount : 89,
-			time : null,
+			time : "10:33:51 AM",
 			date : new Date(2014, 2, 17),
 			location : null,
 			description : null,
