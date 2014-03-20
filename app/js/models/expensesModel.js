@@ -1,10 +1,10 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, UserModel) {
+expenseTrackerAppModule.service('expensesModel', function (categoriesModel, userModel) {
 	'use strict';
 	var sefl = this;
 	// @TODO: use the ID from the backend / database
 	var nextIDCounter = 9,
-		categoryColors = CategoriesModel.getAvailableColors(),
+		categoryColors = categoriesModel.getAvailableColors(),
 		expenses = [],
 		currentExpense,
 		spendingStats,
@@ -137,7 +137,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 	};
 
 	return {
-		self : this,
+			
 		initNewExpense : function () {
 			currentExpense = jQuery.extend(true, {}, expense);
 			currentExpense.id = nextIDCounter;
@@ -206,7 +206,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 		},
 
 		getExpensesByCategory : function () {
-			var categories = CategoriesModel.listCategories(),
+			var categories = categoriesModel.listCategories(),
 				dataArray = [];
 
 			for (var category in categories) {
@@ -366,7 +366,7 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, User
 		calculateAverageSpendingPerDay : function () {
 			var NO_OF_DAYS = 30;
 
-			var userBudget = UserModel.getBudget();
+			var userBudget = userModel.getBudget();
 
 			// sort expenses, descending
 			expenses.sort(function(a,b){

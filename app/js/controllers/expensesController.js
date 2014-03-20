@@ -1,49 +1,49 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel, KnobModel) {
+expenseTrackerAppModule.controller('expenseTracker.expensesController', function ($scope, $location, $routeParams, $rootScope, userModel, expensesModel, categoriesModel, currenciesModel, knobModel) {
   'use strict';
 
   var currentCategoryId,
     now;
 
-  $scope.categories = CategoriesModel.listCategories();
-  $scope.categoryColors = CategoriesModel.getAvailableColors();
+  $scope.categories = categoriesModel.listCategories();
+  $scope.categoryColors = categoriesModel.getAvailableColors();
   
   if ($location.$$path === '/expenses/add') {
-    $scope.currentExpense = ExpensesModel.initNewExpense();
+    $scope.currentExpense = expensesModel.initNewExpense();
 
     now = new Date();
     $scope.currentExpense.date = now.toDateString();
     $scope.currentExpense.time = now.toLocaleTimeString();
 
-    $scope.amount = ExpensesModel.getAmount();
+    $scope.amount = expensesModel.getAmount();
 
-    KnobModel.initialize( $('div.ival') );
+    knobModel.initialize($('div.ival'));
 
-  } else if ($location.$$path.indexOf('/expenses/remove/') != -1) {
-    ExpensesModel.removeExpenseFromCollection($routeParams.id);
+  } else if ($location.$$path.indexOf('/expenses/remove/') !== -1) {
+    expensesModel.removeExpenseFromCollection($routeParams.id);
     $location.path('/feed');
   } else {
-    $scope.currentExpense = ExpensesModel.getCurrentExpense();
+    $scope.currentExpense = expensesModel.getCurrentExpense();
   }
 
-  $scope.amount = ExpensesModel.getAmount();
+  $scope.amount = expensesModel.getAmount();
 
-  currentCategoryId = ExpensesModel.getCategory();
+  currentCategoryId = expensesModel.getCategory();
 
-  $scope.selectedCategory = CategoriesModel.getCategoryById(currentCategoryId);
+  $scope.selectedCategory = categoriesModel.getCategoryById(currentCategoryId);
 
-  $scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
+  $scope.userCurrency = currenciesModel.getCurrencyById(userModel.getCurrency());
 
   $scope.chooseCategory = function (categoryId) {
     if (categoryId === undefined) {
       categoryId = 5;
     }
-    ExpensesModel.setCategory(categoryId);
+    expensesModel.setCategory(categoryId);
 
     $location.path('/expenses/add/details');
   };
   
   $scope.saveExpense = function () {
-    ExpensesModel.addExpenseToCollection();
+    expensesModel.addExpenseToCollection();
 
     $location.path('/feed');
   };

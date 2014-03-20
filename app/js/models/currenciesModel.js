@@ -1,5 +1,5 @@
 //CurrencyModel Object constructor
-expenseTrackerAppModule.service('CurrenciesModel', function () {
+expenseTrackerAppModule.service('currenciesModel', function () {
   'use strict';
 
   var currencies = [],

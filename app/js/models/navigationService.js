@@ -1,5 +1,5 @@
 //Back-button service
-expenseTrackerAppModule.service('NavigationService', function () {
+expenseTrackerAppModule.service('navigationService', function () {
   'use strict';
 
   return {

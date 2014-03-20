@@ -1,5 +1,5 @@
 //CategoryModel Object constructor
-expenseTrackerAppModule.service('CategoriesModel', function () {
+expenseTrackerAppModule.service('categoriesModel', function () {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database

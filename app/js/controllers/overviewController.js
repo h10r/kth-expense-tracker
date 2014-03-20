@@ -1,18 +1,18 @@
-expenseTrackerAppModule.controller('expenseTracker.OverviewController', function($scope, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel) {
+expenseTrackerAppModule.controller('expenseTracker.overviewController', function($scope, $rootScope, userModel, expensesModel, categoriesModel, currenciesModel) {
 	'use strict';
 	$scope.budgetChartVisible = false;
 	$scope.catChartVisible = true;
 	$scope.timeChartVisible= false;
 
 	$scope.categoriesList = (function(){
-		var categoryList = CategoriesModel.listCategories();
-		var amountPerCategory = ExpensesModel.getExpensesByCategory();
+		var categoryList = categoriesModel.listCategories();
+		var amountPerCategory = expensesModel.getExpensesByCategory();
 		for (var key in categoryList){
 			categoryList[key].amount = amountPerCategory[key].value;
 		}
 		return categoryList;
 	})();
-	$scope.categoryColors = CategoriesModel.getAvailableColors();
+	$scope.categoryColors = categoriesModel.getAvailableColors();
 
 	$scope.getBudgetChart = function () {
 		var canvas = document.getElementById('byBudgetChart');
@@ -50,21 +50,21 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 		$scope.timeChartVisible= false;
 	};
 
-	$scope.weeklyTotals = ExpensesModel.getWeeklyTotals();
+	$scope.weeklyTotals = expensesModel.getWeeklyTotals();
 	var currentMonth = (new Date()).getMonth();
-	$scope.monthlyTotal = ExpensesModel.getMonthlyTotal(currentMonth);
-	$scope.budget = UserModel.getBudget();
+	$scope.monthlyTotal = expensesModel.getMonthlyTotal(currentMonth);
+	$scope.budget = userModel.getBudget();
 
 	var getCategoryData = function(){	
-		return ExpensesModel.getExpensesByCategory();
+		return expensesModel.getExpensesByCategory();
 	};
 
 	var getTimeData = function(){
-		return ExpensesModel.getExpensesByTime();
+		return expensesModel.getExpensesByTime();
 	};
 
 	var getBudgetData = function(){
-		return ExpensesModel.getExpensesByBudget();
+		return expensesModel.getExpensesByBudget();
 	};
 
 	//Get context with jQuery - using jQuery's .get() method.
@@ -87,6 +87,6 @@ expenseTrackerAppModule.controller('expenseTracker.OverviewController', function
 	$scope.chartBudget = new Chart(ctxBudget).Line(getBudgetData(),{pointDot : false, bezierCurve : false,scaleShowGridLines : false});
 
 	// currency user has selected in the settings
-	$scope.userCurrency = CurrenciesModel.getCurrencyById(UserModel.getCurrency());
+	$scope.userCurrency = currenciesModel.getCurrencyById(userModel.getCurrency());
 
 });

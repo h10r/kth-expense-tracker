@@ -4,6 +4,13 @@ h1, h2, h3, h4, h5, h6, p, .title {
 h2 {
   font-size: 22px; }
 
+h2.centered {
+  color: #C2C2C2;
+  text-align: center;
+  font-weight: 300;
+  margin: 15px 0 16px 0;
+  font-size: 22px; }
+
 h3 {
   margin: 10px 0 10px 4px;
   width: 90%;
@@ -65,13 +72,6 @@ header.bar {
     margin: 30px auto 0 auto;
     width: 80%; }
 
-.add-expense-category h2 {
-  color: #CCC;
-  text-align: center;
-  font-weight: 300;
-  margin: 10px 0 18px 0;
-  font-size: 25px; }
-
 .category-list {
   width: 90%;
   margin: 0 auto;
@@ -117,7 +117,7 @@ header.bar {
       height: 86px;
       z-index: 100; }
   .category-list .add-new-category-button {
-    border: 1px solid #cccccc;
+    border: 1px solid #CCC;
     background-color: transparent; }
     .category-list .add-new-category-button a, .category-list .add-new-category-button .fa {
       color: #CCC; }
@@ -178,11 +178,11 @@ header.bar {
   line-height: 30px; }
 .feed .table-view.feed-list .table-view-cell a .media-body span.date {
   float: right;
-  color: #e1e1e1;
+  color: #969696;
   text-align: right; }
 
 .feed-detail .input-group {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 3px;
   margin: 0 0 15px 0; }
   .feed-detail .input-group .input-row label {
@@ -197,21 +197,39 @@ header.bar {
       top: 4px;
       right: 0; }
 
+.goals .table-view-cell {
+  font-size: 15px;
+  padding: 11px 35px 11px 15px;
+  color: #969696; }
+  .goals .table-view-cell span.amount {
+    font-size: 17px;
+    color: #000; }
+  .goals .table-view-cell span.savings-positive,
+  .goals .table-view-cell span.savings-positive span {
+    color: #27ae60; }
+  .goals .table-view-cell span.savings-negative,
+  .goals .table-view-cell span.savings-negative span {
+    color: #e74c3c; }
+
 .settings .list-of-settings .table-view-cell .fa {
   width: 25px;
   margin-right: 15px; }
-.settings.budget .input-group {
+.settings.budget .input-group, .settings.add-goal .input-group {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin: 0 0 15px 0; }
-  .settings.budget .input-group .input-row {
+  .settings.budget .input-group .input-row, .settings.add-goal .input-group .input-row {
     border: 0; }
-    .settings.budget .input-group .input-row label {
+    .settings.budget .input-group .input-row label, .settings.add-goal .input-group .input-row label {
       color: #969696;
       font-size: 15px; }
+.settings.add-goal .input-group .input-row {
+  border-bottom: 1px solid #dddddd; }
+  .settings.add-goal .input-group .input-row:last-child {
+    border: 0; }
 .settings.add-category .color-list {
   padding: 0 0 15px 0;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 3px; }
   .settings.add-category .color-list .btn-color-select {
     width: 12%;
@@ -229,7 +247,7 @@ header.bar {
 .settings .list-of-currencies li {
   padding: 11px 20px 9px 20px; }
   .settings .list-of-currencies li span {
-    color: #e1e1e1;
+    color: #969696;
     padding: 0 0 0 10px; }
   .settings .list-of-currencies li .icon {
     float: right;
@@ -243,44 +261,34 @@ header.bar {
 
 .goal-days {
   float: left;
-  border-radius: 20px;
-  border: 2px solid grey;
+  border-radius: 10px;
+  border: 2px solid #CCC;
   padding: 9px 10px;
   margin-right: 15px; }
   .goal-days .goal-days-number {
     font-size: 30px;
     display: block;
-    font-weight: bold;
+    font-weight: 300;
     text-align: center;
     margin-top: 2px; }
   .goal-days .goal-days-tagline {
     color: #777; }
+  .goal-days.goal-border.soon {
+    border-color: #2ecc71; }
+  .goal-days.goal-border.near {
+    border-color: #f1c40f; }
+  .goal-days.goal-border.far {
+    border-color: #e74c3c; }
 
 .goal-description {
   padding-top: 10px; }
 
-.goal-border-soon {
-  border: 2px solid #2ecc71 !important; }
-
-.goal-border-near {
-  border: 2px solid #f1c40f !important; }
-
-.goal-border-far {
-  border: 2px solid #e74c3c !important; }
-
-.savings-postive,
-.savings-negative {
-  font-weight: bold; }
-
-.savings-positive {
-  color: #27ae60; }
-
-.savings-negative {
-  color: #e74c3c; }
-
 body,
 .content {
   background-color: #f3f3f3; }
+
+.content-padded {
+  margin: 15px; }
 
 .bar-nav ~ .content {
   padding: 44px 0 50px 0; }

@@ -1,24 +1,23 @@
 //UserModel Object constructor
-expenseTrackerAppModule.service('UserModel', function () {
+expenseTrackerAppModule.service('userModel', function () {
 	'use strict';
 
 	var currentUser = {
 		firstName : '',
 		lastName : '',
 		eMailAddress : '',
-		budget : 3000.0,
+		budget : 0.0,
 		token : '',
 		currency: 2
 	};
 
 	return {
 
-		getCurrentUser : function() {
+		getCurrentUser : function () {
 			return currentUser;
 		},
 
 		/* Getter and Setter */
-
 		getFirstName : function () {
 			return currentUser.firstName;
 		},
@@ -52,31 +51,7 @@ expenseTrackerAppModule.service('UserModel', function () {
 		},
 
 		isBudgetSet : function () {
-			return( currentUser.budget != 0.0 );
-		},
-		
-		getGoals : function () {
-			// Goal Model
-			
-			//return goals;
-		},
-		
-		setGoals : function (model) {
-			// Goal Model
-			
-			//return goals;
-		},
-		
-		getExpenses : function () {
-			// Expenses Model
-			
-			//return expenses;
-		},
-		
-		setExpenses : function (model) {
-			// Expenses Model
-			
-			//return expenses;
+			return (currentUser.budget !== 0.0);
 		},
 
 		getCurrency : function () {

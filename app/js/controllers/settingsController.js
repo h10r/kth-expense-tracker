@@ -1,19 +1,19 @@
-expenseTrackerAppModule.controller('expenseTracker.SettingsController', function ($scope, $location, CategoriesModel, UserModel, GoalsModel, CurrenciesModel, NavigationService) {
+expenseTrackerAppModule.controller('expenseTracker.settingsController', function ($scope, $location, categoriesModel, userModel, goalsModel, currenciesModel, navigationService) {
 	'use strict';
 
-	$scope.currentUser = UserModel.getCurrentUser();
-	$scope.currencies = CurrenciesModel.getCurrenciesList();
-	$scope.userCurrency = CurrenciesModel.getCurrencyById($scope.currentUser.currency);
-	$scope.goBack = NavigationService.goBack;
+	$scope.currentUser = userModel.getCurrentUser();
+	$scope.currencies = currenciesModel.getCurrenciesList();
+	$scope.userCurrency = currenciesModel.getCurrencyById($scope.currentUser.currency);
+	$scope.goBack = navigationService.goBack;
 
 	$scope.setCurrency = function (currencyId) {
 		$scope.userCurrency = currencyId;
 		
-		UserModel.setCurrency(currencyId);
+		userModel.setCurrency(currencyId);
 	};
 
 	$scope.checkCurrency = function (currencyId) {
-		if (UserModel.getCurrency() === currencyId) {
+		if (userModel.getCurrency() === currencyId) {
 			return 'active';
 		} else {
 			return '';

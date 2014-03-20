@@ -1,6 +1,6 @@
 // define variables
 $mainAccentColor: #0fb2be;
-$lightGreyFont: #e1e1e1;
+$lightGreyFont: #969696;
 $uiGray: #f7f7f7;
 
 // import partials
@@ -8,13 +8,18 @@ $uiGray: #f7f7f7;
 @import "nav-bar-top";
 @import "nav-bar-bottom";
 @import "add-expense";
-@import "feed";
 @import "overview";
+@import "feed";
+@import "goals";
 @import "settings";
 
 body,
 .content {
   background-color: #f3f3f3;
+}
+
+.content-padded {
+  margin: 15px;
 }
 
 .bar-nav~.content {

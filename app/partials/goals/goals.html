@@ -7,39 +7,40 @@
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content">      
-  <div ng-if="hasBudget == true" class="content-padded">
+<div class="content goals">
+  <div ng-if="hasBudget == true">
+    <h2 class="centered">Spending behaviour</h2>
     <ul class="table-view">
-      <li class="table-view-cell media">
-        <div class="media-body">
-          Statistics
-          <p>
-            Your average spending per day: 
-            <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
-            <strong>{{ averageSpendingPerDay }}</strong>
-            <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
-          </p>
+      <li class="table-view-cell">
+        Average daily spending
+        <span class="pull-right amount">
+          <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+          {{spendingStats.averageSpendingPerDay}}
+          <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+        </span>
+      </li>
 
-          <p>
-            Maximum spending per day based on your budget: 
-            <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span>
-            <strong>{{ optimalSpendingPerDayByBudget }}</strong>
-            <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
-          </p>
+      <li class="table-view-cell">
+        Maxium daily spending
+        <span class="pull-right amount">
+          <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+          {{spendingStats.optimalSpendingPerDayByBudget}}
+          <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+        </span>
+      </li>
 
-          <p>
-            <span ng-if="savingsPerDay >= 0">
-              Current saving per day: 
-              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
-              <strong class="savings-positive" ng-class="{savings-positive: savingsPerDay >= 0, savings-negative: savingsPerDay < 0}">{{ savingsPerDay }}</strong>
-              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
-            </span>
-          </p>
-
-        </div>
+      <li class="table-view-cell">
+        Current daily saving
+        <span class="pull-right amount" ng-class="hasPositiveSpendingDelta()">
+          <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+          {{spendingStats.spendingDelta}}
+          <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+        </span>
       </li>
     </ul>
-    <ul class="table-view">
+
+    <h2 class="centered">Goals</h2>
+    <ul class="table-view" ng-if="goals.length > 0">
       <li class="table-view-cell media" ng-repeat="goal in goals">
         <div class="media-body">
           <div class="goal-days {{ getGoalColorBasedOnDays( goal.daysUntilGoalIsReached ) }}">
@@ -60,22 +61,18 @@
       </li>
     </ul>
     
-    <div ng-if="goals.length == 0" class="input-row">
-      <p>You have not defined any saving goals yet.</p>
-
-      <p>As soon as you have added your goals, we can tell you how long it will take to save the money (based on your current spending behaviour).</p>
+    <div ng-if="goals.length == 0" class="content-padded">
+      <p>When you define a saving goal you will get a prediction how long it will take to reach it based on your current spending behaviour.</p>
     
-      <a class="btn btn-positive btn-block" href="#goals/add">Add a goal</a>
+      <a class="btn btn-positive btn-block" href="#settings/goals/add">Add a goal</a>
     </div>
-  </div>  
+  </div>
   
-  <p ng-if="hasBudget == false" class="content-padded">
-     You have not set your budget yet.
-     <br/><br/>
-     We need the budget to calculate your average savings.
-     <br/><br/>
+  <div ng-if="hasBudget == false" class="content-padded">
+     <h2>You have not set your budget yet</h2>
+     <p>We need the budget to calculate your average savings.</p>
      <a href="#settings/budget" class="btn btn-positive btn-block">Set budget</a>
-  </p>
+  </div>
 
   <div id="deleteGoalConfirm" class="modal">
     <header class="bar bar-nav">

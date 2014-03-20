@@ -1,0 +1,22 @@
+.goals {
+  .table-view-cell {
+    font-size: 15px;
+    padding: 11px 35px 11px 15px;
+    color: $lightGreyFont;
+
+    span.amount {
+      font-size: 17px;
+      color: #000;
+    }
+
+    span.savings-positive,
+    span.savings-positive span {
+      color: #27ae60;
+    }
+
+    span.savings-negative,
+    span.savings-negative span {
+      color: #e74c3c;
+    }
+  }
+}

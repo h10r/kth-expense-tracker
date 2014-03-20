@@ -1,5 +1,5 @@
 //UserModel Object constructor
-expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
+expenseTrackerAppModule.service('knobModel', function (expensesModel) {
 	'use strict';
 	
 	var infiniteValue,
@@ -24,7 +24,7 @@ expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
 	};
 
 	var decr = function () {
-		if (ExpensesModel.getAmount() !== 0) {
+		if (expensesModel.getAmount() !== 0) {
 			infiniteValue--;
 			updateValue();
 		}
@@ -36,7 +36,7 @@ expenseTrackerAppModule.service('KnobModel', function (ExpensesModel) {
 		// YOU ARE HERE
 
 		$ival.html( newValue );
-		ExpensesModel.setAmount( newValue );
+		expensesModel.setAmount( newValue );
 	};
 
 	var changeEventHandler = function () {

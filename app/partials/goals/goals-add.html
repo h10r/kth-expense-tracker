@@ -4,26 +4,33 @@
     <span class="icon icon-left-nav"></span>
     Back
   </a>
-  <h1 class="title">Define goal</h1>
+  <h1 class="title">Add new goal</h1>
 </header>
 
 <ng-include src="'partials/nav-bar-bottom.html'"></ng-include>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-<div class="content content-padded" ng-swipe-right="goBack()">
+<div class="content settings add-goal" ng-swipe-right="goBack()">
 
-<form class="input-group">
-  <div class="input-row">
-    <label>Goal</label>
-    <input type="text" placeholder="I want to save for ..." ng-model="currentGoal.description">
-  </div>
-  <div class="input-row">
-    <label>Target in {{userCurrency.token}}</label>
-    <input type="number" pattern="[0-9.]+" placeholder="500" ng-model="currentGoal.target" >
-  </div>
-  <div class="input-row">
+  <div class="content-padded">
+    <h3>Saving goal</h3>
+    <form class="input-group">
+      
+      <div class="input-row">
+        <label for="saving-for">Goal</label>
+        <input type="text" name="saving-for" placeholder="I want to save for ..." ng-model="newGoal.description">
+      </div>
+
+      <div class="input-row">
+        <label for="saving-amount">Price</label>
+        <input type="number" name="saving-amount" pattern="[0-9.]+" placeholder="500 {{userCurrency.token}}" ng-model="newGoal.target" >
+      </div>
+
+    </form>
+
     <button class="btn btn-positive btn-block" ng-click="saveGoal()">Save</button>
+
   </div>
-</form>
 
 </div>
+

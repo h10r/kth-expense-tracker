@@ -1,9 +1,9 @@
 //GoalModel Object constructor
-expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
+expenseTrackerAppModule.service('goalsModel', function (expensesModel) {
 	'use strict';
 
 	// @TODO: use the ID from the backend / database
-	var nextIDCounter = 3,
+	var nextIDCounter = 0,
 		goals = [],
 		currentGoal,
 		goal = {
@@ -12,7 +12,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			description : ''
 		};
 
-	goals.push(
+	/*goals.push(
 		{
 			id : 0,
 			target : 1000,
@@ -26,18 +26,21 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 			target : 2500,
 			description : 'Paris'
 		}
-	);
+	);*/
 
 	return {
 
 		initNewGoal : function () {
+      console.log('init new goal');
 			currentGoal = jQuery.extend(true, {}, goal);
 			currentGoal.id = nextIDCounter;
 			nextIDCounter = nextIDCounter + 1;
 			return currentGoal;
 		},
 
-		saveCurrentGoalToCollection : function () {
+		saveCurrentGoalToCollection : function (target, description) {
+      currentGoal.target = target;
+      currentGoal.description = description;
 			goals.push(currentGoal);
 		},
 
@@ -55,7 +58,7 @@ expenseTrackerAppModule.service('GoalsModel', function (ExpensesModel) {
 		},
 
 		getAllGoals : function () {
-			var spendingStats = ExpensesModel.calculateAverageSpendingPerDay();
+			var spendingStats = expensesModel.calculateAverageSpendingPerDay();
 
 			for (var key in goals) {
 				goals[key].daysUntilGoalIsReached = this.calculateDaysUntilGoalIsReached(goals[key].target, spendingStats.spendingDelta);
