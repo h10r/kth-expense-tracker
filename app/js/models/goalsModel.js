@@ -31,7 +31,6 @@ expenseTrackerAppModule.service('goalsModel', function (expensesModel) {
 	return {
 
 		initNewGoal : function () {
-      console.log('init new goal');
 			currentGoal = jQuery.extend(true, {}, goal);
 			currentGoal.id = nextIDCounter;
 			nextIDCounter = nextIDCounter + 1;

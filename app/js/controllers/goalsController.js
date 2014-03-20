@@ -14,9 +14,6 @@ expenseTrackerAppModule.controller('expenseTracker.goalsController', function ($
   } else if (userModel.isBudgetSet()) {
     $scope.hasBudget = true;
     $scope.goals = goalsModel.getAllGoals();
-
-    console.log($scope.goals);
-
     $scope.spendingStats = expensesModel.calculateAverageSpendingPerDay();
 
     $scope.hasPositiveSpendingDelta = function () {

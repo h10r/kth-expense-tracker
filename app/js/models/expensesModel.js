@@ -120,7 +120,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 	    return WN; 
 	}
 
-	function range(start, end) {
+	function range (start, end) {
 	    var foo = [];
 	    for (var i = start; i <= end; i++) {
 	        foo.push(i);
@@ -128,7 +128,7 @@ expenseTrackerAppModule.service('expensesModel', function (categoriesModel, user
 	    return foo;
 	};
 
-	function rangeEmpty(start, end) {
+	function rangeEmpty (start, end) {
 	    var foo = [];
 	    for (var i = start; i <= end; i++) {
 	        foo.push("");

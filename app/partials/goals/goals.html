@@ -50,12 +50,12 @@
 
           <div class="goal-description">
             {{goal.description}}
-            <p>
-              <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
-              {{goal.target}}
-              <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
-            </p>
           </div>
+          <p class="goal-target">
+            <span ng-if="userCurrency.position != 'right'">{{userCurrency.sign}}</span> 
+            {{goal.target}}
+            <span ng-if="userCurrency.position == 'right'">{{userCurrency.sign}}</span>
+          </p>
         </div>
         <a href="#deleteGoalConfirm" class="btn btn-negative open-modal" data-goalid="{{goal.id}}">Delete</a>
       </li>

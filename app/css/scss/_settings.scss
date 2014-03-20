@@ -111,9 +111,10 @@
   .goal-days-number {
     font-size: 24px;
     display: block;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     margin-top: 2px;
+    color: #000;
   }
 
   .goal-days-tagline {
@@ -138,7 +139,15 @@
 }
 
 .goal-description {
-  padding-top: 10px;
+  padding-top: 8px;
+  margin-bottom: 4px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.goal-target {
+  color: $lightGreyFont;
 }
 
 
