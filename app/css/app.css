@@ -124,6 +124,9 @@ header.bar {
   .category-list .table-view-cell:nth-child(3n) {
     margin-right: 0; }
 
+.charts .table-view-cell {
+  line-height: 28px; }
+
 .category-icon {
   display: block;
   position: static;
@@ -213,7 +216,8 @@ header.bar {
 
 .settings .list-of-settings .table-view-cell .fa {
   width: 25px;
-  margin-right: 15px; }
+  margin-right: 15px;
+  margin-top: 5px; }
 .settings.budget .input-group, .settings.add-goal .input-group {
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -295,6 +299,9 @@ header.bar {
 body,
 .content {
   background-color: #f3f3f3; }
+
+.table-view-cell > a:not(.btn) {
+  line-height: 28px; }
 
 .content-padded {
   margin: 15px; }

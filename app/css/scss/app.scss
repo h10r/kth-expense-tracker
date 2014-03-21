@@ -18,6 +18,10 @@ body,
   background-color: #f3f3f3;
 }
 
+.table-view-cell>a:not(.btn) {
+  line-height: 28px;
+}
+
 .content-padded {
   margin: 15px;
 }
