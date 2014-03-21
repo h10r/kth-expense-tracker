@@ -24,6 +24,9 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+      options: {
+        mangle: false
+      },
       buildControllers: {
         src: 'app/js/controllers/*.js',
         dest: 'app/js/controllers/concat-min/controllers.concat.min.js'
@@ -40,10 +43,6 @@ module.exports = function (grunt) {
         src: 'app/js/app.js',
         dest: 'app/js/app.min.js'
       },
-      buildContrib: {
-        src: 'app/js/contrib/*.js',
-        dest: 'app/js/contrib/min/*'
-      }
     },
     sass: { // Task
       dist: { // Target

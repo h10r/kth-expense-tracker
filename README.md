@@ -33,7 +33,8 @@ A hosted version of the app can be found here: [idontmind.de](http://idontmind.d
 
 The app is 'optimized' for use on iPhone. Although as a web app it should in theory run on any smartphone, there can be flawed css renderings, because of not supported CSS3 features or ommitted prefixes.
 
-
 ### Important: 
+
+When testing the app on a desktop browser, the best result is achieved with using the Chrome Dev Tools Emulation features.
 
 At the moment there is no backend implemented, when the app is refreshed all settings and entered expenes are lost. In order to populate the app with some data, we created a couple of dummy entries in the expensesModel. They can be hidden by commenting out the appropriate lines.
