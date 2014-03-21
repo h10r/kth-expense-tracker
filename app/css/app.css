@@ -87,7 +87,7 @@ header.bar {
     text-align: center;
     padding: 0;
     border-radius: 43px; }
-    .category-list .table-view-cell a {
+    .category-list .table-view-cell a.category-label {
       font-size: 11px;
       margin: 0;
       line-height: 12px;
@@ -97,7 +97,7 @@ header.bar {
       color: rgba(255, 255, 255, 0.6);
       z-index: 50;
       text-align: center; }
-      .category-list .table-view-cell a:active {
+      .category-list .table-view-cell a.category-label:active {
         background-color: transparent; }
     .category-list .table-view-cell .fa {
       position: absolute;
@@ -119,13 +119,13 @@ header.bar {
   .category-list .add-new-category-button {
     border: 1px solid #CCC;
     background-color: transparent; }
-    .category-list .add-new-category-button a, .category-list .add-new-category-button .fa {
+    .category-list .add-new-category-button a.category-label, .category-list .add-new-category-button .fa {
       color: #CCC; }
   .category-list .table-view-cell:nth-child(3n) {
     margin-right: 0; }
 
 .charts .table-view-cell {
-  line-height: 28px; }
+  line-height: 30px; }
 
 .category-icon {
   display: block;

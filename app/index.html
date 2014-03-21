@@ -20,15 +20,21 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/apple-touch-icon-57x57.png">
+    
 
-    <!-- Include the compiled Ratchet CSS -->
-    <link rel="stylesheet" href="css/contrib/ratchet/ratchet.min.css">
-
-    <!-- font awesome icon set -->
+    <!-- use this for development -->
+    <link rel="stylesheet" href="css/contrib/ratchet/ratchet.css">
     <link rel="stylesheet" href="css/contrib/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="css/app.css">
 
-    <!-- main app css file-->
-    <link href="css/app.css" rel="stylesheet">
+
+     <!-- use this for production -->
+    <!--
+    <link rel="stylesheet" href="css/contrib/ratchet/ratchet.min.css">
+    <link rel="stylesheet" href="css/contrib/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.min.css">
+    -->
+
   </head>
 
   <body>
@@ -37,13 +43,15 @@
 
     </div>
 
+    <!-- use this for development // scripts for production below -->
+
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/contrib/jquery-2.1.0.min.js"></script>
+    <script src="js/contrib/jquery-2.1.0.js"></script>
 
     <!-- Include angular -->
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/angular/angular-route.min.js"></script>
-    <script src="lib/angular/angular-touch.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-touch.js"></script>
 
     <!-- The application main JavaScript file -->
     <script src="js/app.js"></script>
@@ -70,10 +78,33 @@
 
     <!-- imported JS libs -->
     <!-- Include the compiled Ratchet JS -->
-    <script src="js/contrib/ratchet/ratchet.modified.js"></script>
+    <script src="js/contrib/ratchet.modified.js"></script>
     <script src="js/contrib/jquery.knob.js"></script>
     <script src="js/contrib/chart.js"></script>
-    <script src="js/contrib/hideTitleBar.js"></script>
+    <script src="js/contrib/hide.title.bar.js"></script>
+
+
+    <!-- use this for production // comment out scripts above -->
+    <!--
+    <script src="js/contrib/min/jquery-2.1.0.min.js"></script>
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="lib/angular/angular-touch.min.js"></script>
+
+    <script src="js/app.min.js"></script>
+
+    <script src="js/models/concat-min/models.concat.min.js"></script>
+
+    <script src="js/controllers/concat-min/controllers.concat.min.js"></script>
+
+    <script src="js/directives/concat-min/directives.concat.min.js"></script>
+
+    <script src="js/contrib/min/ratchet.modified.min.js"></script>
+    <script src="js/contrib/min/jquery.knob.min.js"></script>
+    <script src="js/contrib/min/chart.min.js"></script>
+    <script src="js/contrib/min/hide.title.bar.min.js"></script>
+    -->
     
   </body>
 </html>

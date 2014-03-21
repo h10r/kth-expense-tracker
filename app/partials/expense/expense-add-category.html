@@ -26,7 +26,7 @@
   <ul class="table-view category-list">
     <li class="table-view-cell" ng-repeat="category in categories" style="background-color: {{ categoryColors[category.color_id].color_value }};">
       <span ng-click="chooseCategory(category.id)"></span>
-      <a>
+      <a class="category-label">
         {{category.title}}
       </a>
       <i ng-if="category.icon != ''" class="fa fa-2x {{category.icon}}"></i>
@@ -35,7 +35,7 @@
     </li>
     <li class="table-view-cell add-new-category-button">
       <a class="clickArea" href="#settings/categories/add"></a>
-      <a>
+      <a class="category-label">
         Add category
       </a>
       <i class="fa fa-2x fa-plus"></i>
